@@ -4,11 +4,11 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function FloatingNav() {
-    const [isVisible, setIsVisible] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);  // Changed to true
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsVisible(window.scrollY > 400);
+            setIsVisible(true);  // Always keep visible
         };
 
         window.addEventListener('scroll', handleScroll);
