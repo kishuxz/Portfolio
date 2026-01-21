@@ -19,7 +19,7 @@ export default function ChatPage() {
         setIsLoading(true);
 
         try {
-            const response = await fetch('/api/rag-simple', {
+            const response = await fetch('/api/rag', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ question: userMessage }),
@@ -27,24 +27,12 @@ export default function ChatPage() {
 
             const data = await response.json();
 
-            if (data.top_matches) {
-                // Format the response
-                const answer = `Based on my portfolio, here are the most relevant matches:\n\n` +
-                    data.top_matches.map((m, i) =>
-                        `${i + 1}. ${m.title} - ${m.section}\n   (Similarity: ${(m.similarity * 100).toFixed(1)}%)\n   ${m.content}...`
-                    ).join('\n\n');
-
-                const citations = data.top_matches.map(m => ({
-                    title: m.title,
-                    section: m.section,
-                    similarity: m.similarity
-                }));
-
+            if (data.answer) {
                 setMessages(prev => [...prev, {
                     role: 'assistant',
-                    content: answer,
-                    citations,
-                    confidence: 'medium'
+                    content: data.answer,
+                    citations: data.citations || [],
+                    confidence: data.confidence || 'medium'
                 }]);
             } else {
                 setMessages(prev => [...prev, {
@@ -64,7 +52,7 @@ export default function ChatPage() {
     };
 
     return (
-        <div className="min-h-screen bg-[#FAFAF9] dotted-bg">
+        <div className="min-h-screen bg-white dotted-bg">
             {/* Floating Nav */}
             <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
                 <div className="glass px-6 py-3 rounded-full shadow-lg backdrop-blur-xl border border-gray-200/50 flex items-center gap-6">
@@ -104,13 +92,13 @@ export default function ChatPage() {
 
                     {/* Chat Messages */}
                     {messages.length > 0 && (
-                        <div className="bg-white border-2 border-[#E5E0DB] rounded-2xl p-6 space-y-4 max-h-[400px] overflow-y-auto">
+                        <div className="bg-white border-2 border-[#E5E5E5] rounded-2xl p-6 space-y-4 max-h-[400px] overflow-y-auto">
                             {messages.map((msg, index) => (
                                 <div key={index}>
                                     <div className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                                         <div className={`max-w-[80%] px-4 py-3 rounded-2xl ${msg.role === 'user'
                                             ? 'bg-[#0A0A0A] text-white'
-                                            : 'bg-[#F5F1ED] text-[#0A0A0A]'
+                                            : 'bg-gray-50 text-[#0A0A0A]'
                                             }`}>
                                             <p className="text-sm leading-relaxed">{msg.content}</p>
                                         </div>
@@ -136,11 +124,11 @@ export default function ChatPage() {
 
                             {isLoading && (
                                 <div className="flex justify-start">
-                                    <div className="bg-[#F5F1ED] px-4 py-3 rounded-2xl">
+                                    <div className="bg-gray-50 px-4 py-3 rounded-2xl">
                                         <div className="flex gap-1">
-                                            <div className="w-2 h-2 bg-[#D4C5B9] rounded-full animate-bounce"></div>
-                                            <div className="w-2 h-2 bg-[#D4C5B9] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                                            <div className="w-2 h-2 bg-[#D4C5B9] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                                            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                                            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                                            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                                         </div>
                                     </div>
                                 </div>
@@ -149,7 +137,7 @@ export default function ChatPage() {
                     )}
 
                     {/* Chat Input */}
-                    <div className="bg-white border-2 border-[#E5E0DB] rounded-2xl p-5 hover:border-[#D4C5B9] transition-all shadow-lg">
+                    <div className="bg-white border-2 border-[#E5E5E5] rounded-2xl p-5 hover:border-[#0A0A0A] transition-all shadow-lg">
                         <div className="flex items-center gap-4">
                             <input
                                 type="text"

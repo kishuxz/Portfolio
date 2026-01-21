@@ -35,7 +35,7 @@ export default function FloatingNav() {
                     <Link
                         key={index}
                         href={item.href}
-                        className="text-sm font-medium text-gray-700 hover:text-black 
+                        className="text-sm font-medium text-[#0A0A0A] hover:text-black 
               transition-all duration-300 relative group"
                     >
                         {item.label}
@@ -45,7 +45,7 @@ export default function FloatingNav() {
                 ))}
                 <Link
                     href="/chat"
-                    className="text-sm font-medium text-gray-700 hover:text-black 
+                    className="text-sm font-medium text-[#0A0A0A] hover:text-black 
               transition-all duration-300 relative group"
                 >
                     Chat AI

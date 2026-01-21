@@ -14,7 +14,7 @@ export default function ChatbotButton() {
                 onClick={() => setIsOpen(!isOpen)}
                 className="fixed bottom-8 right-8 z-50 w-14 h-14 bg-[#0A0A0A] text-white rounded-full
           shadow-2xl hover:scale-110 transition-all duration-300 flex items-center justify-center
-          group hover:shadow-[#D4C5B9]/50"
+          group hover:shadow-black/50"
                 aria-label="Open chat"
             >
                 {isOpen ? (
@@ -46,8 +46,8 @@ export default function ChatbotButton() {
                         <div className="space-y-3">
                             <a
                                 href={`mailto:${personalInfo.email}`}
-                                className="flex items-center gap-3 p-3 rounded-lg border-2 border-[#E5E0DB]
-                  hover:border-[#D4C5B9] hover:bg-[#F5F1ED] transition-all duration-200 group"
+                                className="flex items-center gap-3 p-3 rounded-lg border-2 border-[#E5E5E5]
+                  hover:border-[#0A0A0A] hover:bg-gray-50 transition-all duration-200 group"
                             >
                                 <div className="w-10 h-10 rounded-full bg-[#0A0A0A] flex items-center justify-center
                   text-white group-hover:scale-110 transition-transform">
@@ -64,8 +64,8 @@ export default function ChatbotButton() {
                                     href={personalInfo.social.linkedin}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center gap-3 p-3 rounded-lg border-2 border-[#E5E0DB]
-                    hover:border-[#D4C5B9] hover:bg-[#F5F1ED] transition-all duration-200 group"
+                                    className="flex items-center gap-3 p-3 rounded-lg border-2 border-[#E5E5E5]
+                    hover:border-[#0A0A0A] hover:bg-gray-50 transition-all duration-200 group"
                                 >
                                     <div className="w-10 h-10 rounded-full bg-[#0A0A0A] flex items-center justify-center
                     text-white group-hover:scale-110 transition-transform">
@@ -83,8 +83,8 @@ export default function ChatbotButton() {
                                     href={personalInfo.social.github}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center gap-3 p-3 rounded-lg border-2 border-[#E5E0DB]
-                    hover:border-[#D4C5B9] hover:bg-[#F5F1ED] transition-all duration-200 group"
+                                    className="flex items-center gap-3 p-3 rounded-lg border-2 border-[#E5E5E5]
+                    hover:border-[#0A0A0A] hover:bg-gray-50 transition-all duration-200 group"
                                 >
                                     <div className="w-10 h-10 rounded-full bg-[#0A0A0A] flex items-center justify-center
                     text-white group-hover:scale-110 transition-transform">
@@ -100,7 +100,7 @@ export default function ChatbotButton() {
                     </div>
 
                     {/* Footer */}
-                    <div className="px-6 py-3 bg-[#F5F1ED] border-t border-[#E5E0DB]">
+                    <div className="px-6 py-3 bg-gray-50 border-t border-[#E5E5E5]">
                         <p className="text-xs text-[#9CA3AF] text-center">
                             Usually responds within 24 hours
                         </p>

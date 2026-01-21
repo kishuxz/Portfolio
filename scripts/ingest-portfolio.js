@@ -60,25 +60,37 @@ function chunkText(text, metadata, chunkSize = CHUNK_SIZE, overlap = CHUNK_OVERL
     return chunks;
 }
 
-// Generate embeddings using HuggingFace
+// Generate embeddings using HuggingFace raw fetch
 async function generateEmbedding(text) {
     try {
-        const response = await hf.featureExtraction({
-            model: 'sentence-transformers/all-MiniLM-L6-v2',
-            inputs: text
+        const model = 'BAAI/bge-small-en-v1.5';
+        const url = `https://router.huggingface.co/hf-inference/models/${model}`;
+
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${process.env.HUGGINGFACE_API_KEY}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                inputs: [text],
+                options: { wait_for_model: true }
+            })
         });
 
-        // Response is already a 384-dim array
-        if (Array.isArray(response) && typeof response[0] === 'number') {
-            return response;
+        if (!response.ok) {
+            const errorBody = await response.text();
+            throw new Error(`HTTP Error: ${response.status} - ${errorBody}`);
         }
 
-        // Fallback: if it's wrapped in another array
-        if (Array.isArray(response[0]) && typeof response[0][0] === 'number') {
-            return response[0];
+        const data = await response.json();
+
+        // Check format: [[0.1, ...]]
+        if (Array.isArray(data) && data.length > 0 && Array.isArray(data[0])) {
+            return data[0];
         }
 
-        throw new Error(`Unexpected embedding format: ${typeof response}`);
+        throw new Error(`Unexpected embedding format: ${JSON.stringify(data).substring(0, 100)}`);
     } catch (error) {
         console.error('Error generating embedding:', error.message);
         throw error;

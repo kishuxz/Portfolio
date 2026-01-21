@@ -83,13 +83,13 @@ export default function Awards() {
     ];
 
     return (
-        <section ref={sectionRef} className="section bg-[#F5F1ED] relative overflow-hidden" id="awards">
+        <section ref={sectionRef} className="section bg-white relative overflow-hidden" id="awards">
             <div className="container-custom relative z-10">
                 {/* Header */}
                 <div className="mb-16 md:mb-20 scroll-reveal-left">
                     <div className="flex items-center gap-4 mb-6">
                         <span className="text-xs font-mono text-[#9CA3AF] tracking-wider">05 / 06</span>
-                        <div className="h-px flex-1 bg-gradient-to-r from-[#D4C5B9] to-transparent"></div>
+                        <div className="h-px flex-1 bg-gradient-to-r from-[#E5E5E5] to-transparent"></div>
                     </div>
 
                     <h2 className="text-5xl md:text-6xl lg:text-7xl font-light mb-4 text-[#0A0A0A]"
@@ -114,12 +114,12 @@ export default function Awards() {
                             {certifications.map((cert, index) => (
                                 <div
                                     key={index}
-                                    className="group bg-white rounded-xl border-2 border-[#E5E0DB] p-6
-                    hover:border-[#D4C5B9] hover:-translate-x-2 transition-all duration-500
+                                    className="group bg-white rounded-xl border-2 border-[#E5E5E5] p-6
+                    hover:border-[#0A0A0A] hover:-translate-x-2 transition-all duration-500
                     hover:shadow-lg relative overflow-hidden"
                                 >
                                     {/* Left accent line */}
-                                    <div className="absolute left-0 top-0 w-1 h-0 bg-gradient-to-b from-[#D4C5B9] to-[#E8DFD8]
+                                    <div className="absolute left-0 top-0 w-1 h-0 bg-gradient-to-b from-[#0A0A0A] to-[#404040]
                     group-hover:h-full transition-all duration-700"></div>
 
                                     <div className="flex items-start gap-4">
@@ -130,14 +130,14 @@ export default function Awards() {
 
                                         <div className="flex-1">
                                             <h4 className="text-lg font-light text-[#0A0A0A] mb-1
-                        group-hover:text-[#D4C5B9] transition-colors"
+                        group-hover:text-[#0A0A0A] transition-colors"
                                                 style={{ fontFamily: 'var(--font-space-grotesk)' }}>
                                                 {cert.name}
                                             </h4>
                                             <p className="text-sm text-[#6B6B6B] mb-2">{cert.issuer}</p>
                                             <div className="flex items-center gap-4 text-xs text-[#9CA3AF]">
                                                 <span>{cert.date}</span>
-                                                <span className="px-2 py-1 rounded bg-[#F5F1ED] text-[#6B6B6B] font-mono">
+                                                <span className="px-2 py-1 rounded bg-gray-50 text-[#6B6B6B] font-mono">
                                                     {cert.credential}
                                                 </span>
                                             </div>
@@ -159,24 +159,24 @@ export default function Awards() {
                             {awards.map((award, index) => (
                                 <div
                                     key={index}
-                                    className="group bg-white rounded-xl border-2 border-[#E5E0DB] p-6
-                    hover:border-[#D4C5B9] hover:translate-x-2 transition-all duration-500
+                                    className="group bg-white rounded-xl border-2 border-[#E5E5E5] p-6
+                    hover:border-[#0A0A0A] hover:translate-x-2 transition-all duration-500
                     hover:shadow-lg relative overflow-hidden"
                                 >
                                     {/* Right accent line */}
-                                    <div className="absolute right-0 top-0 w-1 h-0 bg-gradient-to-b from-[#D4C5B9] to-[#E8DFD8]
+                                    <div className="absolute right-0 top-0 w-1 h-0 bg-gradient-to-b from-[#0A0A0A] to-[#404040]
                     group-hover:h-full transition-all duration-700"></div>
 
                                     <div className="flex items-start gap-3">
-                                        <div className="w-8 h-8 rounded-full border-2 border-[#D4C5B9] flex items-center justify-center
-                      text-[#D4C5B9] text-sm font-medium flex-shrink-0 mt-1
-                      group-hover:bg-[#D4C5B9] group-hover:text-white transition-all duration-300">
+                                        <div className="w-8 h-8 rounded-full border-2 border-[#E5E5E5] flex items-center justify-center
+                      text-[#6B6B6B] text-sm font-medium flex-shrink-0 mt-1
+                      group-hover:bg-[#0A0A0A] group-hover:border-[#0A0A0A] group-hover:text-white transition-all duration-300">
                                             {index + 1}
                                         </div>
 
                                         <div className="flex-1">
                                             <h4 className="text-lg font-light text-[#0A0A0A] mb-1
-                        group-hover:text-[#D4C5B9] transition-colors"
+                        group-hover:text-[#0A0A0A] transition-colors"
                                                 style={{ fontFamily: 'var(--font-space-grotesk)' }}>
                                                 {award.title}
                                             </h4>
