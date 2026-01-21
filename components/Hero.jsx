@@ -69,12 +69,13 @@ export default function Hero() {
                             </span>
                         </h1>
 
-                        {/* Title */}
+                        {/* Role Label - Orange Accent */}
                         <div className="scroll-reveal stagger-2 mb-8">
-                            <p className="text-2xl sm:text-3xl font-normal text-[#0A0A0A] mb-3 flex items-center gap-3"
-                                style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                            <span className="inline-block px-4 py-2 bg-[#F26530] text-white text-sm font-medium uppercase tracking-wider mb-4">
                                 Software Engineer
-                                <span className="w-2 h-2 rounded-full bg-[#0A0A0A]"></span>
+                            </span>
+                            <p className="text-2xl sm:text-3xl font-normal text-[#0A0A0A] flex items-center gap-3"
+                                style={{ fontFamily: 'var(--font-space-grotesk)' }}>
                                 Full Stack
                             </p>
                         </div>
@@ -85,23 +86,23 @@ export default function Hero() {
                             Specializing in scalable infrastructure, data engineering, and AI integrations.
                         </p>
 
-                        {/* Action Buttons - Architectural */}
+                        {/* Action Buttons - Orange Accent */}
                         <div className="flex flex-wrap gap-6 mb-12 scroll-reveal stagger-3">
                             <MagneticButton>
                                 <Link
                                     href="/chat"
-                                    className="px-10 py-4 bg-[#0A0A0A] text-white rounded-none
+                                    className="px-10 py-4 bg-[#F26530] text-white rounded-lg
                                         transition-all duration-300 flex items-center gap-3 text-base font-medium
-                                        hover:bg-[#D4FF00] hover:text-[#0A0A0A] shadow-[4px_4px_0px_#D4FF00]"
+                                        hover:bg-[#E55520] shadow-medium hover:shadow-strong hover:scale-[1.02]"
                                 >
                                     <span>Talk to my AI</span>
                                 </Link>
                             </MagneticButton>
                             <Link
                                 href="/resume"
-                                className="px-10 py-4 border-2 border-[#0A0A0A] text-[#0A0A0A] rounded-none 
+                                className="px-10 py-4 border-2 border-black text-black rounded-lg
                                     transition-all duration-300 flex items-center gap-3 text-base font-medium
-                                    hover:bg-[#0A0A0A] hover:text-white"
+                                    hover:bg-black hover:text-white shadow-soft hover:shadow-medium hover:scale-[1.02]"
                             >
                                 <span>View Resume</span>
                             </Link>
@@ -116,7 +117,7 @@ export default function Hero() {
                                     href={personalInfo.social.linkedin}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-[#0A0A0A] hover:text-[#4A4A4A] transition-colors text-2xl"
+                                    className="text-[#0A0A0A] hover:text-[#F26530] transition-colors text-2xl"
                                     aria-label="LinkedIn"
                                 >
                                     <FiLinkedin />
@@ -127,7 +128,7 @@ export default function Hero() {
                                     href={personalInfo.social.github}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-[#0A0A0A] hover:text-[#4A4A4A] transition-colors text-2xl"
+                                    className="text-[#0A0A0A] hover:text-[#F26530] transition-colors text-2xl"
                                     aria-label="GitHub"
                                 >
                                     <FiGithub />
@@ -135,7 +136,7 @@ export default function Hero() {
                             )}
                             <a
                                 href={`mailto:${personalInfo.email}`}
-                                className="text-[#0A0A0A] hover:text-[#4A4A4A] transition-colors text-2xl"
+                                className="text-[#0A0A0A] hover:text-[#F26530] transition-colors text-2xl"
                                 aria-label="Email"
                             >
                                 <FiMail />
@@ -143,44 +144,18 @@ export default function Hero() {
                         </div>
                     </div>
 
-                    {/* Right: Photo - Architectural Frame */}
+                    {/* Right: Photo - Simple and Clean */}
                     <div className="scroll-reveal stagger-2 relative max-w-[500px] lg:ml-auto mt-12 lg:mt-0">
                         <div className="relative group">
-                            <svg className="absolute -top-12 -left-12 w-24 h-24 text-[#D4FF00] animate-wiggle opacity-80 z-20" viewBox="0 0 100 100">
-                                <path d="M10,50 Q30,10 50,50 T90,50" fill="none" stroke="currentColor" strokeWidth="2" />
-                                <path d="M85,45 L90,50 L85,55" fill="none" stroke="currentColor" strokeWidth="2" />
-                            </svg>
-
-                            <svg className="absolute -bottom-8 -right-8 w-16 h-16 text-[#0A0A0A] animate-float opacity-60 z-20" viewBox="0 0 100 100">
-                                <path d="M20,20 L80,20 L80,80 L20,80 Z" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4" />
-                                <text x="50" y="55" textAnchor="middle" fontSize="14" fill="currentColor" fontFamily="monospace">IMG_01</text>
-                            </svg>
-
-                            {/* Solid Frame Layer */}
-                            <div className="absolute top-4 right-4 w-full h-full border-2 border-[#0A0A0A] z-0"></div>
-
-                            {/* Image Container - Full Color */}
-                            <div className="relative z-10 overflow-hidden bg-white hover:shadow-[0_0_30px_rgba(212,255,0,0.3)] transition-all duration-700 ease-out">
+                            <div className="relative overflow-hidden rounded-lg shadow-medium">
                                 <Image
                                     src="/profile-photo.jpg"
                                     alt={personalInfo.name}
                                     width={500}
                                     height={600}
-                                    className="w-full h-auto object-cover transform transition-transform duration-700 hover:scale-105"
+                                    className="w-full h-auto object-cover"
                                     priority
                                 />
-
-                                {/* Overlay Gradient */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                            </div>
-
-                            {/* Status Badge - White/Black/Neon */}
-                            <div className="absolute -bottom-6 -left-6 bg-white border border-[#0A0A0A] px-6 py-3 shadow-[4px_4px_0px_#0A0A0A] z-20 flex items-center gap-3">
-                                <span className="relative flex h-3 w-3">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4FF00] opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-3 w-3 bg-[#D4FF00] border border-[#0A0A0A]"></span>
-                                </span>
-                                <span className="text-xs font-mono uppercase tracking-wider text-[#0A0A0A]">Open to Work</span>
                             </div>
                         </div>
                     </div>

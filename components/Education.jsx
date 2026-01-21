@@ -188,7 +188,7 @@ export default function Education() {
                                         hover:border-[#0A0A0A] hover:shadow-md transition-all duration-300 flex items-center gap-4">
                                         <div className="w-10 h-10 rounded-full bg-white border border-[#E5E5E5]
                                             flex items-center justify-center text-[#9CA3AF] text-lg
-                                            group-hover:scale-110 group-hover:bg-[#0A0A0A] group-hover:text-[#D4FF00] transition-all duration-300">
+                                            group-hover:scale-110 group-hover:bg-[#F26530] group-hover:text-white transition-all duration-300">
                                             <FiStar className="fill-current" />
                                         </div>
                                         <div className="flex-1">

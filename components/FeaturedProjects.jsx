@@ -44,7 +44,7 @@ export default function FeaturedProjects() {
         : projects.filter(p => p.categories.includes(activeCategory));
 
     return (
-        <section ref={sectionRef} className="section bg-white" id="projects">
+        <section ref={sectionRef} className="section" id="projects" style={{ background: '#F8F8F8' }}>
             <div className="container-custom relative z-10">
                 {/* Architectural Header */}
                 <div className="mb-16 scroll-reveal-left grid md:grid-cols-[200px_1fr] gap-8 items-end">
@@ -82,24 +82,24 @@ export default function FeaturedProjects() {
                             className={`group scroll-reveal ${index % 2 === 0 ? 'scroll-reveal-left' : 'scroll-reveal-right'}`}
                         >
                             <Link href={project.live || project.github || '#'} target="_blank" className="block h-full">
-                                {/* Architectural Card Frame - Neon Hover */}
-                                <div className="bg-white border-2 border-[#0A0A0A] p-8 h-full relative transition-all duration-300
-                                    hover:shadow-[8px_8px_0px_#D4FF00] hover:-translate-y-2 flex flex-col group">
+                                {/* Modern Minimal Card */}
+                                <div className="bg-white border border-gray-300 rounded-lg p-8 h-full relative transition-all duration-300
+                                    hover:shadow-strong hover:-translate-y-1 flex flex-col group">
 
                                     {/* Project Code Header */}
-                                    <div className="flex justify-between items-start mb-8 border-b border-[#E5E5E5] pb-6">
+                                    <div className="flex justify-between items-start mb-8 border-b border-gray-200 pb-6">
                                         <div>
                                             <span className="font-mono text-xs text-[#9CA3AF] uppercase tracking-wider block mb-2">
                                                 Project_{index + 1 < 10 ? `0${index + 1}` : index + 1}
                                             </span>
-                                            <h3 className="text-3xl font-medium text-[#0A0A0A] leading-tight"
+                                            <h3 className="text-3xl font-medium text-[#0A0A0A] leading-tight group-hover:text-[#F26530] transition-colors duration-300"
                                                 style={{ fontFamily: 'var(--font-space-grotesk)' }}>
                                                 {project.title}
                                             </h3>
                                         </div>
                                         {/* Icon Box */}
                                         <div className="w-10 h-10 border border-[#0A0A0A] flex items-center justify-center 
-                                            bg-white group-hover:bg-[#0A0A0A] group-hover:text-[#D4FF00] transition-colors">
+                                            bg-white group-hover:bg-[#F26530] group-hover:text-white transition-colors">
                                             <FiArrowRight className="text-lg" />
                                         </div>
                                     </div>
@@ -140,9 +140,9 @@ export default function FeaturedProjects() {
                 <div className="mt-20 text-center scroll-reveal">
                     <Link href="https://github.com/yourusername" target="_blank"
                         className="inline-flex items-center gap-4 px-10 py-4 bg-transparent border-2 border-[#0A0A0A] text-[#0A0A0A]
-                        hover:bg-[#0A0A0A] hover:text-[#D4FF00] hover:border-[#0A0A0A] transition-all duration-300 font-medium tracking-wide group">
+                        hover:bg-[#F26530] hover:text-white hover:border-[#F26530] transition-all duration-300 font-medium tracking-wide group">
                         <span>VIEW ARCHIVE</span>
-                        <FiArrowRight className="group-hover:translate-x-2 transition-transform text-[#D4FF00]" />
+                        <FiArrowRight className="group-hover:translate-x-2 transition-transform" />
                     </Link>
                 </div>
             </div>

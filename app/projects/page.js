@@ -52,8 +52,8 @@ export default function ProjectsPage() {
     }, [selectedCategory]);
 
     return (
-        <div className="min-h-screen bg-white">
-            <main className="section section-white">
+        <div className="min-h-screen" style={{ background: '#F8F8F8' }}>
+            <main className="section py-24">
                 <div className="container-custom">
                     {/* Header */}
                     <div className="mb-12 md:mb-16">
@@ -77,8 +77,8 @@ export default function ProjectsPage() {
                                 key={category}
                                 onClick={() => setSelectedCategory(category)}
                                 className={`px-4 md:px-6 py-2 md:py-3 rounded-full font-medium transition-all text-sm md:text-base ${selectedCategory === category
-                                        ? 'bg-black text-white'
-                                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                                    ? 'bg-black text-white'
+                                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                                     }`}
                             >
                                 {category === 'all' ? 'All' : category}

@@ -72,7 +72,7 @@ export default function CustomCursor() {
 
             {/* Neon Follower - Smooth lag */}
             <motion.div
-                className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#D4FF00] pointer-events-none z-[9998]"
+                className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#F26530] pointer-events-none z-[9998]"
                 style={{
                     translateX: cursorXSpring,
                     translateY: cursorYSpring,

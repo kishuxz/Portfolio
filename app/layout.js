@@ -15,8 +15,6 @@ const manrope = Manrope({
     display: 'swap',
 });
 
-import CustomCursor from '@/components/CustomCursor';
-
 export const metadata = {
     title: 'Portfolio | Full-Stack Developer · Data Engineer · ML/LLM Systems',
     description: 'I build production-ready data and AI systems — from APIs to distributed pipelines and LLM agents.',
@@ -38,7 +36,6 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en" className={`${spaceGrotesk.variable} ${manrope.variable}`}>
             <body className="antialiased">
-                <CustomCursor />
                 {children}
             </body>
         </html>

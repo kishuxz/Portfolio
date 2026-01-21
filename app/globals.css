@@ -4,44 +4,53 @@
 
 @layer base {
   :root {
-    /* Pure Electric Palette (Strict White/Black/Neon) */
+    /* Modern Minimal Palette */
     --bg-white: #ffffff;
     --bg-black: #000000;
-    --bg-cream: #ffffff;
-    /* Redundant but safe */
-    --bg-beige: #ffffff;
-    /* Redundant but safe */
+    --bg-off-white: #fafafa;
+    --bg-light-gray: #f5f5f5;
 
-    /* High Contrast Text */
+    /* Text Colors */
     --text-on-white: #000000;
     --text-on-black: #FFFFFF;
     --text-gray: #4A4A4A;
     --text-muted: #737373;
+    --text-subtle: #9ca3af;
 
-    /* Accents - Neon */
-    --accent-neon: #D4FF00;
-    --accent-neon-dim: #D4FF001A;
-    --accent-black: #000000;
-    --accent-cream: #E5E5E5;
-    /* Light gray instead of warm stone */
+    /* Warm Orange Accent - Strategic use only */
+    --accent-orange: #F26530;
+    --accent-orange-hover: #E55520;
+    --accent-orange-light: #FFF5F0;
 
-    --border-light: #E5E5E5;
+    /* Minimal Accents - Use Sparingly */
+    --accent-primary: #1a1a1a;
+    --accent-hover: #000000;
+    --accent-border: #e5e5e5;
+    --accent-border-dark: #d4d4d4;
+
+    /* Soft Shadow System */
+    --shadow-color: 0 0 0;
+    --shadow-soft: 0 2px 8px rgba(var(--shadow-color) / 0.04), 0 4px 16px rgba(var(--shadow-color) / 0.06);
+    --shadow-medium: 0 4px 16px rgba(var(--shadow-color) / 0.08), 0 8px 32px rgba(var(--shadow-color) / 0.12);
+    --shadow-strong: 0 8px 32px rgba(var(--shadow-color) / 0.12), 0 16px 64px rgba(var(--shadow-color) / 0.16);
+
+    /* Legacy - kept for compatibility */
+    --border-light: #e5e5e5;
     --border-dark: #000000;
   }
 
   body {
-    background: var(--bg-white);
+    background: #F8F8F8;
     color: var(--text-on-white);
     font-family: var(--font-manrope), system-ui, sans-serif;
     min-height: 100vh;
     font-size: 18px;
     line-height: 1.6;
-    /* High-Quality Paper Texture - Increased Opacity */
-    /* Pure White Background - No Texture */
+    /* Soft cream background throughout */
     background-image: none;
     background-attachment: fixed;
     /* Hide default cursor for custom implementation */
-    cursor: none;
+    /* cursor: none; */
   }
 
   /* Restore cursor for touch devices */
@@ -58,24 +67,26 @@
 
 @layer utilities {
 
-  /* Premium Glassmorphism */
+  /* Modern Shadow Utilities */
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-strong {
+    box-shadow: var(--shadow-strong);
+  }
+
+  /* Subtle Glassmorphism */
   .glass-card {
-    @apply bg-white/40 backdrop-blur-md border border-white/50 shadow-xl;
+    @apply bg-white/90 backdrop-blur-xl border border-gray-200;
   }
 
   .glass-card-dark {
-    @apply bg-black/40 backdrop-blur-md border border-white/10 shadow-xl;
-  }
-
-  /* Rich Gradients */
-  .bg-gradient-warm {
-    background: linear-gradient(135deg, #ffffff 0%, #E5E5E5 100%);
-  }
-
-  .text-gradient-gold {
-    background: linear-gradient(to right, #4A4A4A, #1a1a1a);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    @apply bg-black/90 backdrop-blur-xl border border-gray-800;
   }
 
   /* Live Status Pulse */
@@ -105,7 +116,7 @@
     @apply font-medium px-6 py-2.5 rounded-lg;
     @apply transition-colors duration-300;
     @apply border border-black;
-    @apply hover:bg-[#D4FF00] hover:text-black hover:border-[#D4FF00];
+    @apply hover:bg-[#F26530] hover:text-white;
   }
 
   .btn-secondary {
@@ -138,22 +149,18 @@
     /* Was: py-40 md:py-56 lg:py-64 - TOO SPACIOUS */
   }
 
-  .hover-neon-shadow:hover {
-    box-shadow: 8px 8px 0px var(--accent-neon);
-    border-color: var(--bg-black);
-    transform: translate(-2px, -2px);
+  /* Modern Hover Effects */
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
   }
 
-  .text-neon {
-    color: var(--accent-neon);
+  .hover-shadow:hover {
+    box-shadow: var(--shadow-strong);
   }
 
-  .border-neon {
-    border-color: var(--accent-neon);
-  }
-
-  .bg-neon-dim {
-    background-color: var(--accent-neon-dim);
+  .hover-scale:hover {
+    transform: scale(1.02);
   }
 
   .section-hero {

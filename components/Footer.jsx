@@ -25,7 +25,7 @@ export default function Footer() {
                                 href={personalInfo.social.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-gray-400 hover:text-white transition-colors"
+                                className="text-gray-400 hover:text-[#F26530] transition-colors"
                                 aria-label="GitHub"
                             >
                                 <FiGithub className="text-xl" />
@@ -36,7 +36,7 @@ export default function Footer() {
                                 href={personalInfo.social.linkedin}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-gray-400 hover:text-white transition-colors"
+                                className="text-gray-400 hover:text-[#F26530] transition-colors"
                                 aria-label="LinkedIn"
                             >
                                 <FiLinkedin className="text-xl" />
@@ -44,7 +44,7 @@ export default function Footer() {
                         )}
                         <a
                             href={`mailto:${personalInfo.email}`}
-                            className="text-gray-400 hover:text-white transition-colors"
+                            className="text-gray-400 hover:text-[#F26530] transition-colors"
                             aria-label="Email"
                         >
                             <FiMail className="text-xl" />

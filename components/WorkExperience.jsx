@@ -28,7 +28,7 @@ export default function WorkExperience() {
 
     return (
 
-        <section ref={sectionRef} className="section relative overflow-hidden" id="experience">
+        <section ref={sectionRef} className="section bg-white relative overflow-hidden" id="experience">
             <div className="container-custom relative z-10">
                 {/* Architectural Header */}
                 <div className="mb-20 md:mb-24 scroll-reveal grid md:grid-cols-[200px_1fr] gap-8 items-end">
@@ -58,12 +58,12 @@ export default function WorkExperience() {
                                         {exp.period}
                                     </span>
                                     {/* Timeline Node - Neon Pop */}
-                                    <div className="absolute top-[42px] -right-[5px] w-2.5 h-2.5 bg-[#0A0A0A] rounded-full border-2 border-white z-20 group-hover:scale-150 group-hover:bg-[#D4FF00] transition-all duration-300"></div>
+                                    <div className="absolute top-[42px] -right-[5px] w-2.5 h-2.5 bg-[#0A0A0A] rounded-full border-2 border-white z-20 group-hover:scale-150 group-hover:bg-[#F26530] transition-all duration-300"></div>
                                 </div>
 
                                 {/* Content Card - Architectural Box + Neon Shadow */}
                                 <div className="bg-white border border-[#E5E5E5] p-8 md:p-10 relative transition-all duration-300
-                                    hover:border-[#0A0A0A] hover:shadow-[8px_8px_0px_#D4FF00] group-hover:-translate-y-1">
+                                    hover:border-[#0A0A0A] hover:shadow-medium group-hover:-translate-y-1">
 
                                     {/* Mobile Period */}
                                     <div className="md:hidden text-sm font-mono font-medium text-[#0A0A0A] mb-4 pb-4 border-b border-[#E5E5E5]">
@@ -72,7 +72,7 @@ export default function WorkExperience() {
 
                                     <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-6">
                                         <div>
-                                            <h3 className="text-2xl font-medium text-[#0A0A0A] mb-1 group-hover:underline decoration-2 underline-offset-4">
+                                            <h3 className="text-2xl font-medium text-[#0A0A0A] mb-1 group-hover:text-[#F26530] transition-colors duration-300">
                                                 {exp.role}
                                             </h3>
                                             <div className="text-lg text-[#4A4A4A] font-normal">{exp.company}</div>
