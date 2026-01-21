@@ -26,10 +26,49 @@
     min-height: 100vh;
     font-size: 18px;
     line-height: 1.6;
+    /* Premium Noise Texture */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    background-attachment: fixed;
   }
 
   html {
     scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+
+  /* Premium Glassmorphism */
+  .glass-card {
+    @apply bg-white/40 backdrop-blur-md border border-white/50 shadow-xl;
+  }
+
+  .glass-card-dark {
+    @apply bg-black/40 backdrop-blur-md border border-white/10 shadow-xl;
+  }
+
+  /* Rich Gradients */
+  .bg-gradient-warm {
+    background: linear-gradient(135deg, #F5F1ED 0%, #E8DFD8 100%);
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(to right, #D4C5B9, #9B8F7E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Live Status Pulse */
+  .pulse-dot {
+    @apply relative flex h-3 w-3;
+  }
+
+  .pulse-dot span:first-child {
+    @apply animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75;
+  }
+
+  .pulse-dot span:last-child {
+    @apply relative inline-flex rounded-full h-3 w-3 bg-green-500;
   }
 }
 
@@ -414,108 +453,110 @@
         #334155 25%,
         #1e293b 36%);
   }
-}/* Additional Animations */
+}
+
+/* Additional Animations */
 
 /* Fade in animations */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-40px);
-    }
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes fadeInRight {
-    from {
-        opacity: 0;
-        transform: translateX(40px);
-    }
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes scaleIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
 
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* Stagger animation delays */
 .delay-100 {
-    transition-delay: 100ms !important;
+  transition-delay: 100ms !important;
 }
 
 .delay-200 {
-    transition-delay: 200ms !important;
+  transition-delay: 200ms !important;
 }
 
 .delay-300 {
-    transition-delay: 300ms !important;
+  transition-delay: 300ms !important;
 }
 
 .delay-400 {
-    transition-delay: 400ms !important;
+  transition-delay: 400ms !important;
 }
 
 .delay-500 {
-    transition-delay: 500ms !important;
+  transition-delay: 500ms !important;
 }
 
 .delay-600 {
-    transition-delay: 600ms !important;
+  transition-delay: 600ms !important;
 }
 
 /* Hover effects */
 .hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hover-lift:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 .hover-scale {
-    transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .hover-scale:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }

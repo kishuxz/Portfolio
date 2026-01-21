@@ -101,32 +101,33 @@ export default function Hero() {
 
             {/* Code annotation near photo - top right */}
             <div className="absolute top-24 right-32 hidden xl:block scroll-reveal-right z-10">
-                <div className="relative">
-                    <div className="px-4 py-2 bg-white/90 backdrop-blur-sm border-2 border-[#D4C5B9] rounded-lg
-            font-mono text-xs text-[#6B6B6B] rotate-2 shadow-md">
-                        <div className="text-[#0A0A0A] font-semibold mb-1">{'// Engineer'}</div>
-                        <div>passion = <span className="text-[#D4C5B9]">&quot;code&quot;</span>;</div>
+                <div className="relative group cursor-pointer">
+                    <div className="px-4 py-2 bg-white/90 backdrop-blur-sm border-2 border-[#D4C5B9]/50 rounded-lg
+            font-mono text-xs text-[#6B6B6B] rotate-2 shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-0">
+                        <div className="text-[#0A0A0A] font-semibold mb-1 flex items-center gap-2">
+                            <span>{'// Engineer'}</span>
+                            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                        </div>
+                        <div className="whitespace-nowrap overflow-hidden border-r-2 border-[#D4C5B9] animate-typing">
+                            passion = <span className="text-[#D4C5B9]">&quot;code&quot;</span>;
+                        </div>
                     </div>
                     {/* Hand-drawn arrow */}
-                    <svg className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-16 h-16">
+                    <svg className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-16 h-16 opacity-50">
                         <path d="M 8 2 Q 10 20, 8 30" stroke="#D4C5B9" strokeWidth="2" fill="none" strokeLinecap="round" />
                     </svg>
                 </div>
             </div>
 
-            {/* Dimension annotation near photo */}
-            <div className="absolute top-72 right-24 hidden lg:block scroll-reveal-right z-10">
-                <div className="flex items-center gap-2">
-                    <div className="w-12 h-px bg-[#D4C5B9]"></div>
-                    <span className="text-xs font-mono text-[#9CA3AF]">450px</span>
-                </div>
-            </div>
-
             {/* Metric annotation - bottom left of photo */}
             <div className="absolute bottom-20 left-32 hidden lg:block scroll-reveal-left z-10">
-                <div className="px-3 py-2 bg-[#0A0A0A] text-white rounded-full text-xs font-mono -rotate-6
-          border-2 border-[#D4C5B9] shadow-lg">
-                    uptime: 99.9%
+                <div className="px-4 py-2 bg-[#0A0A0A] text-white rounded-full text-xs font-mono -rotate-6
+          border border-[#333] shadow-2xl hover:scale-105 transition-transform duration-300 flex items-center gap-3">
+                    <span className="pulse-dot">
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span>Systems Operational</span>
                 </div>
             </div>
 
