@@ -123,7 +123,7 @@ export default function Hero() {
             </div>
 
             {/* Metric annotation - bottom left of photo */}
-            <div className="absolute bottom-40 left-32 hidden lg:block scroll-reveal-left z-10">
+            <div className="absolute bottom-20 left-32 hidden lg:block scroll-reveal-left z-10">
                 <div className="px-3 py-2 bg-[#0A0A0A] text-white rounded-full text-xs font-mono -rotate-6
           border-2 border-[#D4C5B9] shadow-lg">
                     uptime: 99.9%
@@ -254,7 +254,7 @@ export default function Hero() {
                     </div>
 
                     {/* Right: Photo with Annotations - BLENDED WITH BACKGROUND */}
-                    <div className="scroll-reveal stagger-2 relative max-w-[400px] mt-12 md:mt-0">
+                    <div className="scroll-reveal stagger-2 relative max-w-[400px] mt-12 md:mt-0 lg:ml-auto">
                         {/* Photo Container - Blended with cream background */}
                         <div className="relative group">
                             {/* Cream background blob to blend photo */}
