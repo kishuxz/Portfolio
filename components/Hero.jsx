@@ -254,7 +254,7 @@ export default function Hero() {
                     </div>
 
                     {/* Right: Photo with Annotations - BLENDED WITH BACKGROUND */}
-                    <div className="scroll-reveal stagger-2 relative">
+                    <div className="scroll-reveal stagger-2 relative max-w-[350px] mt-24 md:mt-0">
                         {/* Photo Container - Blended with cream background */}
                         <div className="relative group">
                             {/* Cream background blob to blend photo */}
