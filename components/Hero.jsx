@@ -269,8 +269,8 @@ export default function Hero() {
                                     <Image
                                         src="/profile-photo.jpg"
                                         alt={personalInfo.name}
-                                        width={400}
-                                        height={400}
+                                        width={350}
+                                        height={350}
                                         className="w-full h-auto object-cover"
                                         priority
                                     />
