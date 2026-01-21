@@ -27,32 +27,32 @@ export default function SkillsSnapshot() {
     const skillCategories = [
         {
             name: 'Cloud & Infrastructure',
-            color: '#3B82F6',
+            color: '#0A0A0A',  // Black instead of blue
             skills: ['AWS', 'Azure', 'Docker', 'Kubernetes', 'Terraform', 'CircleCI']
         },
         {
             name: 'Data Engineering',
-            color: '#10B981',
+            color: '#2A2A2A',  // Dark gray instead of green
             skills: ['SQL', 'PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Data Modeling']
         },
         {
             name: 'Programming Languages',
-            color: '#8B5CF6',
+            color: '#4A4A4A',  // Medium gray instead of purple
             skills: ['Python', 'JavaScript', 'Java', 'C++', 'TypeScript', 'R']
         },
         {
             name: 'ML & LLMs',
-            color: '#EF4444',
+            color: '#1A1A1A',  // Almost black instead of red
             skills: ['Scikit-learn', 'TensorFlow', 'LangChain', 'Prompt Engineering', 'ReAct', 'Batch Processing']
         },
         {
             name: 'Big Data & ETL',
-            color: '#F59E0B',
+            color: '#3A3A3A',  // Gray instead of orange
             skills: ['Apache Airflow', 'PySpark', 'Spark', 'Hadoop', 'Batch Processing']
         },
         {
             name: 'Visualization & Tools',
-            color: '#EC4899',
+            color: '#5A5A5A',  // Light gray instead of pink
             skills: ['Power BI', 'Tableau', 'Git', 'Linux', 'VS Code', 'System Design']
         }
     ];
