@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { FiArrowRight, FiGithub, FiExternalLink } from 'react-icons/fi';
+import { FiArrowRight, FiGithub, FiExternalLink, FiCode, FiLayers } from 'react-icons/fi';
 
 export default function FeaturedProjects() {
     const sectionRef = useRef(null);
@@ -161,273 +161,205 @@ export default function FeaturedProjects() {
             github: 'https://github.com/yourusername/data-lakehouse'
         },
         {
-            title: 'Stream Processing Pipeline',
-            slug: 'stream-processing',
+            title: 'Streaming Data Pipeline',
+            slug: 'streaming-pipeline',
             categories: ['Data Engineer'],
-            accomplished: 'Built real-time streaming data pipeline',
-            measured: '500K events/second processed, 99.99% uptime',
-            method: 'Implementing Apache Kafka for message queuing, Apache Flink for stream processing, and Kubernetes for orchestration',
-            techStack: ['Apache Kafka', 'Apache Flink', 'PostgreSQL', 'Docker', 'Kubernetes'],
-            github: 'https://github.com/yourusername/stream-pipeline'
-        },
-        {
-            title: 'Data Quality Framework',
-            slug: 'data-quality',
-            categories: ['Data Engineer'],
-            accomplished: 'Created automated data quality system',
-            measured: '100+ validation checks, zero data loss incidents',
-            method: 'Using Great Expectations for validation rules, Airflow for scheduling, and Grafana for monitoring dashboards',
-            techStack: ['Python', 'Great Expectations', 'Airflow', 'PostgreSQL', 'Grafana'],
-            github: 'https://github.com/yourusername/data-quality'
+            accomplished: 'Implemented real-time data ingestion system',
+            measured: '5ms latency, zero data loss, fully fault-tolerant',
+            method: 'Using Apache Kafka for event streaming, Spark Streaming for processing, and Cassandra for writing',
+            techStack: ['Apache Kafka', 'Spark Streaming', 'Cassandra', 'Java', 'Docker'],
+            github: 'https://github.com/yourusername/streaming-pipeline'
         },
 
         // SOFTWARE ENGINEER
         {
-            title: 'Microservices Platform',
-            slug: 'microservices',
+            title: 'E-commerce Microservices',
+            slug: 'ecommerce-platform',
             categories: ['Software Engineer', 'AWS'],
-            accomplished: 'Built cloud-native microservices architecture',
-            measured: '1M+ concurrent users supported, 99.9% uptime',
-            method: 'Deploying containerized services with Docker, orchestrating with Kubernetes on AWS EKS, and PostgreSQL databases',
-            techStack: ['Node.js', 'Docker', 'Kubernetes', 'AWS EKS', 'PostgreSQL'],
-            github: 'https://github.com/yourusername/microservices'
+            accomplished: 'Built scalable e-commerce backend',
+            measured: 'Handles 50K concurrent users, 99.99% availability',
+            method: 'Developing microservices with Node.js and Go, deployed on Kubernetes, communicating via gRPC',
+            techStack: ['Node.js', 'Go', 'Kubernetes', 'gRPC', 'Redis'],
+            github: 'https://github.com/yourusername/ecommerce-platform'
         },
         {
-            title: 'API Gateway System',
-            slug: 'api-gateway',
+            title: 'Collaborative Code Editor',
+            slug: 'code-editor',
             categories: ['Software Engineer'],
-            accomplished: 'Developed high-performance API gateway',
-            measured: '50K requests/second, sub-10ms latency',
-            method: 'Building with Go for performance, Redis for caching, Kong for gateway features, and Prometheus for monitoring',
-            techStack: ['Go', 'Redis', 'Kong', 'PostgreSQL', 'Prometheus'],
-            github: 'https://github.com/yourusername/api-gateway'
-        },
-        {
-            title: 'E-commerce Platform',
-            slug: 'ecommerce',
-            categories: ['Software Engineer'],
-            accomplished: 'Created full-stack e-commerce solution',
-            measured: '10K products, $1M+ in transactions processed',
-            method: 'Using Next.js for frontend, Node.js backend, Stripe for payments, and MongoDB for product catalog',
-            techStack: ['React', 'Next.js', 'Node.js', 'Stripe', 'MongoDB'],
-            github: 'https://github.com/yourusername/ecommerce',
-            live: 'https://shop-demo.com'
+            accomplished: 'Developed real-time collaboration tool',
+            measured: 'Sub-100ms sync latency, supports 50+ active users per session',
+            method: 'Using Operational Transformation algorithms, WebSockets, and React for the frontend interface',
+            techStack: ['React', 'TypeScript', 'WebSockets', 'Node.js', 'Express'],
+            github: 'https://github.com/yourusername/code-editor'
         },
 
         // AWS
         {
-            title: 'Multi-Region DR Setup',
-            slug: 'disaster-recovery',
-            categories: ['AWS'],
-            accomplished: 'Implemented multi-region disaster recovery',
-            measured: 'RPO: 15 minutes, RTO: 30 minutes',
-            method: 'Configuring AWS Route53 for failover, CloudFront for CDN, RDS replication, and automated S3 backups',
-            techStack: ['AWS Route53', 'CloudFront', 'RDS', 'S3 Replication', 'Lambda'],
-            github: 'https://github.com/yourusername/aws-dr'
+            title: 'Cloud Infrastructure Automation',
+            slug: 'infra-automation',
+            categories: ['AWS', 'Data Engineer'],
+            accomplished: 'Automated cloud resource provisioning',
+            measured: 'Reduced setup time by 95%, eliminated configuration drift',
+            method: 'Writing Terraform modules for VPCs, EC2 code, and RDS databases, integrated into GitHub Actions CI/CD',
+            techStack: ['Terraform', 'AWS', 'GitHub Actions', 'Bash', 'Linux'],
+            github: 'https://github.com/yourusername/infra-automation'
         },
 
         // HACKATHONS
         {
-            title: 'AI Health Assistant',
-            slug: 'health-assistant',
+            title: 'HealthTech AI Assistant',
+            slug: 'health-ai',
             categories: ['Hackathons', 'Machine Learning'],
-            accomplished: 'Won 1st place at TechCrunch Disrupt',
-            measured: 'Built in 24 hours, 95% symptom accuracy',
-            method: 'Rapid prototyping with OpenAI API, React frontend, Firebase backend, and TensorFlow for medical ML',
-            techStack: ['Python', 'OpenAI', 'React', 'Firebase', 'TensorFlow'],
-            github: 'https://github.com/yourusername/health-assistant',
-            live: 'https://health-assistant-demo.com'
+            accomplished: 'Won "Best Healthcare Solution" at Global Hackathon',
+            measured: 'Developed working prototype in 48 hours',
+            method: 'Building a symptom checker using OpenAI API and streamlined UI for elderly accessibility',
+            techStack: ['OpenAI API', 'React', 'Google Cloud', 'Firebase'],
+            github: 'https://github.com/yourusername/health-ai'
         },
         {
-            title: 'Climate Data Visualizer',
-            slug: 'climate-viz',
+            title: 'Sustainable Energy Tracker',
+            slug: 'energy-tracker',
             categories: ['Hackathons', 'Data Analyst'],
-            accomplished: 'Won Global Winner at NASA Space Apps',
-            measured: 'Completed in 48 hours, visualizing 50+ years of climate data',
-            method: 'Integrating NASA APIs, creating interactive D3.js visualizations with React, and deploying on Vercel',
-            techStack: ['React', 'D3.js', 'Python', 'NASA APIs', 'Vercel'],
-            github: 'https://github.com/yourusername/climate-viz',
-            live: 'https://climate-viz-demo.com'
-        },
-        {
-            title: 'Social Impact Platform',
-            slug: 'social-impact',
-            categories: ['Hackathons', 'Software Engineer'],
-            accomplished: 'Won Best Social Impact Award',
-            measured: 'Built in 36 hours, connecting 500+ volunteers',
-            method: 'Developing Next.js platform with Node.js backend, Auth0 authentication, and PostgreSQL database',
-            techStack: ['Next.js', 'Node.js', 'PostgreSQL', 'Auth0', 'Vercel'],
-            github: 'https://github.com/yourusername/social-impact',
-            live: 'https://volunteer-connect.com'
+            accomplished: 'Finalist in Clean Energy Challenge',
+            measured: 'Visualized energy usage patterns for 500+ households',
+            method: 'Analyzing smart meter data to recommend energy-saving habits via a mobile-responsive dashboard',
+            techStack: ['D3.js', 'Python', 'Flask', 'SQLite'],
+            github: 'https://github.com/yourusername/energy-tracker'
         }
     ];
 
-    // Filter projects based on active category
     const filteredProjects = activeCategory === 'Featured'
         ? projects.filter(p => p.featured)
         : projects.filter(p => p.categories.includes(activeCategory));
 
     return (
-        <section ref={sectionRef} className="section bg-[#0A0A0A] text-white relative overflow-hidden" id="projects">
+        <section ref={sectionRef} className="section bg-[#FAFAF9] dotted-bg relative overflow-hidden" id="projects">
             <div className="container-custom relative z-10">
                 {/* Header */}
-                <div className="mb-12 md:mb-16 scroll-reveal-left">
+                <div className="mb-16 scroll-reveal-left">
                     <div className="flex items-center gap-4 mb-6">
-                        <span className="text-xs font-mono text-[#9CA3AF] tracking-wider">02 / 05</span>
-                        <div className="h-px flex-1 bg-gradient-to-r from-[#2A2A2A] to-transparent"></div>
+                        <span className="text-xs font-mono text-[#9CA3AF] tracking-wider">04 / 05</span>
+                        <div className="h-px w-20 bg-gradient-to-r from-[#D4C5B9] to-transparent"></div>
                     </div>
 
-                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-light mb-4 text-white"
+                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-light mb-8 text-[#0A0A0A]"
                         style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-                        Projects
+                        Featured Projects
                     </h2>
-                    <p className="text-lg text-[#9CA3AF] max-w-2xl">
-                        Technical projects across ML, data engineering, and full-stack development
-                    </p>
-                </div>
 
-                {/* Category Tabs */}
-                <div className="mb-12 overflow-x-auto scrollbar-hide scroll-reveal">
-                    <div className="flex gap-3 min-w-max pb-2">
-                        {categories.map((category) => {
-                            const count = category === 'Featured'
-                                ? projects.filter(p => p.featured).length
-                                : projects.filter(p => p.categories.includes(category)).length;
-
-                            return (
-                                <button
-                                    key={category}
-                                    onClick={() => setActiveCategory(category)}
-                                    className={`px-6 py-3 rounded-xl font-medium text-sm transition-all duration-300
-                    ${activeCategory === category
-                                            ? 'bg-[#D4C5B9] text-[#0A0A0A] scale-105 shadow-lg'
-                                            : 'bg-transparent border-2 border-[#2A2A2A] text-[#9CA3AF] hover:border-[#D4C5B9] hover:text-white'
-                                        }`}
-                                >
-                                    {category}
-                                    <span className={`ml-2 text-xs ${activeCategory === category ? 'opacity-70' : 'opacity-50'}`}>
-                                        ({count})
-                                    </span>
-                                </button>
-                            );
-                        })}
+                    {/* Filter Categories */}
+                    <div className="flex flex-wrap gap-2 md:gap-3">
+                        {categories.map((cat, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setActiveCategory(cat)}
+                                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border
+                  ${activeCategory === cat
+                                        ? 'bg-[#0A0A0A] text-white border-[#0A0A0A]'
+                                        : 'bg-white text-[#6B6B6B] border-[#E5E0DB] hover:border-[#D4C5B9] hover:text-[#0A0A0A]'
+                                    }`}
+                            >
+                                {cat}
+                            </button>
+                        ))}
                     </div>
                 </div>
 
-                {/* Projects Grid - 2x2 Layout */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {(activeCategory === 'Featured' ? filteredProjects : filteredProjects.slice(0, 3)).map((project, index) => (
+                {/* Projects Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-12">
+                    {filteredProjects.map((project, index) => (
                         <div
-                            key={project.slug}
-                            className="group relative overflow-hidden rounded-2xl border-2 border-[#2A2A2A]
-                hover:border-[#D4C5B9] transition-all duration-500
-                bg-[#1A1A1A] hover:bg-[#1F1F1F]
-                hover:shadow-2xl hover:-translate-y-2
-                animate-fadeIn"
-                            style={{
-                                animationDelay: `${index * 100}ms`,
-                                animationFillMode: 'backwards'
-                            }}
+                            key={index}
+                            className={`group scroll-reveal ${index % 2 === 0 ? 'scroll-reveal-left' : 'scroll-reveal-right'}`}
                         >
-                            {/* Content */}
-                            <div className="p-8 md:p-10 flex flex-col h-full">
-                                {/* Header: Title + Links */}
-                                <div className="flex items-start justify-between mb-6">
-                                    <div className="flex-1">
-                                        <h3 className="text-2xl md:text-3xl font-light mb-3 text-white group-hover:translate-x-2 transition-all duration-500"
-                                            style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-                                            {project.title}
-                                        </h3>
+                            <Link href={project.live || project.github || '#'} target="_blank" className="block h-full">
+                                <div className="glass-card bg-white rounded-2xl border-2 border-[#E5E0DB] p-8 h-full
+                                    group-hover:border-[#D4C5B9] transition-all duration-500 relative overflow-hidden
+                                    hover:-translate-y-2 hover:shadow-2xl flex flex-col">
 
-                                        {/* Category badges */}
-                                        <div className="flex flex-wrap gap-2 mb-4">
-                                            {project.categories.slice(0, 2).map((cat, i) => (
-                                                <span key={i} className="px-3 py-1 rounded-md text-xs font-medium border border-[#2A2A2A] 
-                          text-[#9CA3AF] group-hover:border-[#D4C5B9] group-hover:text-[#D4C5B9]
-                          transition-all duration-300">
-                                                    {cat}
+                                    {/* Abstract background shape */}
+                                    <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-radial from-[#F5F1ED] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+
+                                    {/* Icon & Links */}
+                                    <div className="flex justify-between items-start mb-6 relative z-10">
+                                        <div className="w-12 h-12 rounded-xl bg-[#0A0A0A] flex items-center justify-center text-white
+                                            shadow-lg group-hover:scale-110 transition-transform duration-500">
+                                            <FiLayers className="text-xl" />
+                                        </div>
+                                        <div className="flex gap-3">
+                                            {project.github && (
+                                                <span className="p-2 rounded-full bg-[#F5F1ED] text-[#0A0A0A] hover:bg-[#D4C5B9] transition-colors">
+                                                    <FiGithub />
                                                 </span>
-                                            ))}
-                                            {project.featured && (
-                                                <span className="px-3 py-1 rounded-md text-xs font-medium bg-[#D4C5B9] text-[#0A0A0A]">
-                                                    ★ Featured
+                                            )}
+                                            {project.live && (
+                                                <span className="p-2 rounded-full bg-[#F5F1ED] text-[#0A0A0A] hover:bg-[#D4C5B9] transition-colors">
+                                                    <FiExternalLink />
                                                 </span>
                                             )}
                                         </div>
                                     </div>
 
-                                    {/* Links */}
-                                    <div className="flex gap-3 ml-4">
-                                        {project.github && (
-                                            <a
-                                                href={project.github}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="p-2 rounded-lg border border-[#2A2A2A] text-[#9CA3AF] hover:border-[#D4C5B9] hover:text-white transition-all"
-                                                onClick={(e) => e.stopPropagation()}
-                                            >
-                                                <FiGithub className="text-xl" />
-                                            </a>
-                                        )}
-                                        {project.live && (
-                                            <a
-                                                href={project.live}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="p-2 rounded-lg border border-[#2A2A2A] text-[#9CA3AF] hover:border-[#D4C5B9] hover:text-white transition-all"
-                                                onClick={(e) => e.stopPropagation()}
-                                            >
-                                                <FiExternalLink className="text-xl" />
-                                            </a>
-                                        )}
+                                    {/* Content */}
+                                    <div className="relative z-10 flex-1 flex flex-col">
+                                        <div className="mb-4">
+                                            <div className="flex flex-wrap gap-2 mb-3">
+                                                {project.categories.filter(c => c !== 'Featured').slice(0, 2).map((cat, i) => (
+                                                    <span key={i} className="text-xs font-mono font-medium text-[#D4C5B9] uppercase tracking-wider">
+                                                        {cat}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                            <h3 className="text-2xl md:text-3xl font-light text-[#0A0A0A] group-hover:text-[#5C4033] transition-colors duration-300"
+                                                style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                                                {project.title}
+                                            </h3>
+                                        </div>
+
+                                        <div className="space-y-4 mb-8 flex-1">
+                                            <div className="pl-4 border-l-2 border-[#E5E0DB] group-hover:border-[#D4C5B9] transition-colors duration-300">
+                                                <p className="text-sm text-[#9CA3AF] font-medium uppercase tracking-wide mb-1">Impact</p>
+                                                <p className="text-[#6B6B6B] leading-relaxed">{project.measured}</p>
+                                            </div>
+
+                                            <p className="text-[#6B6B6B] text-sm leading-relaxed">
+                                                {project.method}
+                                            </p>
+                                        </div>
+
+                                        {/* Tech Stack Pills */}
+                                        <div className="flex flex-wrap gap-2 mt-auto">
+                                            {project.techStack.map((tech, i) => (
+                                                <span
+                                                    key={i}
+                                                    className="px-3 py-1 bg-[#FAFAF9] rounded-md text-xs font-medium text-[#6B6B6B] border border-[#E5E0DB]
+                                                        group-hover:border-[#D4C5B9] group-hover:bg-white transition-all duration-300"
+                                                >
+                                                    {tech}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Arrow indicator */}
+                                    <div className="absolute bottom-8 right-8 opacity-0 transform translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
+                                        <FiArrowRight className="text-2xl text-[#D4C5B9]" />
                                     </div>
                                 </div>
-
-                                {/* XYZ Formula */}
-                                <div className="mb-6 space-y-3 flex-grow">
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-[#D4C5B9] text-sm font-medium mt-1 flex-shrink-0">Accomplished:</span>
-                                        <p className="text-[#F5F1ED] text-sm leading-relaxed">{project.accomplished}</p>
-                                    </div>
-
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-[#D4C5B9] text-sm font-medium mt-1 flex-shrink-0">Measured by:</span>
-                                        <p className="text-[#9CA3AF] text-sm leading-relaxed">{project.measured}</p>
-                                    </div>
-
-                                    <div className="flex items-start gap-3">
-                                        <span className="text-[#D4C5B9] text-sm font-medium mt-1 flex-shrink-0">By doing:</span>
-                                        <p className="text-[#9CA3AF] text-sm leading-relaxed">{project.method}</p>
-                                    </div>
-                                </div>
-
-                                {/* Tech Stack */}
-                                <div className="mb-4">
-                                    <h4 className="text-xs font-medium text-[#6B6B6B] uppercase tracking-wider mb-3">Tech Stack</h4>
-                                    <div className="flex flex-wrap gap-2">
-                                        {project.techStack.map((tech, i) => (
-                                            <span key={i} className="text-xs px-3 py-1.5 rounded-lg bg-[#0A0A0A] text-[#9CA3AF]
-                        border border-[#2A2A2A] group-hover:border-[#D4C5B9] transition-colors">
-                                                {tech}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Animated accent line */}
-                            <div className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#D4C5B9] to-[#E8DFD8]
-                group-hover:w-full transition-all duration-700 ease-out"></div>
+                            </Link>
                         </div>
                     ))}
                 </div>
 
-                {/* Empty State */}
-                {filteredProjects.length === 0 && (
-                    <div className="text-center py-20">
-                        <p className="text-[#6B6B6B] text-lg">No projects found in this category yet.</p>
-                    </div>
-                )}
+                {/* View More Button */}
+                <div className="mt-16 text-center scroll-reveal">
+                    <Link href="https://github.com/yourusername" target="_blank"
+                        className="inline-flex items-center gap-3 px-8 py-4 bg-[#0A0A0A] text-white rounded-full
+                        hover:bg-[#2A2A2A] hover:scale-105 transition-all duration-300 shadow-xl group">
+                        <span className="font-medium">View Full Project Archive</span>
+                        <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                </div>
             </div>
         </section>
     );

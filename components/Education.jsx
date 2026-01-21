@@ -84,56 +84,59 @@ export default function Education() {
                 </div>
 
                 <div className="max-w-6xl mx-auto space-y-12">
-                    {/* Education Timeline */}
+                    {/* Education Timeline - Credential Gallery */}
                     <div>
                         <h3 className="text-2xl font-light mb-6 text-[#0A0A0A] scroll-reveal-left"
                             style={{ fontFamily: 'var(--font-space-grotesk)' }}>
                             Academic Background
                         </h3>
 
-                        <div className="space-y-6">
+                        <div className="grid md:grid-cols-2 gap-6">
                             {education.map((edu, index) => (
                                 <div key={index} className="scroll-reveal-left">
-                                    <div className="group relative bg-white rounded-xl border-2 border-[#E5E0DB] 
+                                    <div className="group relative bg-white rounded-xl border border-[#E5E0DB] 
                     hover:border-[#D4C5B9] transition-all duration-500 overflow-hidden
-                    hover:-translate-y-1 hover:shadow-lg">
-                                        <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-[#D4C5B9] to-[#E8DFD8]"></div>
+                    hover:-translate-y-1 hover:shadow-xl h-full flex flex-col">
+                                        {/* Diploma Top Border Effect */}
+                                        <div className="absolute top-0 left-0 h-1.5 w-full bg-gradient-to-r from-[#D4C5B9] to-[#E8DFD8]"></div>
+                                        <div className="absolute top-1.5 left-0 right-0 h-px bg-white/50"></div>
 
-                                        <div className="p-6 md:p-8">
-                                            <div className="flex items-start gap-4 mb-4">
-                                                <div className="w-10 h-10 rounded-lg bg-[#0A0A0A] 
-                          flex items-center justify-center text-white flex-shrink-0
+                                        <div className="p-8 flex-1 flex flex-col">
+                                            <div className="flex items-start gap-5 mb-6">
+                                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0A0A0A] to-[#2A2A2A]
+                          flex items-center justify-center text-white text-xl shadow-lg flex-shrink-0
                           group-hover:scale-110 transition-transform duration-300">
                                                     <FiAward />
                                                 </div>
                                                 <div className="flex-1">
-                                                    <h4 className="text-xl font-light text-[#0A0A0A] mb-1"
+                                                    <h4 className="text-xl md:text-2xl font-light text-[#0A0A0A] mb-2 leading-tight"
                                                         style={{ fontFamily: 'var(--font-space-grotesk)' }}>
                                                         {edu.degree}
                                                     </h4>
-                                                    <p className="text-base text-[#6B6B6B] mb-2">{edu.institution}</p>
-                                                    <div className="flex flex-wrap gap-3 text-sm text-[#9CA3AF]">
-                                                        <span className="flex items-center gap-1.5">
-                                                            <FiMapPin className="text-xs" />
-                                                            {edu.location}
-                                                        </span>
-                                                        <span className="flex items-center gap-1.5">
-                                                            <FiCalendar className="text-xs" />
-                                                            {edu.period}
-                                                        </span>
-                                                        <span className="px-2 py-0.5 rounded-full bg-[#F5F1ED] text-[#0A0A0A] text-xs font-medium">
-                                                            GPA: {edu.gpa}
-                                                        </span>
-                                                    </div>
+                                                    <p className="text-lg text-[#5C4033] font-medium mb-1">{edu.institution}</p>
                                                 </div>
                                             </div>
 
-                                            <div className="ml-14">
-                                                <ul className="space-y-1.5">
+                                            <div className="flex flex-wrap gap-4 text-sm text-[#6B6B6B] mb-6 font-mono">
+                                                <span className="flex items-center gap-2 bg-[#FAFAF9] px-3 py-1.5 rounded-lg border border-[#E5E0DB]">
+                                                    <FiCalendar />
+                                                    {edu.period}
+                                                </span>
+                                                <span className="flex items-center gap-2 bg-[#FAFAF9] px-3 py-1.5 rounded-lg border border-[#E5E0DB]">
+                                                    <FiMapPin />
+                                                    {edu.location}
+                                                </span>
+                                                <span className="flex items-center gap-2 bg-[#FAFAF9] px-3 py-1.5 rounded-lg border border-[#E5E0DB]">
+                                                    <span className="font-bold text-[#0A0A0A]">GPA:</span> {edu.gpa}
+                                                </span>
+                                            </div>
+
+                                            <div className="mt-auto pt-6 border-t border-[#F5F1ED]">
+                                                <ul className="space-y-2">
                                                     {edu.achievements.map((achievement, i) => (
-                                                        <li key={i} className="flex items-start gap-2 text-sm text-[#6B6B6B]">
-                                                            <span className="text-[#D4C5B9] mt-1">•</span>
-                                                            <span>{achievement}</span>
+                                                        <li key={i} className="flex items-start gap-3 text-sm text-[#6B6B6B] group/item">
+                                                            <span className="text-[#D4C5B9] mt-1 group-hover/item:text-[#0A0A0A] transition-colors">•</span>
+                                                            <span className="group-hover/item:text-[#0A0A0A] transition-colors duration-300">{achievement}</span>
                                                         </li>
                                                     ))}
                                                 </ul>
@@ -145,21 +148,27 @@ export default function Education() {
                         </div>
                     </div>
 
-                    {/* Certifications & Awards Grid */}
-                    <div className="grid md:grid-cols-2 gap-8">
+                    {/* Certifications & Awards Grid - Badge Style */}
+                    <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
                         {/* Certifications */}
                         <div className="scroll-reveal-left">
-                            <h3 className="text-xl font-light mb-4 text-[#0A0A0A]"
+                            <h3 className="text-2xl font-light mb-6 text-[#0A0A0A] flex items-center gap-3"
                                 style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                                <FiCheckCircle className="text-[#D4C5B9]" />
                                 Certifications
                             </h3>
-                            <div className="bg-white rounded-xl border-2 border-[#E5E0DB] p-6 space-y-3">
+                            <div className="space-y-4">
                                 {certifications.map((cert, i) => (
-                                    <div key={i} className="flex items-start gap-3 pb-3 border-b border-[#F5F1ED] last:border-0 last:pb-0">
-                                        <FiCheckCircle className="text-[#D4C5B9] mt-0.5 flex-shrink-0" />
-                                        <div className="flex-1 min-w-0">
-                                            <p className="text-sm font-medium text-[#0A0A0A] truncate">{cert.name}</p>
-                                            <p className="text-xs text-[#9CA3AF]">{cert.issuer} · {cert.date}</p>
+                                    <div key={i} className="group bg-white rounded-xl border border-[#E5E0DB] p-5
+                                        hover:border-[#D4C5B9] hover:shadow-md transition-all duration-300 flex items-center gap-4">
+                                        <div className="w-2 h-12 bg-[#D4C5B9]/20 rounded-full group-hover:bg-[#D4C5B9] transition-colors duration-300"></div>
+                                        <div className="flex-1">
+                                            <p className="text-base font-medium text-[#0A0A0A] mb-1 group-hover:text-[#5C4033] transition-colors">
+                                                {cert.name}
+                                            </p>
+                                            <p className="text-xs text-[#9CA3AF] font-mono uppercase tracking-wide">
+                                                {cert.issuer} · {cert.date}
+                                            </p>
                                         </div>
                                     </div>
                                 ))}
@@ -168,17 +177,27 @@ export default function Education() {
 
                         {/* Awards */}
                         <div className="scroll-reveal-right">
-                            <h3 className="text-xl font-light mb-4 text-[#0A0A0A]"
+                            <h3 className="text-2xl font-light mb-6 text-[#0A0A0A] flex items-center gap-3"
                                 style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-                                Awards & Recognition
+                                <FiStar className="text-[#D4C5B9]" />
+                                Awards
                             </h3>
-                            <div className="bg-white rounded-xl border-2 border-[#E5E0DB] p-6 space-y-3">
+                            <div className="space-y-4">
                                 {awards.map((award, i) => (
-                                    <div key={i} className="flex items-start gap-3 pb-3 border-b border-[#F5F1ED] last:border-0 last:pb-0">
-                                        <FiStar className="text-[#D4C5B9] mt-0.5 flex-shrink-0" />
-                                        <div className="flex-1 min-w-0">
-                                            <p className="text-sm font-medium text-[#0A0A0A]">{award.title}</p>
-                                            <p className="text-xs text-[#9CA3AF]">{award.year}</p>
+                                    <div key={i} className="group bg-white rounded-xl border border-[#E5E0DB] p-5
+                                        hover:border-[#D4C5B9] hover:shadow-md transition-all duration-300 flex items-center gap-4">
+                                        <div className="w-10 h-10 rounded-full bg-[#FAFAF9] border border-[#E5E0DB]
+                                            flex items-center justify-center text-[#D4C5B9] text-lg
+                                            group-hover:scale-110 group-hover:bg-[#0A0A0A] group-hover:text-[#FFD700] transition-all duration-300">
+                                            <FiStar className="fill-current" />
+                                        </div>
+                                        <div className="flex-1">
+                                            <p className="text-base font-medium text-[#0A0A0A] mb-1">
+                                                {award.title}
+                                            </p>
+                                            <p className="text-xs text-[#9CA3AF] font-mono">
+                                                {award.year}
+                                            </p>
                                         </div>
                                     </div>
                                 ))}
