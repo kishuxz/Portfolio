@@ -118,7 +118,7 @@ export default function Hero() {
             <div className="absolute top-72 right-24 hidden lg:block scroll-reveal-right z-10">
                 <div className="flex items-center gap-2">
                     <div className="w-12 h-px bg-[#D4C5B9]"></div>
-                    <span className="text-xs font-mono text-[#9CA3AF]">400px</span>
+                    <span className="text-xs font-mono text-[#9CA3AF]">450px</span>
                 </div>
             </div>
 
@@ -254,7 +254,7 @@ export default function Hero() {
                     </div>
 
                     {/* Right: Photo with Annotations - BLENDED WITH BACKGROUND */}
-                    <div className="scroll-reveal stagger-2 relative max-w-[400px] mt-12 md:mt-0 lg:ml-auto">
+                    <div className="scroll-reveal stagger-2 relative max-w-[450px] mt-12 md:mt-0 lg:ml-auto">
                         {/* Photo Container - Blended with cream background */}
                         <div className="relative group">
                             {/* Cream background blob to blend photo */}
@@ -269,8 +269,8 @@ export default function Hero() {
                                     <Image
                                         src="/profile-photo.jpg"
                                         alt={personalInfo.name}
-                                        width={400}
-                                        height={400}
+                                        width={450}
+                                        height={450}
                                         className="w-full h-auto object-cover"
                                         priority
                                     />
