@@ -41,7 +41,7 @@ export default function Hero() {
     }, []);
 
     return (
-        <section ref={heroRef} className="min-h-screen flex items-center relative overflow-hidden bg-[#FAFAF9] dotted-bg" id="home">
+        <section ref={heroRef} className="min-h-screen flex items-center relative overflow-hidden bg-[#FAFAF9] dotted-bg pt-32 md:pt-20" id="home">
             {/* Parallax floating elements */}
             <div
                 className="absolute top-20 right-20 w-32 h-32 rounded-full bg-[#D4C5B9] opacity-10 blur-3xl transition-transform duration-300"
@@ -254,7 +254,7 @@ export default function Hero() {
                     </div>
 
                     {/* Right: Photo with Annotations - BLENDED WITH BACKGROUND */}
-                    <div className="scroll-reveal stagger-2 relative max-w-[350px] mt-24 md:mt-0">
+                    <div className="scroll-reveal stagger-2 relative max-w-[400px] mt-12 md:mt-0">
                         {/* Photo Container - Blended with cream background */}
                         <div className="relative group">
                             {/* Cream background blob to blend photo */}
@@ -269,8 +269,8 @@ export default function Hero() {
                                     <Image
                                         src="/profile-photo.jpg"
                                         alt={personalInfo.name}
-                                        width={350}
-                                        height={350}
+                                        width={400}
+                                        height={400}
                                         className="w-full h-auto object-cover"
                                         priority
                                     />
