@@ -27,98 +27,80 @@ export default function SkillsSnapshot() {
     const skillCategories = [
         {
             name: 'Cloud & Infrastructure',
-            color: '#C8B8A8',  // Warm tan
+            color: 'border-stone-400',
             skills: ['AWS', 'Azure', 'Docker', 'Kubernetes', 'Terraform', 'CircleCI']
         },
         {
             name: 'Data Engineering',
-            color: '#D4C5B9',  // Light beige (from hero background)
+            color: 'border-stone-300',
             skills: ['SQL', 'PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Data Modeling']
         },
         {
             name: 'Programming Languages',
-            color: '#A39081',  // Medium brown-gray
+            color: 'border-stone-500',
             skills: ['Python', 'JavaScript', 'Java', 'C++', 'TypeScript', 'R']
         },
         {
             name: 'ML & LLMs',
-            color: '#B8A896',  // Muted tan
+            color: 'border-stone-400',
             skills: ['Scikit-learn', 'TensorFlow', 'LangChain', 'Prompt Engineering', 'ReAct', 'Batch Processing']
         },
         {
             name: 'Big Data & ETL',
-            color: '#9B8F7E',  // Darker tan
+            color: 'border-stone-500',
             skills: ['Apache Airflow', 'PySpark', 'Spark', 'Hadoop', 'Batch Processing']
         },
         {
             name: 'Visualization & Tools',
-            color: '#AFA396',  // Warm gray-tan
+            color: 'border-stone-300',
             skills: ['Power BI', 'Tableau', 'Git', 'Linux', 'VS Code', 'System Design']
         }
     ];
 
     return (
-        <section ref={sectionRef} className="section bg-[#FAFAF9] dotted-bg relative overflow-hidden" id="skills">
+        <section ref={sectionRef} className="py-24 relative overflow-hidden" id="skills">
+            {/* Background Blob */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#E8DFD8] opacity-20 blur-[100px] rounded-full pointer-events-none"></div>
+
             <div className="container-custom relative z-10">
-                {/* Header */}
-                <div className="mb-12 scroll-reveal-left">
+                <div className="mb-16 md:mb-20 scroll-reveal-left">
                     <div className="flex items-center gap-4 mb-6">
-                        <span className="text-xs font-mono text-[#9CA3AF] tracking-wider">02 / 05</span>
-                        <div className="h-px flex-1 bg-gradient-to-r from-[#D4C5B9] to-transparent"></div>
+                        <span className="text-xs font-mono text-neutral-500 tracking-wider">02 / 05</span>
+                        <div className="h-px w-20 bg-gradient-to-r from-[#D4C5B9] to-transparent"></div>
                     </div>
 
-                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-light mb-4 text-[#0A0A0A]"
+                    <h2 className="text-5xl md:text-6xl font-light mb-6 text-neutral-900"
                         style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-                        Technical Skills
+                        Technical <span className="text-gradient-gold font-normal">Arsenal</span>
                     </h2>
-                    <p className="text-lg text-[#6B6B6B] max-w-2xl">
-                        Technologies and tools I use to build scalable solutions
+                    <p className="text-lg text-neutral-600 max-w-2xl">
+                        A curated stack of technologies I use to build scalable, production-ready systems.
                     </p>
                 </div>
 
-                {/* Skills Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                {/* Skills Grid - Glass Cards */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                     {skillCategories.map((category, index) => (
                         <div
                             key={index}
-                            className={`group scroll-reveal ${index % 2 === 0 ? 'scroll-reveal-left' : 'scroll-reveal-right'}`}
+                            className={`glass-card rounded-2xl p-8 hover:-translate-y-2 transition-all duration-300
+                                border-t-4 ${category.color} scroll-reveal stagger-${(index % 3) + 1}`}
                         >
-                            {/* Skill Category Card */}
-                            <div className="bg-white rounded-xl border-2 border-[#E5E0DB] p-6
-                hover:border-[#D4C5B9] hover:-translate-y-1 transition-all duration-500
-                hover:shadow-lg relative overflow-hidden h-full">
-                                {/* Top colored accent line */}
-                                <div
-                                    className="absolute top-0 left-0 w-full h-1"
-                                    style={{ backgroundColor: category.color }}
-                                ></div>
+                            <h3 className="text-xl font-medium mb-6 text-neutral-900 flex items-center gap-3">
+                                {category.name}
+                            </h3>
 
-                                {/* Category Header */}
-                                <div className="flex items-center gap-3 mb-4">
-                                    <div
-                                        className="w-3 h-3 rounded-full flex-shrink-0"
-                                        style={{ backgroundColor: category.color }}
-                                    ></div>
-                                    <h3 className="text-lg font-light text-[#0A0A0A]"
-                                        style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-                                        {category.name}
-                                    </h3>
-                                </div>
-
-                                {/* Skills Pills */}
-                                <div className="flex flex-wrap gap-2">
-                                    {category.skills.map((skill, i) => (
-                                        <span
-                                            key={i}
-                                            className="px-3 py-1.5 rounded-lg text-xs font-medium
-                        border border-[#E5E0DB] text-[#1A1A1A] bg-[#FAFAF9]
-                        hover:border-[#D4C5B9] hover:bg-white
-                        transition-all duration-200 cursor-default"
-                                        >
-                                            {skill}
-                                        </span>
-                                    ))}
-                                </div>
+                            <div className="flex flex-wrap gap-3">
+                                {category.skills.map((skill, idx) => (
+                                    <span
+                                        key={idx}
+                                        className="px-4 py-2 bg-[#E8DFD8]/30 text-neutral-800 text-sm font-medium rounded-full
+                                            border border-transparent hover:border-[#D4C5B9] hover:bg-white transition-all duration-300
+                                            cursor-default"
+                                    >
+                                        {skill}
+                                    </span>
+                                ))}
                             </div>
                         </div>
                     ))}
