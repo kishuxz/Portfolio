@@ -27,32 +27,32 @@ export default function SkillsSnapshot() {
     const skillCategories = [
         {
             name: 'Cloud & Infrastructure',
-            color: '#0A0A0A',  // Black instead of blue
+            color: '#C8B8A8',  // Warm tan
             skills: ['AWS', 'Azure', 'Docker', 'Kubernetes', 'Terraform', 'CircleCI']
         },
         {
             name: 'Data Engineering',
-            color: '#2A2A2A',  // Dark gray instead of green
+            color: '#D4C5B9',  // Light beige (from hero background)
             skills: ['SQL', 'PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Data Modeling']
         },
         {
             name: 'Programming Languages',
-            color: '#4A4A4A',  // Medium gray instead of purple
+            color: '#A39081',  // Medium brown-gray
             skills: ['Python', 'JavaScript', 'Java', 'C++', 'TypeScript', 'R']
         },
         {
             name: 'ML & LLMs',
-            color: '#1A1A1A',  // Almost black instead of red
+            color: '#B8A896',  // Muted tan
             skills: ['Scikit-learn', 'TensorFlow', 'LangChain', 'Prompt Engineering', 'ReAct', 'Batch Processing']
         },
         {
             name: 'Big Data & ETL',
-            color: '#3A3A3A',  // Gray instead of orange
+            color: '#9B8F7E',  // Darker tan
             skills: ['Apache Airflow', 'PySpark', 'Spark', 'Hadoop', 'Batch Processing']
         },
         {
             name: 'Visualization & Tools',
-            color: '#5A5A5A',  // Light gray instead of pink
+            color: '#AFA396',  // Warm gray-tan
             skills: ['Power BI', 'Tableau', 'Git', 'Linux', 'VS Code', 'System Design']
         }
     ];
