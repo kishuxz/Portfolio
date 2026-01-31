@@ -97,8 +97,8 @@ export default function Education() {
                                     <div className="group relative bg-white rounded-xl border border-[#E5E5E5] 
                     hover:border-[#0A0A0A] transition-all duration-500 overflow-hidden
                     hover:-translate-y-1 hover:shadow-xl h-full flex flex-col">
-                                        {/* Diploma Top Border Effect */}
-                                        <div className="absolute top-0 left-0 h-1.5 w-full bg-gradient-to-r from-[#0A0A0A] to-[#404040]"></div>
+                                        {/* Diploma Top Border Effect - Orange */}
+                                        <div className="absolute top-0 left-0 h-1.5 w-full bg-[#F26530]"></div>
                                         <div className="absolute top-1.5 left-0 right-0 h-px bg-white/50"></div>
 
                                         <div className="p-8 flex-1 flex flex-col">

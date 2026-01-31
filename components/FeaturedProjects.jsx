@@ -49,7 +49,12 @@ export default function FeaturedProjects() {
                 {/* Architectural Header */}
                 <div className="mb-16 scroll-reveal-left grid md:grid-cols-[200px_1fr] gap-8 items-end">
                     <div>
-                        <span className="text-sm font-mono text-[#0A0A0A] font-medium tracking-widest uppercase block mb-4">04 / Work</span>
+                        <div className="flex items-center gap-3 mb-4">
+                            <span className="font-mono text-[#F26530] text-sm">$</span>
+                            <div className="inline-block px-4 py-2 bg-[#F26530]">
+                                <span className="text-sm font-mono text-white font-bold tracking-widest uppercase">04 / WORK</span>
+                            </div>
+                        </div>
                         <h2 className="text-5xl md:text-6xl font-medium text-[#0A0A0A] leading-none tracking-tight"
                             style={{ fontFamily: 'var(--font-space-grotesk)' }}>
                             Selected<br />Projects
@@ -82,15 +87,15 @@ export default function FeaturedProjects() {
                             className={`group scroll-reveal ${index % 2 === 0 ? 'scroll-reveal-left' : 'scroll-reveal-right'}`}
                         >
                             <Link href={project.live || project.github || '#'} target="_blank" className="block h-full">
-                                {/* Modern Minimal Card */}
-                                <div className="bg-white border border-gray-300 rounded-lg p-8 h-full relative transition-all duration-300
-                                    hover:shadow-strong hover:-translate-y-1 flex flex-col group">
+                                {/* Modern Minimal Card with Orange Accent */}
+                                <div className="bg-white border-l-4 border-[#F26530] border-t border-r border-b border-gray-300 rounded-lg p-8 h-full relative transition-all duration-300
+                                    hover:shadow-strong hover:-translate-y-1 hover:border-l-[#F26530] flex flex-col group hover-lift">
 
                                     {/* Project Code Header */}
                                     <div className="flex justify-between items-start mb-8 border-b border-gray-200 pb-6">
                                         <div>
-                                            <span className="font-mono text-xs text-[#9CA3AF] uppercase tracking-wider block mb-2">
-                                                Project_{index + 1 < 10 ? `0${index + 1}` : index + 1}
+                                            <span className="font-mono text-xs text-[#9CA3AF] uppercase tracking-wider block mb-2 bg-[#F8F8F8] px-2 py-1 inline-block">
+                                                <span className="text-[#F26530]">{'//'}</span> Project_{index + 1 < 10 ? `0${index + 1}` : index + 1}
                                             </span>
                                             <h3 className="text-3xl font-medium text-[#0A0A0A] leading-tight group-hover:text-[#F26530] transition-colors duration-300"
                                                 style={{ fontFamily: 'var(--font-space-grotesk)' }}>
@@ -100,7 +105,7 @@ export default function FeaturedProjects() {
                                         {/* Icon Box */}
                                         <div className="w-10 h-10 border border-[#0A0A0A] flex items-center justify-center 
                                             bg-white group-hover:bg-[#F26530] group-hover:text-white transition-colors">
-                                            <FiArrowRight className="text-lg" />
+                                            <FiGithub className="text-lg" />
                                         </div>
                                     </div>
 

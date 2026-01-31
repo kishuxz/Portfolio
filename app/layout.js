@@ -1,5 +1,6 @@
 import { Space_Grotesk, Manrope } from 'next/font/google';
 import './globals.css';
+import { ThemeProvider } from '@/contexts/ThemeContext';
 
 const spaceGrotesk = Space_Grotesk({
     subsets: ['latin'],
@@ -36,7 +37,9 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en" className={`${spaceGrotesk.variable} ${manrope.variable}`}>
             <body className="antialiased">
-                {children}
+                <ThemeProvider>
+                    {children}
+                </ThemeProvider>
             </body>
         </html>
     );

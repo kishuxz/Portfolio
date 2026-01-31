@@ -63,16 +63,16 @@ export default function Hero() {
                                 style={{ fontFamily: 'var(--font-space-grotesk)' }}>
                                 {personalInfo.name.split(' ')[0]}
                             </span>
-                            <span className="block text-6xl sm:text-7xl md:text-8xl font-medium text-[#0A0A0A]/40 tracking-[-0.04em]"
+                            <span className="block text-6xl sm:text-7xl md:text-8xl font-medium text-[#0A0A0A] tracking-[-0.04em]"
                                 style={{ fontFamily: 'var(--font-space-grotesk)' }}>
                                 {personalInfo.name.split(' ')[1]}
                             </span>
                         </h1>
 
-                        {/* Role Label - Orange Accent */}
+                        {/* Role Label - PUNCHY Orange Accent */}
                         <div className="scroll-reveal stagger-2 mb-8">
-                            <span className="inline-block px-4 py-2 bg-[#F26530] text-white text-sm font-medium uppercase tracking-wider mb-4">
-                                Software Engineer
+                            <span className="inline-block px-6 py-3 bg-[#F26530] text-white text-base md:text-lg font-bold uppercase tracking-wider mb-4 shadow-lg">
+                                ● Software Engineer
                             </span>
                             <p className="text-2xl sm:text-3xl font-normal text-[#0A0A0A] flex items-center gap-3"
                                 style={{ fontFamily: 'var(--font-space-grotesk)' }}>
@@ -80,10 +80,12 @@ export default function Hero() {
                             </p>
                         </div>
 
-                        {/* Description - High Contrast */}
+                        {/* Description - High Contrast with Tech Accent */}
                         <p className="text-lg md:text-xl text-[#4A4A4A] mb-12 leading-relaxed max-w-xl scroll-reveal stagger-3 font-medium">
-                            Building production-grade systems with <span className="text-[#0A0A0A] border-b border-[#0A0A0A]">precision</span> and <span className="text-[#0A0A0A] border-b border-[#0A0A0A]">performance</span>.
+                            <span className="font-mono text-[#F26530] text-base">&lt;</span>
+                            Building production-grade systems with <span className="text-[#F26530] font-semibold">precision</span> and <span className="text-[#F26530] font-semibold">performance</span>.
                             Specializing in scalable infrastructure, data engineering, and AI integrations.
+                            <span className="font-mono text-[#F26530] text-base">/&gt;</span>
                         </p>
 
                         {/* Action Buttons - Orange Accent */}

@@ -197,7 +197,7 @@ export default function ResumePage() {
                         Interested in working together?
                     </h2>
                     <p className="text-lg md:text-xl text-gray-300 mb-12">
-                        Let's discuss how I can contribute to your team.
+                        Let&apos;s discuss how I can contribute to your team.
                     </p>
 
                     <div className="flex flex-wrap gap-4 justify-center">

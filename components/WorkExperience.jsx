@@ -33,13 +33,18 @@ export default function WorkExperience() {
                 {/* Architectural Header */}
                 <div className="mb-20 md:mb-24 scroll-reveal grid md:grid-cols-[200px_1fr] gap-8 items-end">
                     <div>
-                        <span className="text-sm font-mono text-[#0A0A0A] font-medium tracking-widest uppercase block mb-4">02 / Experience</span>
+                        <div className="flex items-center gap-3 mb-4">
+                            <span className="font-mono text-[#F26530] text-sm">$</span>
+                            <div className="inline-block px-4 py-2 bg-[#F26530]">
+                                <span className="text-sm font-mono text-white font-bold tracking-widest uppercase">02 / EXPERIENCE</span>
+                            </div>
+                        </div>
                         <h2 className="text-5xl md:text-6xl font-medium text-[#0A0A0A] leading-none tracking-tight"
                             style={{ fontFamily: 'var(--font-space-grotesk)' }}>
                             Career<br />Timeline
                         </h2>
                     </div>
-                    <p className="text-lg text-[#4A4A4A] max-w-xl border-l border-[#0A0A0A] pl-6 py-2">
+                    <p className="text-lg text-[#4A4A4A] max-w-xl border-l-4 border-[#F26530] pl-6 py-2 bg-[#FFF5F0]">
                         Building production-grade systems and leading engineering teams across startups and enterprise environments.
                     </p>
                 </div>
@@ -58,7 +63,7 @@ export default function WorkExperience() {
                                         {exp.period}
                                     </span>
                                     {/* Timeline Node - Neon Pop */}
-                                    <div className="absolute top-[42px] -right-[5px] w-2.5 h-2.5 bg-[#0A0A0A] rounded-full border-2 border-white z-20 group-hover:scale-150 group-hover:bg-[#F26530] transition-all duration-300"></div>
+                                    <div className="absolute top-[42px] -right-[5px] w-3 h-3 bg-[#F26530] rounded-full border-2 border-white z-20 group-hover:scale-150 transition-all duration-300 shadow-md"></div>
                                 </div>
 
                                 {/* Content Card - Architectural Box + Neon Shadow */}

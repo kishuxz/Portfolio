@@ -33,13 +33,13 @@ export default function ChatbotButton() {
                         <h3 className="text-lg font-light" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
                             Get in Touch
                         </h3>
-                        <p className="text-sm text-[#9CA3AF] mt-1">Let's connect and chat!</p>
+                        <p className="text-sm text-[#9CA3AF] mt-1">Let&apos;s connect and chat!</p>
                     </div>
 
                     {/* Content */}
                     <div className="p-6 space-y-4">
                         <p className="text-sm text-[#6B6B6B]">
-                            I'm always open to discussing new opportunities, collaborations, or just chatting about tech!
+                            I&apos;m always open to discussing new opportunities, collaborations, or just chatting about tech!
                         </p>
 
                         {/* Quick Action Buttons */}

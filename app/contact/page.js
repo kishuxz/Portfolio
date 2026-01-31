@@ -45,14 +45,14 @@ export default function ContactPage() {
                     </Link>
 
                     <h1 className="heading-xxl mb-8">
-                        Let's Connect
+                        Let&apos;s Connect
                     </h1>
 
                     <p className="text-2xl md:text-3xl text-gray-300 mb-4 max-w-3xl">
                         Interested in discussing new opportunities, challenging projects, or innovative ideas?
                     </p>
                     <p className="text-lg text-gray-400 max-w-2xl">
-                        I'm always open to interesting conversations.
+                        I&apos;m always open to interesting conversations.
                     </p>
                 </div>
             </section>
@@ -213,7 +213,7 @@ export default function ContactPage() {
                             </h3>
                             <p className="text-gray-300 leading-relaxed">
                                 I specialize in full-stack web applications, data engineering pipelines, and ML/LLM systems.
-                                I'm particularly interested in projects involving RAG systems, production AI infrastructure,
+                                I&apos;m particularly interested in projects involving RAG systems, production AI infrastructure,
                                 and scalable data processing.
                             </p>
                         </div>
@@ -223,14 +223,14 @@ export default function ContactPage() {
                                 Are you available for freelance work?
                             </h3>
                             <p className="text-gray-300 leading-relaxed">
-                                Yes! I'm  open to freelance projects, especially those that involve interesting technical
+                                Yes! I&apos;m  open to freelance projects, especially those that involve interesting technical
                                 challenges or innovative applications of AI/ML technologies.
                             </p>
                         </div>
 
                         <div>
                             <h3 className="text-xl font-medium mb-3" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-                                What's your typical response time?
+                                What&apos;s your typical response time?
                             </h3>
                             <p className="text-gray-300 leading-relaxed">
                                 I aim to respond to all inquiries within 24-48 hours. For urgent matters, feel free to

@@ -52,7 +52,7 @@ export default function ChatPage() {
     };
 
     return (
-        <div className="min-h-screen bg-white dotted-bg">
+        <div className="min-h-screen bg-[#F8F8F8]">
             {/* Floating Nav */}
             <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
                 <div className="glass px-6 py-3 rounded-full shadow-lg backdrop-blur-xl border border-gray-200/50 flex items-center gap-6">
@@ -68,10 +68,11 @@ export default function ChatPage() {
                     <Link href="/#projects" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
                         Projects
                     </Link>
-                    <Link href="/chat" className="text-sm font-medium text-black border-b-2 border-black">
+                    <Link href="/chat" className="text-sm font-medium text-[#0A0A0A]">
                         Chat AI
+                        <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#F26530]"></span>
                     </Link>
-                    <Link href="/resume" className="text-sm font-medium px-4 py-1.5 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
+                    <Link href="/resume" className="text-sm font-medium px-4 py-1.5 bg-[#F26530] text-white rounded-full hover:bg-[#E55520] transition-colors">
                         Resume
                     </Link>
                 </div>
@@ -82,11 +83,19 @@ export default function ChatPage() {
                 <div className="max-w-3xl w-full space-y-8">
                     {/* Heading */}
                     <div className="text-center space-y-4">
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-[#0A0A0A]" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                        <div className="flex items-center justify-center gap-3 mb-4">
+                            <span className="font-mono text-[#F26530] text-lg">$</span>
+                            <div className="inline-block px-4 py-2 bg-[#F26530]">
+                                <span className="text-sm font-mono text-white font-bold tracking-widest uppercase">AI CHAT</span>
+                            </div>
+                        </div>
+                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium text-[#0A0A0A]" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                            <span className="font-mono text-base text-[#F26530]">{'<'}</span>
                             Ask About My Work
+                            <span className="font-mono text-base text-[#F26530]">{'/>'}</span>
                         </h1>
-                        <p className="text-lg text-[#6B6B6B]">
-                            RAG-powered AI trained on my portfolio • Grounded answers with citations
+                        <p className="text-lg text-[#4A4A4A] border-l-4 border-[#F26530] pl-6 py-2 inline-block bg-[#FFF5F0]">
+                            <span className="font-mono text-[#F26530] text-sm">{'//'}</span> RAG-powered AI trained on my portfolio
                         </p>
                     </div>
 
@@ -97,8 +106,8 @@ export default function ChatPage() {
                                 <div key={index}>
                                     <div className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                                         <div className={`max-w-[80%] px-4 py-3 rounded-2xl ${msg.role === 'user'
-                                            ? 'bg-[#0A0A0A] text-white'
-                                            : 'bg-gray-50 text-[#0A0A0A]'
+                                            ? 'bg-[#F26530] text-white'
+                                            : 'bg-gray-50 text-[#0A0A0A] border border-[#E5E5E5]'
                                             }`}>
                                             <p className="text-sm leading-relaxed">{msg.content}</p>
                                         </div>
@@ -137,7 +146,7 @@ export default function ChatPage() {
                     )}
 
                     {/* Chat Input */}
-                    <div className="bg-white border-2 border-[#E5E5E5] rounded-2xl p-5 hover:border-[#0A0A0A] transition-all shadow-lg">
+                    <div className="bg-white border-2 border-[#E5E5E5] rounded-2xl p-5 hover:border-[#F26530] transition-all shadow-lg">
                         <div className="flex items-center gap-4">
                             <input
                                 type="text"
@@ -151,7 +160,7 @@ export default function ChatPage() {
                             <button
                                 onClick={handleSend}
                                 disabled={!message.trim() || isLoading}
-                                className="w-12 h-12 rounded-full bg-[#0A0A0A] hover:bg-[#1A1A1A] disabled:bg-[#E5E0DB] flex items-center justify-center transition-all"
+                                className="w-12 h-12 rounded-full bg-[#F26530] hover:bg-[#E55520] disabled:bg-[#E5E0DB] flex items-center justify-center transition-all hover:scale-105"
                             >
                                 {isLoading ? (
                                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
@@ -183,7 +192,7 @@ export default function ChatPage() {
                                         key={i}
                                         onClick={() => setMessage(q)}
                                         disabled={isLoading}
-                                        className="px-4 py-3 text-sm bg-white border-2 border-[#E5E0DB] rounded-xl text-[#6B6B6B] text-left hover:border-[#D4C5B9] hover:text-[#0A0A0A] transition-all disabled:opacity-50"
+                                        className="px-4 py-3 text-sm bg-white border-2 border-[#E5E5E5] rounded-xl text-[#6B6B6B] text-left hover:border-[#F26530] hover:text-[#0A0A0A] transition-all disabled:opacity-50"
                                     >
                                         {q}
                                     </button>

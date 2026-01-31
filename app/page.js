@@ -8,11 +8,14 @@ import FloatingNav from '@/components/FloatingNav';
 import ChatbotButton from '@/components/ChatbotButton';
 import IntroOverlay from '@/components/IntroOverlay';
 import CustomCursor from '@/components/CustomCursor';
-import ProofBar from '@/components/ProofBar';
+import ScrollProgress from '@/components/ScrollProgress';
+import PageLoader from '@/components/PageLoader';
 
 export default function HomePage() {
     return (
         <>
+            <PageLoader />
+            <ScrollProgress />
             {/* <IntroOverlay /> */}
             {/* <CustomCursor /> */}
             <FloatingNav />
@@ -21,21 +24,11 @@ export default function HomePage() {
                 {/* 01. Hero - Name, title, bio, social links */}
                 <Hero />
 
-                {/* Proof Bar - Technologies */}
-                <ProofBar />
+                {/* 02. Skills - What I work with */}
+                <SkillsSnapshot />
 
-                {/* Rounded Container for Skills + Experience */}
-                <div className="relative py-16" style={{ background: '#F8F8F8' }}>
-                    <div className="max-w-7xl mx-auto px-4 md:px-8">
-                        <div className="bg-white rounded-[60px] shadow-lg overflow-hidden">
-                            {/* 02. Skills - What I work with */}
-                            <SkillsSnapshot />
-
-                            {/* 03. Work Experience - Companies and achievements */}
-                            <WorkExperience />
-                        </div>
-                    </div>
-                </div>
+                {/* 03. Work Experience - Companies and achievements */}
+                <WorkExperience />
 
                 {/* 04. Projects - Technical showcase */}
                 <FeaturedProjects />

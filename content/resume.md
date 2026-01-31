@@ -8,14 +8,14 @@ last_updated: "2026-01-20"
 
 **Full-Stack Developer · Data Engineer · ML/LLM Systems Engineer**
 
-📧 kishore.kumar@example.com  
-🔗 [GitHub](https://github.com/kishuxz) | [LinkedIn](https://linkedin.com/in/yourusername)
+📧 kishoresk0123@gmail.com  
+🔗 [GitHub](https://github.com/kishuxz) | [LinkedIn](https://www.linkedin.com/in/kishore-kumar-ramkumar-425744279/) | [LeetCode](https://leetcode.com/u/Kishore_0123/)
 
 ---
 
 ## Professional Summary
 
-Full-Stack Software Engineer with 3+ years of experience building production systems across Frontend, Full-Stack, Data, and ML/LLM domains. Proven track record of delivering 15+ projects for 8+ companies, specializing in scalable data pipelines, distributed systems, and LLM-powered applications.
+Full-stack engineer with hands-on experience building frontend applications, scalable data pipelines, and applied ML/LLM systems. Has worked across research, internships, hackathons, and freelance projects, delivering production-ready systems that combine clean UI, robust backend services, and data-driven intelligence. Strong focus on practical system design, reliability, and real-world impact.
 
 ---
 
@@ -52,47 +52,62 @@ Focus: Machine Learning, Distributed Systems, NLP
 
 ## Professional Experience
 
-**Full-Stack Software Engineer**  
-*Various Companies* | 2021 - Present
+**Research Assistant (Data Scientist)**  
+*Indiana University – The Media School* | Jan 2026 - Present | Bloomington, IN
 
-- Built production systems across Frontend, Full-Stack, Data, and ML/LLM domains
-- Delivered 15+ projects for 8+ companies
-- Specialized in data engineering and ML/LLM infrastructure
-- Implemented scalable solutions using modern cloud technologies
+- Developing automated data pipelines to transcribe television program audio and transform unstructured media content into structured, analysis-ready datasets
+- Designing scalable preprocessing workflows to clean, standardize, and normalize transcripts
+- Building datasets extending media research coverage beyond 2015 using program-level metadata extraction
 
-**Key Achievements:**
-- Designed and deployed distributed data pipelines processing millions of records
-- Built LLM-powered applications using RAG and agent-based architectures
-- Optimized cloud infrastructure reducing costs by 40%
-- Led development of real-time analytics dashboards
+**Data Engineer / Research Assistant**  
+*Indiana University – O'Neill School* | May 2025 - Aug 2025 | Bloomington, IN
+
+- Built distributed data processing pipeline to process 530+ GB of CMIP6 climate data using Python on HPC
+- Reduced preprocessing time by 32% through parallelization and I/O optimization
+- Implemented automated validation, drift checks, and rolling aggregates for drought analysis
+
+**ML Associate Engineer Intern**  
+*MRAR Intellect Solutions* | Jan 2024 - Aug 2024 | Mississauga, Canada
+
+- Built and deployed GPU-backed RAG chatbot using PyTorch, FAISS-GPU, and FastAPI on AWS EKS
+- Maintained 95% of inferences under 150ms using CUDA FP16 optimizations
+- Designed distributed multi-GPU training for GPT-J-6B using Ray and DeepSpeed ZeRO-3
+
+**Data Analyst Intern**  
+*IVIEWSENSE Private Limited* | Jan 2022 - Dec 2022 | Chennai, India
+
+- Built interactive Power BI dashboards using SQL and EDA
+- Reduced dashboard refresh time from 42 to 33 minutes through optimization
+- Maintained 98% on-time data updates across reporting workflows
 
 ---
 
-## Certifications
+## Certifications & Awards
 
-- AWS Certifications (multiple)
-- Google Cloud Certifications
-- TensorFlow Developer Certificate
-- Kubernetes Administrator (CKA)
+- AWS Hackathon Participant (TruthLens Project)
+- University Research Contributions
+- Multiple Project Completions
 
 ---
 
 ## Projects Highlights
 
-**ML Pipeline for Real-time Predictions**
-- Built end-to-end ML pipeline using Python, TensorFlow, Docker, Kubernetes
-- Implemented real-time inference serving 10K+ requests/day
-- Technologies: Python, TensorFlow, Docker, Kubernetes, AWS
+**TruthLens – LLM-Powered RAG System**
+- Built agent-driven RAG system for querying large unstructured datasets
+- Implemented vector search, grounding, and tool-based reasoning
+- Technologies: Python, LangChain, RAG, AWS
+- GitHub: https://github.com/kishuxz/aws-hackathon-truthlens
 
-**Distributed Data Platform**
-- Architected data platform processing 500GB+ daily
-- Implemented ETL pipelines using Apache Airflow and Spark
-- Technologies: Python, Spark, Airflow, PostgreSQL, AWS
+**CMIP6 Climate Data Processing Pipeline**
+- Processed 530+ GB of climate data on HPC with 32% performance improvement
+- Implemented automated validation and rolling aggregates
+- Technologies: Python, xarray, NetCDF, HPC, PostgreSQL
 
-**LLM-Powered RAG System**
-- Built retrieval-augmented generation system for document Q&A
-- Implemented vector search with semantic caching
-- Technologies: LangChain, Python, Supabase, HuggingFace
+**NetworkMap – Interactive Visualization Platform**
+- Built open-source network visualization tool
+- Developed reusable React components with D3.js
+- Technologies: React, D3.js, Node.js, TypeScript
+- GitHub: https://github.com/kishuxz/NetworkMap
 
 ---
 
