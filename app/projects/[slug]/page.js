@@ -3,6 +3,14 @@ import { FiGithub, FiExternalLink, FiArrowLeft } from 'react-icons/fi';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { projects } from '@/lib/content-config';
+
+// Generate static params for all project slugs
+export async function generateStaticParams() {
+    return projects.map((project) => ({
+        slug: project.slug,
+    }));
+}
 
 // This would use getProjectBySlug() in real implementation
 // For now, mock data
@@ -27,6 +35,7 @@ Traditional LLMs suffer from hallucination...
 
 export default function ProjectPage({ params }) {
     const project = projectData; // In real app: getProjectBySlug(params.slug)
+
 
     return (
         <div className="min-h-screen">
