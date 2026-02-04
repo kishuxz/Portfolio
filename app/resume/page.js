@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { FiDownload, FiArrowLeft, FiMail, FiGithub, FiLinkedin, FiCode } from 'react-icons/fi';
+import { personalInfo } from '@/lib/content-config';
 
 export default function ResumePage() {
     return (
@@ -25,14 +26,25 @@ export default function ResumePage() {
                         Full-Stack Developer · Data Engineer · ML/LLM Systems
                     </p>
 
-                    <a
-                        href="/resume.pdf"
-                        download
-                        className="px-6 md:px-8 py-3 md:py-4 bg-white text-black rounded-full font-medium hover:bg-gray-200 transition-colors inline-flex items-center gap-2 text-sm md:text-base"
-                    >
-                        <FiDownload />
-                        Download PDF
-                    </a>
+                    <div className="flex flex-wrap gap-4 justify-center">
+                        <a
+                            href={personalInfo.resumePdfUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-6 md:px-8 py-3 md:py-4 bg-white text-black rounded-full font-medium hover:bg-gray-200 transition-colors inline-flex items-center gap-2 text-sm md:text-base"
+                        >
+                            <FiDownload />
+                            View PDF
+                        </a>
+                        <a
+                            href={personalInfo.resumePdfUrl}
+                            download="Kishore_Kumar_Resume_2026.pdf"
+                            className="px-6 md:px-8 py-3 md:py-4 border-2 border-white bg-black text-white rounded-full font-medium hover:bg-gray-900 transition-colors inline-flex items-center gap-2 text-sm md:text-base"
+                        >
+                            <FiDownload />
+                            Download PDF
+                        </a>
+                    </div>
                 </div>
             </section>
 
@@ -40,21 +52,21 @@ export default function ResumePage() {
             <section className="section-white border-b border-gray-200">
                 <div className="container-custom max-w-4xl">
                     <div className="flex flex-wrap gap-6 justify-center md:justify-start">
-                        <a href="mailto:your.email@example.com" className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors">
+                        <a href={`mailto:${personalInfo.email}`} className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors">
                             <FiMail />
-                            your.email@example.com
+                            {personalInfo.email}
                         </a>
-                        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors">
+                        <a href={personalInfo.social.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors">
                             <FiGithub />
-                            github.com/yourusername
+                            github.com/kishuxz
                         </a>
-                        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors">
+                        <a href={personalInfo.social.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors">
                             <FiLinkedin />
-                            linkedin.com/in/yourusername
+                            linkedin.com/in/kishore-kumar-ramkumar
                         </a>
-                        <a href="https://leetcode.com/yourusername" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors">
+                        <a href={personalInfo.social.leetcode} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors">
                             <FiCode />
-                            leetcode.com/yourusername
+                            leetcode.com/u/Kishore_0123
                         </a>
                     </div>
                 </div>

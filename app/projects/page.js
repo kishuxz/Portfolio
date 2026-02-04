@@ -3,38 +3,19 @@
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { FiArrowUpRight } from 'react-icons/fi';
+import { projects, projectGradients } from '@/lib/content-config';
 
-// This would come from getAllProjects() in a real implementation
-// For now, using static data
-const allProjectsData = [
-    {
-        slug: 'rag-chatbot',
-        title: 'LLM-Powered RAG Chatbot',
-        category: 'ML/LLM Systems',
-        oneLiner: 'Production RAG system with semantic search and zero hallucinations',
-        gradient: 'from-blue-500 to-purple-600',
-        tech: ['LangChain', 'Next.js', 'Supabase'],
-        date: '2024-10',
-    },
-    {
-        slug: 'data-pipeline',
-        title: 'Distributed Data Pipeline',
-        category: 'Data Engineering',
-        oneLiner: 'Automated ETL pipeline processing 1M+ records daily with 99.9% reliability',
-        gradient: 'from-green-500 to-emerald-600',
-        tech: ['Python', 'Airflow', 'AWS'],
-        date: '2024-08',
-    },
-    {
-        slug: 'open-source',
-        title: 'Open-Source ML Library',
-        category: 'Machine Learning',
-        oneLiner: 'Performance optimization merged into production ML library',
-        gradient: 'from-orange-500 to-pink-600',
-        tech: ['Python', 'C++', 'Testing'],
-        date: '2024-06',
-    },
-];
+// Map projects from content-config to projects page format
+const gradientList = Object.values(projectGradients);
+const allProjectsData = projects.map((project, index) => ({
+    slug: project.slug,
+    title: project.title,
+    category: project.categories[1] || project.categories[0], // Use second category or first
+    oneLiner: project.accomplished,
+    gradient: gradientList[index % gradientList.length],
+    tech: project.techStack,
+    date: '2024',
+}));
 
 export default function ProjectsPage() {
     const [selectedCategory, setSelectedCategory] = useState('all');

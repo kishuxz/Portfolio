@@ -33,8 +33,8 @@ export default function SkillsSnapshot() {
             x: rect.left + rect.width / 2,
             y: rect.top - 10
         });
-        // Find skill data from enhanced skills
-        const skillData = enhancedSkills.find(s => s.name === skillName);
+        // Find skill data from enhanced skills - using 'skill' property not 'name'
+        const skillData = enhancedSkills.find(s => s.skill === skillName);
         setHoveredSkill(skillData);
     };
 
@@ -100,25 +100,42 @@ export default function SkillsSnapshot() {
                             transform: 'translate(-50%, -100%)'
                         }}
                     >
-                        <div className="bg-black text-white px-4 py-3 rounded-lg shadow-lg max-w-xs">
-                            <p className="font-semibold text-base mb-2 text-[#F26530]">{hoveredSkill.name}</p>
+                        <div className="bg-black text-white px-4 py-3 rounded-lg shadow-lg max-w-sm">
+                            <p className="font-semibold text-base mb-3">{hoveredSkill.skill}</p>
 
-                            {hoveredSkill.usedIn?.projects?.length > 0 && (
-                                <div className="mb-2">
-                                    <p className="text-xs text-gray-400 mb-1">Projects:</p>
-                                    <p className="text-sm">{hoveredSkill.usedIn.projects.join(', ')}</p>
-                                </div>
-                            )}
+                            {hoveredSkill.used_in && hoveredSkill.used_in.length > 0 && (
+                                <>
+                                    {/* Projects */}
+                                    {hoveredSkill.used_in.filter(item => item.type === 'project').length > 0 && (
+                                        <div className="mb-2">
+                                            <p className="text-xs text-gray-400 mb-1">Projects:</p>
+                                            <p className="text-sm">
+                                                {hoveredSkill.used_in
+                                                    .filter(item => item.type === 'project')
+                                                    .map(item => item.name)
+                                                    .join(', ')}
+                                            </p>
+                                        </div>
+                                    )}
 
-                            {hoveredSkill.usedIn?.companies?.length > 0 && (
-                                <div>
-                                    <p className="text-xs text-gray-400 mb-1">Companies:</p>
-                                    <p className="text-sm">{hoveredSkill.usedIn.companies.join(', ')}</p>
-                                </div>
+                                    {/* Companies/Experience */}
+                                    {hoveredSkill.used_in.filter(item => item.type === 'experience').length > 0 && (
+                                        <div>
+                                            <p className="text-xs text-gray-400 mb-1">Companies:</p>
+                                            <p className="text-sm">
+                                                {hoveredSkill.used_in
+                                                    .filter(item => item.type === 'experience')
+                                                    .map(item => item.name)
+                                                    .join(', ')}
+                                            </p>
+                                        </div>
+                                    )}
+                                </>
                             )}
                         </div>
                     </div>
                 )}
+
             </div>
         </section>
     );

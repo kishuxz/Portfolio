@@ -99,6 +99,25 @@ export default function ChatPage() {
                         </p>
                     </div>
 
+                    {/* Beta Notice */}
+                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-500 p-4 rounded-lg">
+                        <div className="flex items-start gap-3">
+                            <div className="flex-shrink-0 mt-0.5">
+                                <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <div className="flex-1">
+                                <p className="text-sm font-medium text-blue-900 mb-1">
+                                    🚧 Beta Feature – Active Development
+                                </p>
+                                <p className="text-xs text-blue-700 leading-relaxed">
+                                    This AI assistant is currently in beta. While it&apos;s trained on my entire portfolio (projects, experience, skills), responses are being refined for accuracy. Feel free to explore, but some answers may be incomplete.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                     {/* Chat Messages */}
                     {messages.length > 0 && (
                         <div className="bg-white border-2 border-[#E5E5E5] rounded-2xl p-6 space-y-4 max-h-[400px] overflow-y-auto">
@@ -145,31 +164,20 @@ export default function ChatPage() {
                         </div>
                     )}
 
-                    {/* Chat Input */}
-                    <div className="bg-white border-2 border-[#E5E5E5] rounded-2xl p-5 hover:border-[#F26530] transition-all shadow-lg">
-                        <div className="flex items-center gap-4">
-                            <input
-                                type="text"
-                                value={message}
-                                onChange={(e) => setMessage(e.target.value)}
-                                onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-                                placeholder="Ask me about my projects, skills, experience..."
-                                className="flex-1 bg-transparent text-[#0A0A0A] placeholder-[#9CA3AF] outline-none text-base"
-                                disabled={isLoading}
-                            />
-                            <button
-                                onClick={handleSend}
-                                disabled={!message.trim() || isLoading}
-                                className="w-12 h-12 rounded-full bg-[#F26530] hover:bg-[#E55520] disabled:bg-[#E5E0DB] flex items-center justify-center transition-all hover:scale-105"
-                            >
-                                {isLoading ? (
-                                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                                ) : (
-                                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                                    </svg>
-                                )}
-                            </button>
+                    {/* Coming Soon Message - Input Disabled */}
+                    <div className="bg-gradient-to-r from-gray-50 to-gray-100 border-2 border-[#E5E5E5] rounded-2xl p-6">
+                        <div className="text-center space-y-3">
+                            <div className="flex items-center justify-center gap-2">
+                                <svg className="w-6 h-6 text-[#F26530]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <p className="text-lg font-semibold text-[#0A0A0A]">
+                                    🚧 Coming Soon - Stay Tuned!
+                                </p>
+                            </div>
+                            <p className="text-sm text-[#6B6B6B] leading-relaxed max-w-md mx-auto">
+                                The interactive chat feature is currently being enhanced. Check back soon for AI-powered conversations about my projects, skills, and experience!
+                            </p>
                         </div>
                     </div>
 
@@ -177,10 +185,10 @@ export default function ChatPage() {
                         Powered by RAG + HuggingFace • Grounded in portfolio data • Zero hallucinations
                     </p>
 
-                    {/* Example Questions - Only show if no messages */}
+                    {/* Example Questions - Disabled */}
                     {messages.length === 0 && (
-                        <div className="space-y-4">
-                            <p className="text-sm text-[#6B6B6B] font-medium text-center">Try asking:</p>
+                        <div className="space-y-4 opacity-40 pointer-events-none select-none">
+                            <p className="text-sm text-[#6B6B6B] font-medium text-center">Sample questions:</p>
                             <div className="grid grid-cols-2 gap-3">
                                 {[
                                     "What are your main skills?",

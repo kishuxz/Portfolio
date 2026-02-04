@@ -26,42 +26,55 @@ export default function Education() {
 
     const education = [
         {
-            degree: 'Bachelor of Science in Computer Science',
-            institution: 'University Name',
-            location: 'City, State',
-            period: '2015 - 2019',
-            gpa: '3.8/4.0',
+            degree: 'Master of Science in Data Science',
+            institution: 'Indiana University Bloomington',
+            location: 'Bloomington, IN',
+            period: 'Aug 2024 - May 2026',
+            gpa: '3.5/4.0',
             achievements: [
-                'Dean\'s List all semesters',
-                'Senior thesis on Machine Learning applications',
-                'President of Computer Science Club'
+                'Research Assistant at Media School and O\'Neill School for climate data analysis and ML systems',
+                'Advanced coursework in distributed systems, ML engineering, and large-scale data processing'
             ]
         },
         {
-            degree: 'Master of Science in Data Science',
-            institution: 'University Name',
-            location: 'City, State',
-            period: '2019 - 2021',
-            gpa: '3.9/4.0',
+            degree: 'Bachelor of Technology in Computer Science (AI & ML)',
+            institution: 'Sri Ramachandra Institute of Higher Education and Research',
+            location: 'Chennai, India',
+            period: 'Jul 2021 - Jun 2024',
+            gpa: '8.45/10.0',
             achievements: [
-                'Research in Natural Language Processing',
-                'Published paper on ML optimization techniques',
-                'Teaching Assistant for Advanced Algorithms'
+                'Specialized in Artificial Intelligence and Machine Learning with applied systems coursework',
+                'Built ML-based solutions for healthcare and data-driven applications'
             ]
         }
     ];
 
     const certifications = [
-        { name: 'AWS Certified Solutions Architect', issuer: 'Amazon Web Services', date: '2023' },
-        { name: 'Google Cloud Professional Data Engineer', issuer: 'Google Cloud', date: '2023' },
-        { name: 'TensorFlow Developer Certificate', issuer: 'TensorFlow', date: '2023' },
-        { name: 'Kubernetes Application Developer', issuer: 'CNCF', date: '2022' }
+        {
+            name: 'AWS Certified Machine Learning Engineer – Associate',
+            issuer: 'Amazon Web Services',
+            date: 'Nov 2025 - Nov 2028'
+        },
+        {
+            name: 'AWS Certified Developer – Associate',
+            issuer: 'Amazon Web Services',
+            date: 'Jan 2026 - Jan 2029'
+        }
     ];
 
     const awards = [
-        { title: '1st Place - TechCrunch Disrupt', year: '2024' },
-        { title: 'NASA Space Apps Global Winner', year: '2023' },
-        { title: 'Best Social Impact Award - HackMIT', year: '2023' }
+        {
+            title: 'Best Overall Presentation — FADS Research Showcase',
+            organization: 'Indiana University',
+            year: '2025',
+            description: 'Awarded for excellence in climate data analysis and research presentation on drought signals in CMIP6 models'
+        },
+        {
+            title: 'Runners-Up — SRET 48-Hour Hackathon',
+            organization: 'Sri Ramachandra Institute',
+            year: '2024',
+            description: 'Recognized for building a data-driven ML solution under time constraints'
+        }
     ];
 
     return (
@@ -157,22 +170,28 @@ export default function Education() {
                                 <FiCheckCircle className="text-[#0A0A0A]" />
                                 Certifications
                             </h3>
-                            <div className="space-y-4">
-                                {certifications.map((cert, i) => (
-                                    <div key={i} className="group bg-white rounded-xl border border-[#E5E0DB] p-5
-                                        hover:border-[#0A0A0A] hover:shadow-md transition-all duration-300 flex items-center gap-4">
-                                        <div className="w-2 h-12 bg-gray-200 rounded-full group-hover:bg-[#0A0A0A] transition-colors duration-300"></div>
-                                        <div className="flex-1">
-                                            <p className="text-base font-medium text-[#0A0A0A] mb-1 group-hover:text-[#0A0A0A] transition-colors">
-                                                {cert.name}
-                                            </p>
-                                            <p className="text-xs text-[#9CA3AF] font-mono uppercase tracking-wide">
-                                                {cert.issuer} · {cert.date}
-                                            </p>
+                            {certifications.length > 0 ? (
+                                <div className="space-y-4">
+                                    {certifications.map((cert, i) => (
+                                        <div key={i} className="group bg-white rounded-xl border border-[#E5E0DB] p-5
+                                            hover:border-[#0A0A0A] hover:shadow-md transition-all duration-300 flex items-center gap-4">
+                                            <div className="w-2 h-12 bg-gray-200 rounded-full group-hover:bg-[#0A0A0A] transition-colors duration-300"></div>
+                                            <div className="flex-1">
+                                                <p className="text-base font-medium text-[#0A0A0A] mb-1 group-hover:text-[#0A0A0A] transition-colors">
+                                                    {cert.name}
+                                                </p>
+                                                <p className="text-xs text-[#9CA3AF] font-mono uppercase tracking-wide">
+                                                    {cert.issuer} · {cert.date}
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div>
-                                ))}
-                            </div>
+                                    ))}
+                                </div>
+                            ) : (
+                                <div className="bg-white rounded-xl border border-[#E5E0DB] p-8 text-center">
+                                    <p className="text-sm text-[#9CA3AF] italic">No certifications listed</p>
+                                </div>
+                            )}
                         </div>
 
                         {/* Awards */}
@@ -185,19 +204,24 @@ export default function Education() {
                             <div className="space-y-4">
                                 {awards.map((award, i) => (
                                     <div key={i} className="group bg-white rounded-xl border border-[#E5E0DB] p-5
-                                        hover:border-[#0A0A0A] hover:shadow-md transition-all duration-300 flex items-center gap-4">
-                                        <div className="w-10 h-10 rounded-full bg-white border border-[#E5E5E5]
-                                            flex items-center justify-center text-[#9CA3AF] text-lg
-                                            group-hover:scale-110 group-hover:bg-[#F26530] group-hover:text-white transition-all duration-300">
-                                            <FiStar className="fill-current" />
-                                        </div>
-                                        <div className="flex-1">
-                                            <p className="text-base font-medium text-[#0A0A0A] mb-1">
-                                                {award.title}
-                                            </p>
-                                            <p className="text-xs text-[#9CA3AF] font-mono">
-                                                {award.year}
-                                            </p>
+                                        hover:border-[#0A0A0A] hover:shadow-md transition-all duration-300">
+                                        <div className="flex items-start gap-4">
+                                            <div className="w-10 h-10 rounded-full bg-white border border-[#E5E5E5]
+                                                flex items-center justify-center text-[#9CA3AF] text-lg flex-shrink-0
+                                                group-hover:scale-110 group-hover:bg-[#F26530] group-hover:text-white transition-all duration-300">
+                                                <FiStar className="fill-current" />
+                                            </div>
+                                            <div className="flex-1">
+                                                <p className="text-base font-medium text-[#0A0A0A] mb-1">
+                                                    {award.title}
+                                                </p>
+                                                <p className="text-xs text-[#9CA3AF] font-mono uppercase tracking-wide mb-2">
+                                                    {award.organization} · {award.year}
+                                                </p>
+                                                <p className="text-sm text-[#6B6B6B] leading-relaxed">
+                                                    {award.description}
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 ))}

@@ -3,6 +3,7 @@ const nextConfig = {
   // GitHub Pages static export configuration
   output: 'export',
   basePath: '/Portfolio',
+  assetPrefix: '/Portfolio/',
   images: {
     unoptimized: true, // Required for static export
     remotePatterns: [

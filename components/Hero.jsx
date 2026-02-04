@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { FiGithub, FiLinkedin, FiCode, FiMail, FiArrowDown } from 'react-icons/fi';
 import { personalInfo } from '@/lib/content-config';
 
@@ -147,16 +146,13 @@ export default function Hero() {
                     </div>
 
                     {/* Right: Photo - Simple and Clean */}
-                    <div className="scroll-reveal stagger-2 relative max-w-[500px] lg:ml-auto mt-12 lg:mt-0">
+                    <div className="scroll-reveal stagger-2 relative max-w-[420px] lg:ml-auto mt-12 lg:mt-0">
                         <div className="relative group">
                             <div className="relative overflow-hidden rounded-lg shadow-medium">
-                                <Image
-                                    src="/profile-photo.jpg"
+                                <img
+                                    src="/Portfolio/profile-photo.jpg"
                                     alt={personalInfo.name}
-                                    width={500}
-                                    height={600}
                                     className="w-full h-auto object-cover"
-                                    priority
                                 />
                             </div>
                         </div>
