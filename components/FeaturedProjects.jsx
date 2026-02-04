@@ -29,12 +29,12 @@ export default function FeaturedProjects() {
 
     const categories = [
         'Featured',
+        'LLM / Agents',
+        'Data Engineering',
         'Machine Learning',
-        'Data Analyst',
-        'Data Engineer',
-        'Software Engineer',
-        'AWS',
-        'Hackathons'
+        'Data Analysis',
+        'Data Visualization',
+        'Software Engineering'
     ];
 
 
