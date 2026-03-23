@@ -7,7 +7,7 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "deploy": "next build && touch out/.nojekyll && echo 'kishuxz.github.io/Portfolio' > out/CNAME",
+        "deploy": "GITHUB_PAGES=true next build && touch out/.nojekyll && echo 'kishuxz.github.io/Portfolio' > out/CNAME",
         "ingest": "node scripts/ingest-content.js",
         "setup-db": "node scripts/setup-vector-db.js"
     },

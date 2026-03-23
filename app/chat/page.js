@@ -164,41 +164,53 @@ export default function ChatPage() {
                         </div>
                     )}
 
-                    {/* Coming Soon Message - Input Disabled */}
-                    <div className="bg-gradient-to-r from-gray-50 to-gray-100 border-2 border-[#E5E5E5] rounded-2xl p-6">
-                        <div className="text-center space-y-3">
-                            <div className="flex items-center justify-center gap-2">
-                                <svg className="w-6 h-6 text-[#F26530]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <p className="text-lg font-semibold text-[#0A0A0A]">
-                                    🚧 Coming Soon - Stay Tuned!
-                                </p>
-                            </div>
-                            <p className="text-sm text-[#6B6B6B] leading-relaxed max-w-md mx-auto">
-                                The interactive chat feature is currently being enhanced. Check back soon for AI-powered conversations about my projects, skills, and experience!
-                            </p>
-                        </div>
+                    {/* Chat Input */}
+                    <div className="bg-white border-2 border-[#E5E5E5] rounded-2xl p-4 flex gap-3 items-end shadow-sm">
+                        <textarea
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter' && !e.shiftKey) {
+                                    e.preventDefault();
+                                    handleSend();
+                                }
+                            }}
+                            placeholder="Ask me about Kishore's skills, projects, experience…"
+                            disabled={isLoading}
+                            rows={2}
+                            className="flex-1 resize-none text-sm text-[#0A0A0A] placeholder-[#9CA3AF] bg-transparent outline-none disabled:opacity-50"
+                        />
+                        <button
+                            onClick={handleSend}
+                            disabled={isLoading || !message.trim()}
+                            className="flex-shrink-0 w-10 h-10 rounded-xl bg-[#F26530] text-white flex items-center justify-center
+                            hover:bg-[#E55520] transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
+                            aria-label="Send"
+                        >
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                            </svg>
+                        </button>
                     </div>
 
                     <p className="text-xs text-[#9CA3AF] text-center">
                         Powered by RAG + HuggingFace • Grounded in portfolio data • Zero hallucinations
                     </p>
 
-                    {/* Example Questions - Disabled */}
+                    {/* Example Questions */}
                     {messages.length === 0 && (
-                        <div className="space-y-4 opacity-40 pointer-events-none select-none">
-                            <p className="text-sm text-[#6B6B6B] font-medium text-center">Sample questions:</p>
+                        <div className="space-y-4">
+                            <p className="text-sm text-[#6B6B6B] font-medium text-center">Try asking:</p>
                             <div className="grid grid-cols-2 gap-3">
                                 {[
-                                    "What are your main skills?",
-                                    "Tell me about your ML projects",
-                                    "Your cloud experience?",
-                                    "Show me your data engineering work",
+                                    "What are Kishore's main AI/ML skills?",
+                                    "Tell me about the TruthLens project",
+                                    "What is Kishore's current research?",
+                                    "What cloud certifications does Kishore have?",
                                 ].map((q, i) => (
                                     <button
                                         key={i}
-                                        onClick={() => setMessage(q)}
+                                        onClick={() => { setMessage(q); }}
                                         disabled={isLoading}
                                         className="px-4 py-3 text-sm bg-white border-2 border-[#E5E5E5] rounded-xl text-[#6B6B6B] text-left hover:border-[#F26530] hover:text-[#0A0A0A] transition-all disabled:opacity-50"
                                     >

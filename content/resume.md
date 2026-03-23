@@ -1,124 +1,154 @@
 ---
-title: "Kishore Kumar - Resume"
+title: "Kishore Kumar Ramkumar – Resume"
 type: "resume"
-last_updated: "2026-01-20"
+last_updated: "2026-03-23"
 ---
 
-# Kishore Kumar
+# Kishore Kumar Ramkumar
 
-**Full-Stack Developer · Data Engineer · ML/LLM Systems Engineer**
+**AI/ML Engineer · Data Engineer · Full-Stack Developer**
 
-📧 kishoresk0123@gmail.com  
+📧 kishoresk0123@gmail.com | 📞 +1 (812)-340-2543
 🔗 [GitHub](https://github.com/kishuxz) | [LinkedIn](https://www.linkedin.com/in/kishore-kumar-ramkumar-425744279/) | [LeetCode](https://leetcode.com/u/Kishore_0123/)
 
 ---
 
 ## Professional Summary
 
-Full-stack engineer with hands-on experience building frontend applications, scalable data pipelines, and applied ML/LLM systems. Has worked across research, internships, hackathons, and freelance projects, delivering production-ready systems that combine clean UI, robust backend services, and data-driven intelligence. Strong focus on practical system design, reliability, and real-world impact.
-
----
-
-## Technical Skills
-
-### Cloud & Infrastructure
-AWS, Azure, Docker, Kubernetes, Terraform, CircleCI
-
-### Data Engineering
-SQL, PostgreSQL, MySQL, MongoDB, Redis, Data Modeling
-
-### Programming Languages
-Python, JavaScript, Java, C++, TypeScript, R
-
-### ML & LLMs
-Scikit-learn, TensorFlow, LangChain, Prompt Engineering, ReAct, Batch Processing
-
-### Big Data & ETL
-Apache Airflow, PySpark, Spark, Hadoop, Batch Processing
-
-### Visualization & Tools
-Power BI, Tableau, Git, Linux, VS Code, System Design
+AI/ML Engineer and Data Scientist with hands-on experience building production-ready machine learning systems, distributed data pipelines, RAG architectures, and full-stack web applications. Research background spans multimodal NLP/CV systems, climate data engineering on HPC, and GPU-optimized LLM inference. Holds two active AWS certifications and is pursuing an MS in Data Science at Indiana University (GPA 3.5, graduating May 2026). Open to full-time opportunities in AI/ML Engineering, Data Engineering, and Software Engineering.
 
 ---
 
 ## Education
 
-**MS Data Science**  
-Indiana University, Bloomington, IN  
-Graduated: 2024  
+**Master of Science in Data Science** — GPA 3.5
+Indiana University Bloomington | Aug 2024 – May 2026 | Bloomington, IN
 Focus: Machine Learning, Distributed Systems, NLP
 
----
-
-## Professional Experience
-
-**Research Assistant (Data Scientist)**  
-*Indiana University – The Media School* | Jan 2026 - Present | Bloomington, IN
-
-- Developing automated data pipelines to transcribe television program audio and transform unstructured media content into structured, analysis-ready datasets
-- Designing scalable preprocessing workflows to clean, standardize, and normalize transcripts
-- Building datasets extending media research coverage beyond 2015 using program-level metadata extraction
-
-**Data Engineer / Research Assistant**  
-*Indiana University – O'Neill School* | May 2025 - Aug 2025 | Bloomington, IN
-
-- Built distributed data processing pipeline to process 530+ GB of CMIP6 climate data using Python on HPC
-- Reduced preprocessing time by 32% through parallelization and I/O optimization
-- Implemented automated validation, drift checks, and rolling aggregates for drought analysis
-
-**ML Associate Engineer Intern**  
-*MRAR Intellect Solutions* | Jan 2024 - Aug 2024 | Mississauga, Canada
-
-- Built and deployed GPU-backed RAG chatbot using PyTorch, FAISS-GPU, and FastAPI on AWS EKS
-- Maintained 95% of inferences under 150ms using CUDA FP16 optimizations
-- Designed distributed multi-GPU training for GPT-J-6B using Ray and DeepSpeed ZeRO-3
-
-**Data Analyst Intern**  
-*IVIEWSENSE Private Limited* | Jan 2022 - Dec 2022 | Chennai, India
-
-- Built interactive Power BI dashboards using SQL and EDA
-- Reduced dashboard refresh time from 42 to 33 minutes through optimization
-- Maintained 98% on-time data updates across reporting workflows
+**Bachelor of Technology — Computer Science (Specializing in AI & ML)**
+Sri Ramachandra Institute of Higher Education and Research | Jul 2021 – Jun 2024 | Chennai, India
 
 ---
 
-## Certifications & Awards
+## Technical Skills
 
-- AWS Hackathon Participant (TruthLens Project)
-- University Research Contributions
-- Multiple Project Completions
+### Programming Languages & Development
+Python, Java, SQL, PostgreSQL, MySQL, JavaScript, ReactJS, TypeScript, C++, Git, R
 
----
+### Machine Learning & AI
+PyTorch, TensorFlow, RAG (Retrieval-Augmented Generation), FAISS / FAISS-GPU, NLP (spaCy, NLTK, OpenCV), LangGraph, LangChain, AI Agents, Multi-Agent Systems, Large Language Models, LLM APIs (Ollama, Hugging Face), Fine-tuning (LoRA, QLORA, PEFT), Transformers, Agentic Workflows, Prompt Engineering, Whisper, pyannote.audio, vLLM, DeepSpeed, Ray
 
-## Projects Highlights
+### Cloud Architecture & DevOps
+AWS (EC2, Lambda, S3, EKS, SQS, DynamoDB, CloudWatch, Bedrock, SageMaker, ECR), Serverless Architecture, Docker, Kubernetes, CI/CD, Linux
 
-**TruthLens – LLM-Powered RAG System**
-- Built agent-driven RAG system for querying large unstructured datasets
-- Implemented vector search, grounding, and tool-based reasoning
-- Technologies: Python, LangChain, RAG, AWS
-- GitHub: https://github.com/kishuxz/aws-hackathon-truthlens
+### Data Engineering & Big Data
+Apache Kafka, Apache Spark, PySpark, Spark MLlib, ETL Pipelines, Parallel Computing, xarray, xESMF, NetCDF, HPC (SLURM), Distributed Computing
 
-**CMIP6 Climate Data Processing Pipeline**
-- Processed 530+ GB of climate data on HPC with 32% performance improvement
-- Implemented automated validation and rolling aggregates
-- Technologies: Python, xarray, NetCDF, HPC, PostgreSQL
+### Backend & Systems
+REST APIs, Microservices, Distributed Systems, Event-Driven Architecture, HTTP, Message Queues, FastAPI, System Design
 
-**NetworkMap – Interactive Visualization Platform**
-- Built open-source network visualization tool
-- Developed reusable React components with D3.js
-- Technologies: React, D3.js, Node.js, TypeScript
-- GitHub: https://github.com/kishuxz/NetworkMap
+### Vector Databases & Retrieval
+FAISS (GPU), Embedding Models, Semantic Search, Supabase
+
+### Visualization & Tools
+Power BI, Tableau, Matplotlib, Cartopy, D3.js, Git
 
 ---
 
-## Awards & Recognition
+## Experience
 
-- Multiple hackathon wins
-- Recognition for technical excellence
-- Open-source contributions to major projects
+### Research Assistant (Machine Learning)
+**Indiana University – The Media School** | Jan 2026 – Present | Bloomington, IN
+
+- Architected a distributed 10-agent multimodal NLP and computer vision pipeline for speaker attribution using LangGraph, Whisper, pyannote.audio, LightASD, and LoRA-tuned Llama-3.2-11B, achieving 95% accuracy across 1,529 dialogue turns.
+- Designed Viterbi sequence decoding and clause-level resegmentation algorithms to refine speaker turn boundaries, reducing segmentation errors in long-form broadcast transcripts.
+- Implemented GPU-accelerated inference pipelines on NVIDIA A100 clusters (SLURM), enabling scalable batch processing of 15 years of archival broadcast television footage.
+- Built automated post-processing pipelines generating structured Final Draft XML and JSON transcripts with speakers, timestamps, and topic annotations for downstream ML/NLP analysis.
+
+### Data Engineer / Research Assistant
+**Indiana University – O'Neill School of Public & Environmental Affairs** | May 2025 – Aug 2025 | Bloomington, IN
+
+- Processed 530+ GB of CMIP6 precipitation data, regridding to a 1°×1° global grid using xarray and xESMF (Python); staged on Slate HPC storage and published versioned NetCDF outputs for cross-model analysis.
+- Reduced preprocessing time by 32% on Quartz HPC by distributing tasks with Spark and optimizing I/O throughput.
+- Generated 3-, 6-, and 12-month rolling totals and CONUS maps with Cartopy and Matplotlib; added drift tests and data CI for predictive analytics and time-series drought forecasting.
+
+### Machine Learning Associate Engineer Intern
+**MRAR Intellect Solutions** | Jan 2024 – Aug 2024 | Mississauga, Canada
+
+- Built a RAG-based automotive manual assistant using GPT-J-6B, FastAPI, and FAISS-GPU enabling semantic search and QA over vehicle documentation; deployed on AWS EKS with autoscaling.
+- Maintained 95% of inferences under 150ms using CUDA FP16 optimizations with CloudWatch monitoring.
+- Fine-tuned GPT-J-6B using Hugging Face Transformers and DeepSpeed for domain-specific response quality.
+- Improved LLM training workflows with Ray and DeepSpeed ZeRO-3, enabling distributed multi-GPU training and reliable S3 checkpointing.
+- Containerized ML services with Docker and Kubernetes; implemented CI/CD via AWS ECR, increasing GPU throughput by 18%.
+
+### Data Analyst Intern
+**IVIEWSENSE Private Limited** | Jan 2022 – Dec 2022 | Chennai, India
+
+- Collaborated with stakeholders to define KPIs; built interactive Power BI dashboards using SQL and EDA.
+- Reduced dashboard refresh time from 42 to 33 minutes through scheduled refresh optimization and validation checks.
+- Maintained 98% on-time data updates across reporting workflows.
+
+---
+
+## Projects
+
+### TruthLens – AI Reliability Platform
+**GitHub:** https://github.com/kishuxz/aws-hackathon-truthlens
+AWS Hackathon Project
+
+- Led a team to architect a Python-based multimodal reliability agent on AWS Bedrock producing auditable 0–100 reliability scores with labels, citations, independence checks, and contradiction detection.
+- Built a React web app and serverless API using AWS Lambda Function URLs, S3, IAM least-privilege policies, Pydantic validation, CI/CD pipelines, and monitoring.
+- Delivered an end-to-end pipeline with SageMaker OCR for quote card extraction and policy-driven scoring.
+- Tech: Python, AWS Bedrock, Lambda, S3, SageMaker, React, LangChain, LLMs, Pydantic.
+
+### Distributed Job Scheduler (AWS)
+**GitHub:** https://github.com/kishuxz/Job-Scheduler
+
+- Architected a serverless distributed job scheduling system using AWS Lambda, SQS, DynamoDB, and ECS for scalable asynchronous batch workloads.
+- Implemented idempotent job submission and fault-tolerant execution via SQS queues and DynamoDB state transitions.
+- Built observability with AWS CloudWatch logs and metrics.
+- Tech: AWS Lambda, SQS, DynamoDB, ECS, CloudWatch, Python.
+
+### NetworkMap – Network Analytics Platform
+**GitHub:** https://github.com/kishuxz/info_viz
+
+- Built a full-stack analytics platform (React, Node.js, Express, MongoDB) to collect and visualize 1,000+ participant connections.
+- Designed secure REST APIs with JWT authentication for scalable ingestion of relationship data.
+- Implemented network graph generation for Gephi export.
+- Tech: React, Node.js, Express, MongoDB, D3.js, JWT, REST APIs.
+
+### COVID-19 Lung CT Scan Detection
+**GitHub:** https://github.com/kishuxz/COVID-CT-DL-Models
+
+- Trained custom CNN and ResNet50 transfer-learning models on 19,685 CT scans achieving 83% test accuracy.
+- Used OpenCV preprocessing and Keras data augmentation; evaluated with confusion matrices, precision, recall, F1-score.
+- Built GAN-based augmentation pipeline and deployed a Dockerized Streamlit app for real-time classification.
+- Tech: Python, PyTorch, TensorFlow, CNNs, ResNet50, OpenCV, Docker, Streamlit, GANs.
+
+### Cloud-Based Smart Energy Management System
+**GitHub:** https://github.com/kishuxz/smart-energy-management-system
+
+- Built a Kafka and Spark pipeline processing 10,000 time-series energy records for EDA and forecasting.
+- Engineered time-based features and trained Spark MLlib models, achieving 12% MAE/RMSE improvement.
+- Delivered Tableau dashboards for usage trends and planning decisions.
+- Tech: Python, Apache Kafka, Apache Spark, PySpark, Spark MLlib, AWS, Tableau.
+
+### Multi-Agent LLM Relocator
+**GitHub:** https://github.com/Ramcharxn/MultiAgent-LLM-Relocator
+
+- Built a multi-agent LLM system for coordinated task-based decision-making across autonomous agents.
+- Designed agent roles, message-passing workflows, and multi-step orchestration logic.
+- Tech: Python, LLMs, LangChain, Prompt Engineering, Multi-Agent Systems.
+
+---
+
+## Certifications
+
+- **AWS Certified Machine Learning Engineer – Associate** | November 2025 – November 2028
+- **AWS Certified Developer – Associate** | January 2026 – January 2029
 
 ---
 
 ## Availability
 
-Available for new opportunities in Full-Stack Development, Data Engineering, and ML/LLM roles.
+Actively seeking full-time opportunities in AI/ML Engineering, Data Engineering, and Software Engineering, available from May 2026. Open to roles in the US.
