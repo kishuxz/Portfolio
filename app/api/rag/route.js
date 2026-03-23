@@ -7,6 +7,34 @@
 import { NextResponse } from 'next/server';
 import { retrieveRelevantChunks } from '@/lib/portfolio-knowledge';
 
+const ALLOWED_ORIGINS = new Set([
+  'https://kishuxz.github.io',
+  'https://portfolio-lpp8zzy4y-kishuxzs-projects.vercel.app',
+]);
+
+function buildCorsHeaders(origin) {
+  const allowedOrigin = ALLOWED_ORIGINS.has(origin)
+    ? origin
+    : 'https://portfolio-lpp8zzy4y-kishuxzs-projects.vercel.app';
+
+  return {
+    'Access-Control-Allow-Origin': allowedOrigin,
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Vary': 'Origin',
+  };
+}
+
+function jsonWithCors(data, init = {}, origin) {
+  return NextResponse.json(data, {
+    ...init,
+    headers: {
+      ...buildCorsHeaders(origin),
+      ...(init.headers ?? {}),
+    },
+  });
+}
+
 // ─── Rate limiting (simple in-memory, resets on cold start) ─────────────────
 const requestCounts = new Map();
 const RATE_LIMIT = 15;          // max requests per window
@@ -126,6 +154,8 @@ function fallbackAnswer(question, chunks) {
 // ─── Route Handler ────────────────────────────────────────────────────────────
 
 export async function POST(request) {
+  const origin = request.headers.get('origin') ?? '';
+
   try {
     // Rate limiting
     const ip =
@@ -134,9 +164,10 @@ export async function POST(request) {
       'unknown';
 
     if (!checkRateLimit(ip)) {
-      return NextResponse.json(
+      return jsonWithCors(
         { error: 'Too many requests. Please wait a moment before asking again.' },
-        { status: 429 }
+        { status: 429 },
+        origin
       );
     }
 
@@ -145,11 +176,11 @@ export async function POST(request) {
     const { question } = body;
 
     if (!question || typeof question !== 'string' || question.trim().length === 0) {
-      return NextResponse.json({ error: 'A question is required.' }, { status: 400 });
+      return jsonWithCors({ error: 'A question is required.' }, { status: 400 }, origin);
     }
 
     if (question.length > 600) {
-      return NextResponse.json({ error: 'Question is too long (max 600 characters).' }, { status: 400 });
+      return jsonWithCors({ error: 'Question is too long (max 600 characters).' }, { status: 400 }, origin);
     }
 
     // ── 1. Retrieve relevant context chunks ──────────────────────────────────
@@ -180,16 +211,20 @@ export async function POST(request) {
       answer = fallbackAnswer(question, relevantChunks);
     }
 
-    return NextResponse.json({
-      answer,
-      citations,
-      confidence: context ? 'high' : 'low',
-    });
+    return jsonWithCors(
+      {
+        answer,
+        citations,
+        confidence: context ? 'high' : 'low',
+      },
+      {},
+      origin
+    );
 
   } catch (err) {
     console.error('[/api/rag] Error:', err?.message ?? err);
 
-    return NextResponse.json(
+    return jsonWithCors(
       {
         answer:
           'Sorry, I ran into an issue processing your question. Please try again, or reach out to Kishore directly at kishoresk0123@gmail.com.',
@@ -197,11 +232,20 @@ export async function POST(request) {
         confidence: 'low',
       },
       { status: 200 }  // Return 200 so the client renders the fallback message
+      ,
+      origin
     );
   }
 }
 
 // Reject non-POST methods
-export async function GET() {
-  return NextResponse.json({ error: 'Method not allowed' }, { status: 405 });
+export async function GET(request) {
+  return jsonWithCors({ error: 'Method not allowed' }, { status: 405 }, request.headers.get('origin') ?? '');
+}
+
+export async function OPTIONS(request) {
+  return new NextResponse(null, {
+    status: 204,
+    headers: buildCorsHeaders(request.headers.get('origin') ?? ''),
+  });
 }

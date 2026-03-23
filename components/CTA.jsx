@@ -1,5 +1,8 @@
 import { FiMail, FiDownload } from 'react-icons/fi';
 import { personalInfo } from '@/lib/content-config';
+import { withBasePath } from '@/lib/runtime-config';
+
+const resumePdfUrl = withBasePath('/KISHORE%20KUMAR%20RAMKUMAR%20SDE%202026.pdf');
 
 export default function CTA() {
     return (
@@ -15,7 +18,7 @@ export default function CTA() {
 
                     <div className="flex flex-wrap gap-4 justify-center">
                         <a
-                            href={personalInfo.resumePdfUrl}
+                            href={resumePdfUrl}
                             download
                             className="px-6 md:px-8 py-3 md:py-4 bg-black text-white rounded-full font-medium hover:bg-gray-900 transition-colors inline-flex items-center gap-2 text-sm md:text-base"
                         >

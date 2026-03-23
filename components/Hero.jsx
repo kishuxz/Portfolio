@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { FiGithub, FiLinkedin, FiCode, FiMail, FiArrowDown } from 'react-icons/fi';
 import { personalInfo } from '@/lib/content-config';
+import { withBasePath } from '@/lib/runtime-config';
 
 import MagneticButton from '@/components/MagneticButton';
 
@@ -150,7 +151,7 @@ export default function Hero() {
                         <div className="relative group">
                             <div className="relative overflow-hidden rounded-lg shadow-medium">
                                 <img
-                                    src="/Portfolio/profile-photo.jpg"
+                                    src={withBasePath('/profile-photo.jpg')}
                                     alt={personalInfo.name}
                                     className="w-full h-auto object-cover"
                                 />

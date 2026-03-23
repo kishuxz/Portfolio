@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { getChatApiUrl } from '@/lib/runtime-config';
 
 export default function ChatPage() {
     const [message, setMessage] = useState('');
@@ -19,7 +20,7 @@ export default function ChatPage() {
         setIsLoading(true);
 
         try {
-            const response = await fetch('/api/rag', {
+            const response = await fetch(getChatApiUrl(), {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ question: userMessage }),

@@ -3,6 +3,9 @@
 import Link from 'next/link';
 import { FiDownload, FiArrowLeft, FiMail, FiGithub, FiLinkedin, FiCode } from 'react-icons/fi';
 import { personalInfo } from '@/lib/content-config';
+import { withBasePath } from '@/lib/runtime-config';
+
+const resumePdfUrl = withBasePath('/KISHORE%20KUMAR%20RAMKUMAR%20SDE%202026.pdf');
 
 export default function ResumePage() {
     return (
@@ -28,7 +31,7 @@ export default function ResumePage() {
 
                     <div className="flex flex-wrap gap-4 justify-center">
                         <a
-                            href={personalInfo.resumePdfUrl}
+                            href={resumePdfUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="px-6 md:px-8 py-3 md:py-4 bg-white text-black rounded-full font-medium hover:bg-gray-200 transition-colors inline-flex items-center gap-2 text-sm md:text-base"
@@ -37,7 +40,7 @@ export default function ResumePage() {
                             View PDF
                         </a>
                         <a
-                            href={personalInfo.resumePdfUrl}
+                            href={resumePdfUrl}
                             download="Kishore_Kumar_Resume_2026.pdf"
                             className="px-6 md:px-8 py-3 md:py-4 border-2 border-white bg-black text-white rounded-full font-medium hover:bg-gray-900 transition-colors inline-flex items-center gap-2 text-sm md:text-base"
                         >
