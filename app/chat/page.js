@@ -6,7 +6,12 @@ import { getChatApiUrl } from '@/lib/runtime-config';
 
 export default function ChatPage() {
     const [message, setMessage] = useState('');
-    const [messages, setMessages] = useState([]);
+    const [messages, setMessages] = useState([
+        {
+            role: 'assistant',
+            content: "Hi — I'm an assistant trained on Kishore's portfolio. Ask me about his multi-agent diarization pipeline, Parameter Golf submission, Stackply, or any of his data engineering and ML work."
+        }
+    ]);
     const [isLoading, setIsLoading] = useState(false);
 
     const handleSend = async () => {
@@ -14,16 +19,17 @@ export default function ChatPage() {
 
         const userMessage = message.trim();
         setMessage('');
+        const nextMessages = [...messages, { role: 'user', content: userMessage }];
 
         // Add user message
-        setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
+        setMessages(nextMessages);
         setIsLoading(true);
 
         try {
             const response = await fetch(getChatApiUrl(), {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ question: userMessage }),
+                body: JSON.stringify({ question: userMessage, messages: nextMessages }),
             });
 
             const data = await response.json();
@@ -92,11 +98,11 @@ export default function ChatPage() {
                         </div>
                         <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium text-[#0A0A0A]" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
                             <span className="font-mono text-base text-[#F26530]">{'<'}</span>
-                            Ask About My Work
+                            Talk to Kishore&apos;s AI
                             <span className="font-mono text-base text-[#F26530]">{'/>'}</span>
                         </h1>
                         <p className="text-lg text-[#4A4A4A] border-l-4 border-[#F26530] pl-6 py-2 inline-block bg-[#FFF5F0]">
-                            <span className="font-mono text-[#F26530] text-sm">{'//'}</span> RAG-powered AI trained on my portfolio
+                            <span className="font-mono text-[#F26530] text-sm">{'//'}</span> Context-engineered assistant built with structured retrieval, intent classification, and dynamic context shaping.
                         </p>
                     </div>
 
@@ -195,19 +201,19 @@ export default function ChatPage() {
                     </div>
 
                     <p className="text-xs text-[#9CA3AF] text-center">
-                        Powered by RAG + HuggingFace • Grounded in portfolio data • Zero hallucinations
+                        Context-engineered with structured retrieval • Grounded in portfolio data • Portfolio-only answers
                     </p>
 
                     {/* Example Questions */}
-                    {messages.length === 0 && (
+                    {messages.length === 1 && messages[0].role === 'assistant' && (
                         <div className="space-y-4">
                             <p className="text-sm text-[#6B6B6B] font-medium text-center">Try asking:</p>
                             <div className="grid grid-cols-2 gap-3">
                                 {[
-                                    "What are Kishore's main AI/ML skills?",
-                                    "Tell me about the TruthLens project",
-                                    "What is Kishore's current research?",
-                                    "What cloud certifications does Kishore have?",
+                                    "Tell me about Kishore's diarization pipeline",
+                                    "What's his latest job?",
+                                    "What ML frameworks does he know?",
+                                    "Should I hire him?",
                                 ].map((q, i) => (
                                     <button
                                         key={i}
