@@ -152,7 +152,7 @@ export default function Hero() {
                             <div className="relative overflow-hidden rounded-lg shadow-medium">
                                 <img
                                     src={withBasePath('/profile-photo.jpg')}
-                                    alt={personalInfo.name}
+                                    alt="Kishore Kumar Ramkumar"
                                     className="w-full h-auto object-cover"
                                 />
                             </div>
