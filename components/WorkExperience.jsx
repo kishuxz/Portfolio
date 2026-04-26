@@ -81,6 +81,9 @@ export default function WorkExperience() {
                                                 {exp.role}
                                             </h3>
                                             <div className="text-lg text-[#4A4A4A] font-normal">{exp.company}</div>
+                                            {exp.advisor && (
+                                                <div className="text-sm text-[#737373] mt-1">{exp.advisor}</div>
+                                            )}
                                         </div>
                                         <div className="text-sm text-[#737373] flex items-center gap-2">
                                             <FiMapPin /> {exp.location}
