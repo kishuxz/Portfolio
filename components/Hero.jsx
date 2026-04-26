@@ -72,20 +72,23 @@ export default function Hero() {
                         {/* Role Label - PUNCHY Orange Accent */}
                         <div className="scroll-reveal stagger-2 mb-8">
                             <span className="inline-block px-6 py-3 bg-[#F26530] text-white text-base md:text-lg font-bold uppercase tracking-wider mb-4 shadow-lg">
-                                ● Software Engineer
+                                ● Software Engineer · ML & AI Systems
                             </span>
                             <p className="text-2xl sm:text-3xl font-normal text-[#0A0A0A] flex items-center gap-3"
                                 style={{ fontFamily: 'var(--font-space-grotesk)' }}>
-                                Full Stack
+                                Multi-Agent · Data · Production
                             </p>
                         </div>
 
                         {/* Description - High Contrast with Tech Accent */}
-                        <p className="text-lg md:text-xl text-[#4A4A4A] mb-12 leading-relaxed max-w-xl scroll-reveal stagger-3 font-medium">
+                        <p className="text-lg md:text-xl text-[#4A4A4A] mb-5 leading-relaxed max-w-xl scroll-reveal stagger-3 font-medium">
                             <span className="font-mono text-[#F26530] text-base">&lt;</span>
-                            Building production-grade systems with <span className="text-[#F26530] font-semibold">precision</span> and <span className="text-[#F26530] font-semibold">performance</span>.
-                            Specializing in scalable infrastructure, data engineering, and AI integrations.
+                            Engineer building production systems across data pipelines, ML training, and multi-agent LLM stacks. Currently architecting a 10-agent LangGraph pipeline at <span className="text-[#F26530] font-semibold">91.1% diarization accuracy</span>, competing in OpenAI Parameter Golf, and co-founding Stackply.
                             <span className="font-mono text-[#F26530] text-base">/&gt;</span>
+                        </p>
+
+                        <p className="text-sm md:text-base text-[#6B6B6B] mb-12 leading-relaxed max-w-xl scroll-reveal stagger-3 font-medium uppercase tracking-wide">
+                            <span className="font-mono text-[#F26530]">NOW —</span> Graduating MS Data Science (May 2026) · Open to ML, SDE, Data Engineering, and Agentic Engineering roles · SF Bay / Remote
                         </p>
 
                         {/* Action Buttons - Orange Accent */}
