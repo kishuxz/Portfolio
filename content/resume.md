@@ -125,20 +125,19 @@ AWS Hackathon Project
 - Built GAN-based augmentation pipeline and deployed a Dockerized Streamlit app for real-time classification.
 - Tech: Python, PyTorch, TensorFlow, CNNs, ResNet50, OpenCV, Docker, Streamlit, GANs.
 
-### Cloud-Based Smart Energy Management System
-**GitHub:** https://github.com/kishuxz/smart-energy-management-system
+### Stackply — AI-Native Hiring Platform / TrustHire AI MVP
+**GitHub:** https://github.com/kishuxz/trusthire-ai
 
-- Built a Kafka and Spark pipeline processing 10,000 time-series energy records for EDA and forecasting.
-- Engineered time-based features and trained Spark MLlib models, achieving 12% MAE/RMSE improvement.
-- Delivered Tableau dashboards for usage trends and planning decisions.
-- Tech: Python, Apache Kafka, Apache Spark, PySpark, Spark MLlib, AWS, Tableau.
+- Shipped the hackathon MVP as TrustHire AI with FastAPI, LangGraph, Qdrant, Sentence Transformers, and Next.js.
+- Built explainable skill scoring across presence, strength, and project evidence; currently scaling as Stackply.
+- Tech: LangGraph, FastAPI, Qdrant, Sentence Transformers, Next.js, Supabase, Groq.
 
-### Multi-Agent LLM Relocator
-**GitHub:** https://github.com/Ramcharxn/MultiAgent-LLM-Relocator
+### OpenAI Parameter Golf Submission
+**GitHub:** https://github.com/kishuxz/parameter-golf
 
-- Built a multi-agent LLM system for coordinated task-based decision-making across autonomous agents.
-- Designed agent roles, message-passing workflows, and multi-step orchestration logic.
-- Tech: Python, LLMs, LangChain, Prompt Engineering, Multi-Agent Systems.
+- Optimizing nanoGPT-scale LM training under fixed compute (~16M params, int8 quantization, 1024 vocab).
+- Best result: 1.32 bpb in a 10-minute H100 run using RunPod; exploring non-uniform FFN widths + StarReLU.
+- Tech: PyTorch, MLX, CUDA, Apple Silicon, RunPod, H100, Quantization.
 
 ---
 

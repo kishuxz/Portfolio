@@ -2,7 +2,8 @@
 // The public route remains /api/rag for compatibility with GitHub Pages fallback logic.
 
 import { NextResponse } from 'next/server';
-import { experiences, personalInfo, projects, skillCategories } from '@/lib/content-config';
+import { experiences, personalInfo, skillCategories } from '@/lib/content-config';
+import { projectsKnowledge } from '@/lib/portfolio-knowledge';
 
 const CONTACT_EMAIL = 'kramkum@iu.edu';
 
@@ -56,7 +57,7 @@ const VALID_INTENTS = ['project', 'experience', 'skill', 'background', 'general'
 function classifyStrongIntent(query) {
   const q = query.toLowerCase();
 
-  if (/(diarization|speaker|letterman|parameter golf|stackply|truthlens|networkmap|smart energy)/.test(q)) {
+  if (/(diarization|speaker|letterman|parameter golf|stackply|trusthire|job scheduler|cloud scheduler|truthlens|networkmap|covid|h1b|election)/.test(q)) {
     return 'project';
   }
   if (/(latest job|current job|latest role|current role|current research|where does he work|advisor)/.test(q)) {
@@ -78,7 +79,7 @@ function classifyIntentHeuristic(query) {
   if (/(job|role|experience|work|intern|research|assistant|latest|current|company|advisor|mrar|oneill|iviewsense)/.test(q)) {
     return 'experience';
   }
-  if (/(project|diarization|parameter golf|stackply|truthlens|networkmap|smart energy|portfolio|github|submission)/.test(q)) {
+  if (/(project|diarization|parameter golf|stackply|trusthire|job scheduler|cloud scheduler|truthlens|networkmap|covid|h1b|election|portfolio|github|submission)/.test(q)) {
     return 'project';
   }
   if (/(college|school|university|degree|education|background|graduat|gpa|where did|who is|location|contact|email)/.test(q)) {
@@ -134,17 +135,13 @@ function scoreText(query, text) {
   return words.reduce((score, word) => score + (haystack.includes(word) ? 1 : 0), 0);
 }
 
-function formatProject(project) {
-  const tech = project.techStack?.join(', ') || 'Not specified';
+function formatKnowledgeProject(project) {
+  const tags = project.tags?.join(', ') || 'Not specified';
   return [
     `Project: ${project.title}`,
-    project.subtitle ? `Subtitle: ${project.subtitle}` : null,
-    `Summary: ${project.accomplished}`,
-    `Metric / status: ${project.measured}`,
-    `Implementation: ${project.method}`,
-    `Tech: ${tech}`,
+    `Summary: ${project.summary}`,
+    `Tags: ${tags}`,
     project.github ? `GitHub: ${project.github}` : null,
-    project.website ? `Website: ${project.website}` : null,
   ].filter(Boolean).join('\n');
 }
 
@@ -161,16 +158,18 @@ function formatExperience(exp) {
 }
 
 function retrieveProjectContext(query) {
-  const ranked = projects
+  const allProjects = [
+    ...projectsKnowledge.featured.map((project) => ({ ...project, featured: true })),
+    ...projectsKnowledge.earlierWork.map((project) => ({ ...project, featured: false })),
+  ];
+
+  const ranked = allProjects
     .map((project) => {
       const text = [
         project.title,
-        project.subtitle,
-        project.accomplished,
-        project.measured,
-        project.method,
-        project.techStack?.join(' '),
-        project.categories?.join(' '),
+        project.summary,
+        project.tags?.join(' '),
+        project.github,
       ].filter(Boolean).join(' ');
       const featuredBoost = project.featured ? 3 : 0;
       return { project, score: featuredBoost + scoreText(query, text) };
@@ -180,11 +179,11 @@ function retrieveProjectContext(query) {
     .map(({ project }) => project);
 
   return {
-    context: ranked.map(formatProject).join('\n\n'),
+    context: ranked.map(formatKnowledgeProject).join('\n\n'),
     citations: ranked.slice(0, 3).map((project) => ({
       title: project.title,
       section: 'Projects',
-      url: project.github || `/projects/${project.slug}`,
+      url: project.github || '#projects',
     })),
   };
 }
@@ -212,7 +211,7 @@ function retrieveSkillContext() {
 
 function retrieveBackgroundContext() {
   return {
-    context: `${personalInfo.name} Ramkumar is graduating with an MS in Data Science from Indiana University Bloomington in May 2026. He holds a B.Tech in Computer Science (AI & ML) from Sri Ramachandra Institute in Chennai, India. He is currently a Research Assistant on RT Project 2101 at Indiana University Media School, co-founder of Stackply, and an OpenAI Parameter Golf competitor. He is open to ML Engineer, Software Engineer, AI/LLM Engineer, Agentic Engineer, and Data Engineer roles in the SF Bay Area or remote. Contact: ${CONTACT_EMAIL}.`,
+    context: `${personalInfo.name} is graduating with an MS in Data Science from Indiana University Bloomington in May 2026. He holds a B.Tech in Computer Science (AI & ML) from Sri Ramachandra Institute in Chennai, India. He is currently a Research Assistant on RT Project 2101 at Indiana University Media School, co-founder of Stackply, and an OpenAI Parameter Golf competitor. Stackply is an AI-native hiring platform he is co-founding; the hackathon MVP shipped as TrustHire AI and is public on GitHub. He is now scaling it with multi-provider LLM routing and vibe-coding detection as the moat. He is open to ML Engineer, Software Engineer, AI/LLM Engineer, Agentic Engineer, and Data Engineer roles in the SF Bay Area or remote. Contact: ${CONTACT_EMAIL}.`,
     citations: [
       { title: 'Education', section: 'Background', url: '#education' },
       { title: 'Contact', section: 'Background', url: '#contact' },
@@ -221,7 +220,7 @@ function retrieveBackgroundContext() {
 }
 
 function retrieveGeneralContext() {
-  const featuredProjects = projects.filter((project) => project.featured).map(formatProject).join('\n\n');
+  const featuredProjects = projectsKnowledge.featured.map(formatKnowledgeProject).join('\n\n');
   const recentExperience = experiences.slice(0, 2).map(formatExperience).join('\n\n');
   const coreSkills = skillCategories.slice(0, 4)
     .map((category) => `${category.name}: ${category.skills.slice(0, 6).join(', ')}`)

@@ -9,7 +9,7 @@ export default function ChatPage() {
     const [messages, setMessages] = useState([
         {
             role: 'assistant',
-            content: "Hi — I'm an assistant trained on Kishore's portfolio. Ask me about his multi-agent diarization pipeline, Parameter Golf submission, Stackply, or any of his data engineering and ML work."
+            content: "Hi — I'm an assistant trained on Kishore's portfolio. Ask me about his multi-agent diarization pipeline, Cloud Job Scheduler, Parameter Golf submission, Stackply/TrustHire AI, or any of his data engineering and ML work."
         }
     ]);
     const [isLoading, setIsLoading] = useState(false);

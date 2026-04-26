@@ -83,7 +83,7 @@ export default function Hero() {
                         {/* Description - High Contrast with Tech Accent */}
                         <p className="text-lg md:text-xl text-[#4A4A4A] mb-5 leading-relaxed max-w-xl scroll-reveal stagger-3 font-medium">
                             <span className="font-mono text-[#F26530] text-base">&lt;</span>
-                            Engineer building production systems across data pipelines, ML training, and multi-agent LLM stacks. Currently architecting a 10-agent LangGraph pipeline at <span className="text-[#F26530] font-semibold">91.1% diarization accuracy</span>, competing in OpenAI Parameter Golf, and co-founding Stackply.
+                            Engineer building production systems across data pipelines, ML training, and multi-agent LLM stacks. Currently architecting a 10-agent LangGraph pipeline at <span className="text-[#F26530] font-semibold">91.1% diarization accuracy</span>, competing in OpenAI Parameter Golf, and scaling Stackply from the public TrustHire AI MVP.
                             <span className="font-mono text-[#F26530] text-base">/&gt;</span>
                         </p>
 
