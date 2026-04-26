@@ -30,17 +30,18 @@ export default function FeaturedProjects() {
     const categories = [
         'Featured',
         'LLM / Agents',
-        'Data Engineering',
+        'Software Engineering',
+        'Cloud / AWS',
         'Machine Learning',
         'Data Analysis',
         'Data Visualization',
-        'Software Engineering'
+        'Data Engineering'
     ];
 
-
-
+    const featuredProjects = projects.filter(p => p.featured);
+    const archiveProjects = projects.filter(p => !p.featured);
     const filteredProjects = activeCategory === 'Featured'
-        ? projects.filter(p => p.featured)
+        ? featuredProjects
         : projects.filter(p => p.categories.includes(activeCategory));
 
     return (
@@ -87,7 +88,7 @@ export default function FeaturedProjects() {
 
                         return (
                             <div
-                                key={index}
+                                key={project.slug}
                                 className={`group scroll-reveal ${index % 2 === 0 ? 'scroll-reveal-left' : 'scroll-reveal-right'}`}
                             >
                                 <Link href={projectHref} target={isExternal ? '_blank' : undefined} className="block h-full">
@@ -145,6 +146,57 @@ export default function FeaturedProjects() {
                         );
                     })}
                 </div>
+
+                {activeCategory === 'Featured' && (
+                    <div className="mt-20 scroll-reveal">
+                        <div className="mb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                            <div>
+                                <span className="font-mono text-xs text-[#F26530] uppercase tracking-widest">Archive</span>
+                                <h3 className="text-3xl md:text-4xl font-medium text-[#0A0A0A] mt-2"
+                                    style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                                    Earlier Work
+                                </h3>
+                            </div>
+                            <p className="text-sm text-[#6B6B6B] max-w-xl">
+                                Smaller public projects that round out the software, ML, data analysis, and AWS story.
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            {archiveProjects.map((project) => {
+                                const projectHref = project.github || `/projects/${project.slug}`;
+                                const isExternal = Boolean(project.github);
+
+                                return (
+                                    <Link
+                                        key={project.slug}
+                                        href={projectHref}
+                                        target={isExternal ? '_blank' : undefined}
+                                        className="group/archive bg-white border border-[#E5E5E5] p-5 rounded-lg hover:border-[#0A0A0A] hover:shadow-medium transition-all"
+                                    >
+                                        <div className="flex items-start justify-between gap-4 mb-3">
+                                            <h4 className="text-lg font-medium text-[#0A0A0A] group-hover/archive:text-[#F26530] transition-colors"
+                                                style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                                                {project.title}
+                                            </h4>
+                                            {project.github ? <FiGithub className="text-lg flex-shrink-0" /> : <FiLayers className="text-lg flex-shrink-0" />}
+                                        </div>
+                                        <p className="text-sm text-[#6B6B6B] leading-relaxed mb-4">
+                                            {project.accomplished}
+                                        </p>
+                                        <div className="flex flex-wrap gap-1.5">
+                                            {project.techStack.slice(0, 3).map((tech) => (
+                                                <span key={tech} className="px-2 py-1 bg-[#F8F8F8] text-[11px] font-mono text-[#4A4A4A] border border-[#E5E5E5]">
+                                                    {tech}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </Link>
+                                );
+                            })}
+                        </div>
+                    </div>
+                )}
 
                 {/* View More Button */}
                 <div className="mt-20 text-center scroll-reveal">
