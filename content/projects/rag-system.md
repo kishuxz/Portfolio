@@ -1,13 +1,13 @@
 ---
-title: "RAG System for Document Q&A"
-skills: ["Python", "LangChain", "Supabase", "HuggingFace", "RAG", "Vector Search"]
+title: "LLM-Grounded Document QA"
+skills: ["Python", "LangChain", "Supabase", "HuggingFace", "Vector Search", "Context Engineering"]
 category: "LLM & AI"
 url: "/projects/rag-system"
 relevance: ["ML Engineer", "AI Engineer", "LLM Engineer", "Full-Stack Developer"]
 date: "2024"
 ---
 
-# RAG System for Document Q&A
+# LLM-Grounded Document QA
 
 ## Problem
 
@@ -15,17 +15,17 @@ Users need to query large document collections efficiently, but traditional keyw
 
 ## Solution
 
-Implemented a production-ready Retrieval-Augmented Generation (RAG) system:
+Implemented a production-ready document QA system:
 
 - **Vector Database**: Supabase with pgvector for semantic search
 - **Embeddings**: SentenceTransformers for document and query encoding
 - **LLM**: Open-source models via HuggingFace Inference API
-- **Orchestration**: LangChain for RAG pipeline management
+- **Orchestration**: LangChain for retrieval-grounded prompt assembly
 - **Grounding**: Strict citation and source tracking
 
 ## Technical Implementation
 
-### RAG Architecture
+### Grounded QA Architecture
 ```
 Documents → Chunking → Embeddings → Vector DB (Supabase)
                                           ↓
@@ -76,7 +76,7 @@ User Query → Query Embedding → Similarity Search → Top-K Chunks
 
 ## Skills Demonstrated
 
-- RAG pipeline design
+- Retrieval-grounded context design
 - Vector database implementation
 - LLM prompt engineering
 - Semantic search optimization

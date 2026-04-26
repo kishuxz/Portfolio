@@ -11,7 +11,7 @@ tech_categories:
   - "Data Engineering"
   - "Backend"
 impact: "Processing 1M+ records/day with 99.9% reliability"
-github: "https://github.com/yourusername/project2"
+github: "https://github.com/kishuxz"
 ---
 
 # Distributed Data Pipeline
@@ -95,4 +95,4 @@ I designed and implemented a distributed ETL pipeline that:
 
 ## Links
 
-- [GitHub Repository](https://github.com/yourusername/project2)
+- [GitHub Profile](https://github.com/kishuxz)

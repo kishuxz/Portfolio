@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { FiArrowLeft, FiSend, FiMail, FiGithub, FiLinkedin, FiCode } from 'react-icons/fi';
+import { personalInfo } from '@/lib/content-config';
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
@@ -143,11 +144,11 @@ export default function ContactPage() {
                                         Email
                                     </h3>
                                     <a
-                                        href="mailto:your.email@example.com"
+                                        href={`mailto:${personalInfo.email}`}
                                         className="text-gray-600 hover:text-black transition-colors flex items-center gap-2"
                                     >
                                         <FiMail />
-                                        your.email@example.com
+                                        {personalInfo.email}
                                     </a>
                                 </div>
 
@@ -157,7 +158,7 @@ export default function ContactPage() {
                                     </h3>
                                     <div className="space-y-3">
                                         <a
-                                            href="https://github.com/yourusername"
+                                            href={personalInfo.social.github}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="text-gray-600 hover:text-black transition-colors flex items-center gap-2"
@@ -166,7 +167,7 @@ export default function ContactPage() {
                                             GitHub
                                         </a>
                                         <a
-                                            href="https://linkedin.com/in/yourusername"
+                                            href={personalInfo.social.linkedin}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="text-gray-600 hover:text-black transition-colors flex items-center gap-2"
@@ -175,7 +176,7 @@ export default function ContactPage() {
                                             LinkedIn
                                         </a>
                                         <a
-                                            href="https://leetcode.com/yourusername"
+                                            href={personalInfo.social.leetcode}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="text-gray-600 hover:text-black transition-colors flex items-center gap-2"
@@ -212,8 +213,8 @@ export default function ContactPage() {
                                 What type of projects do you work on?
                             </h3>
                             <p className="text-gray-300 leading-relaxed">
-                                I specialize in full-stack web applications, data engineering pipelines, and ML/LLM systems.
-                                I&apos;m particularly interested in projects involving RAG systems, production AI infrastructure,
+                                I specialize in production software, data engineering pipelines, ML training systems, and multi-agent LLM applications.
+                                I&apos;m particularly interested in projects involving agentic systems, production AI infrastructure,
                                 and scalable data processing.
                             </p>
                         </div>

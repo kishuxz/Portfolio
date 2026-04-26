@@ -13,7 +13,7 @@ export default function AITeaser() {
 
                 <div className="max-w-3xl">
                     <p className="text-lg md:text-xl text-gray-600 mb-12 leading-relaxed">
-                        Explore my work with LLM agents, RAG systems, and production AI infrastructure.
+                        Explore my work with LLM agents, context-engineered assistants, and production AI infrastructure.
                         Ask questions about technical implementations or system design.
                     </p>
 

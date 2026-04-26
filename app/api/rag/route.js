@@ -53,6 +53,22 @@ function checkRateLimit(ip) {
 
 const VALID_INTENTS = ['project', 'experience', 'skill', 'background', 'general'];
 
+function classifyStrongIntent(query) {
+  const q = query.toLowerCase();
+
+  if (/(diarization|speaker|letterman|parameter golf|stackply|truthlens|networkmap|smart energy)/.test(q)) {
+    return 'project';
+  }
+  if (/(latest job|current job|latest role|current role|current research|where does he work|advisor)/.test(q)) {
+    return 'experience';
+  }
+  if (/(college|school|university|degree|education|graduat|gpa|where did he go)/.test(q)) {
+    return 'background';
+  }
+
+  return null;
+}
+
 function classifyIntentHeuristic(query) {
   const q = query.toLowerCase();
 
@@ -73,6 +89,11 @@ function classifyIntentHeuristic(query) {
 }
 
 async function classifyIntent(query) {
+  const strongIntent = classifyStrongIntent(query);
+  if (strongIntent) {
+    return strongIntent;
+  }
+
   if (!process.env.GROQ_API_KEY) {
     return classifyIntentHeuristic(query);
   }
