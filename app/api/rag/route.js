@@ -3,7 +3,7 @@
 
 import { NextResponse } from 'next/server';
 import { experiences, personalInfo, skillCategories } from '@/lib/content-config';
-import { projectsKnowledge } from '@/lib/portfolio-knowledge';
+import { projectsKnowledge, workAuthorization } from '@/lib/portfolio-knowledge';
 
 const CONTACT_EMAIL = 'kishoresk0123@gmail.com';
 
@@ -52,19 +52,25 @@ function checkRateLimit(ip) {
   return true;
 }
 
-const VALID_INTENTS = ['project', 'experience', 'skill', 'background', 'general'];
+const VALID_INTENTS = ['project', 'experience', 'skill', 'background', 'workAuthorization', 'location', 'general'];
 
 function classifyStrongIntent(query) {
   const q = query.toLowerCase();
 
+  if (/(college|school|university|degree|education|graduat|gpa|where did he go)/.test(q)) {
+    return 'background';
+  }
+  if (/(visa|sponsorship|h-?1b|opt|stem opt|work authorization|work permit|eligible to work|citizen|green card|immigration|when can (he|you) start|available to start|f-?1|ead)/.test(q)) {
+    return 'workAuthorization';
+  }
+  if (/(location|relocate|relocation|city|base|based|remote|hybrid|onsite|in-person|willing to move|willing to relocate|time zone|geography|where is|where's|where does .* live|where .* located|move to)/.test(q)) {
+    return 'location';
+  }
   if (/(diarization|speaker|letterman|parameter golf|stackply|trusthire|job scheduler|cloud scheduler|truthlens|networkmap|covid|h1b|election)/.test(q)) {
     return 'project';
   }
   if (/(latest job|current job|latest role|current role|current research|where does he work|advisor)/.test(q)) {
     return 'experience';
-  }
-  if (/(college|school|university|degree|education|graduat|gpa|where did he go)/.test(q)) {
-    return 'background';
   }
 
   return null;
@@ -73,6 +79,12 @@ function classifyStrongIntent(query) {
 function classifyIntentHeuristic(query) {
   const q = query.toLowerCase();
 
+  if (/(visa|sponsorship|h-?1b|opt|stem opt|work authorization|work permit|eligible to work|citizen|green card|immigration|when can (he|you) start|available to start|f-?1|ead)/.test(q)) {
+    return 'workAuthorization';
+  }
+  if (/(location|relocate|relocation|city|base|based|remote|hybrid|onsite|in-person|willing to move|willing to relocate|time zone|geography|where is|where's|where does .* live|where .* located|move to)/.test(q)) {
+    return 'location';
+  }
   if (/(skill|framework|tool|stack|language|know|certification|aws|pytorch|langgraph|spark|kafka|hpc)/.test(q)) {
     return 'skill';
   }
@@ -111,7 +123,7 @@ async function classifyIntent(query) {
       messages: [
         {
           role: 'system',
-          content: 'Classify the user question into one of: project, experience, skill, background, general. Reply with only the category.',
+          content: 'Classify the user question into one of: project, experience, skill, background, workAuthorization, location, general. Reply with only the category.',
         },
         { role: 'user', content: query },
       ],
@@ -211,11 +223,39 @@ function retrieveSkillContext() {
 
 function retrieveBackgroundContext() {
   return {
-    context: `${personalInfo.name} is graduating with an MS in Data Science from Indiana University Bloomington in May 2026. He holds a B.Tech in Computer Science (AI & ML) from Sri Ramachandra Institute in Chennai, India. He is currently a Research Assistant on RT Project 2101 at Indiana University Media School, co-founder of Stackply, and an OpenAI Parameter Golf competitor. Stackply is an AI-native hiring platform he is co-founding; the hackathon MVP shipped as TrustHire AI and is public on GitHub. He is now scaling it with multi-provider LLM routing and vibe-coding detection as the moat. He is open to ML Engineer, Software Engineer, AI/LLM Engineer, Agentic Engineer, and Data Engineer roles in the SF Bay Area or remote. Contact: ${CONTACT_EMAIL}.`,
+    context: `${personalInfo.name} is graduating with an MS in Data Science from Indiana University Bloomington in May 2026. He holds a B.Tech in Computer Science (AI & ML) from Sri Ramachandra Institute in Chennai, India. He is currently a Research Assistant on RT Project 2101 at Indiana University Media School, co-founder of Stackply, and an OpenAI Parameter Golf competitor. Stackply is an AI-native hiring platform he is co-founding; the hackathon MVP shipped as TrustHire AI and is public on GitHub. He is now scaling it with multi-provider LLM routing and vibe-coding detection as the moat. He is open to ML Engineer, Software Engineer, AI/LLM Engineer, Agentic Engineer, and Data Engineer roles and can relocate anywhere in the United States. Contact: ${CONTACT_EMAIL}.`,
     citations: [
       { title: 'Education', section: 'Background', url: '#education' },
       { title: 'Contact', section: 'Background', url: '#contact' },
     ],
+  };
+}
+
+function retrieveWorkAuthorizationContext() {
+  return {
+    context: [
+      `Current status: ${workAuthorization.currentStatus}`,
+      `OPT details: ${workAuthorization.optDetails}`,
+      `Sponsorship: ${workAuthorization.sponsorship}`,
+      `Start date: ${workAuthorization.startDate}`,
+      `Location: ${workAuthorization.location}`,
+      `Sponsorship flexibility: ${workAuthorization.sponsorshipFlexibility}`,
+      `Citizenship: ${workAuthorization.citizenship}`,
+      `Contact: ${CONTACT_EMAIL}`,
+    ].join('\n'),
+    citations: [{ title: 'Work Authorization', section: 'Contact', url: '#contact' }],
+  };
+}
+
+function retrieveLocationContext() {
+  return {
+    context: [
+      `Location: ${workAuthorization.location}`,
+      `Start date: ${workAuthorization.startDate}`,
+      `Work authorization: ${workAuthorization.currentStatus}`,
+      `Contact: ${CONTACT_EMAIL}`,
+    ].join('\n'),
+    citations: [{ title: 'Location & Availability', section: 'Contact', url: '#contact' }],
   };
 }
 
@@ -246,6 +286,10 @@ function retrieveContext(intent, query) {
       return retrieveSkillContext();
     case 'background':
       return retrieveBackgroundContext();
+    case 'workAuthorization':
+      return retrieveWorkAuthorizationContext();
+    case 'location':
+      return retrieveLocationContext();
     case 'general':
     default:
       return retrieveGeneralContext();
