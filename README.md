@@ -1,11 +1,11 @@
 # Portfolio AI System
 
-Production-ready portfolio website with Next.js, Tailwind CSS, and LangChain RAG chatbot.
+Production-ready portfolio website with Next.js, Tailwind CSS, and a context-engineered portfolio assistant.
 
 ## Features
 
 - 🎨 Premium UI with glassmorphism and animations
-- 🤖 AI chatbot powered by RAG (LangChain + Supabase pgvector)
+- 🤖 AI assistant with intent routing, structured retrieval, and dynamic context shaping
 - 🔍 Agent-based job matching system
 - 📱 Fully responsive design
 - ♿ Accessibility-first approach
@@ -69,7 +69,7 @@ npm run setup-db
 npm run ingest
 ```
 
-This generates embeddings and stores them in Supabase for RAG queries.
+This generates embeddings and stores them in Supabase for grounded assistant queries.
 
 ## Project Structure
 
@@ -81,14 +81,14 @@ This generates embeddings and stores them in Supabase for RAG queries.
 │   ├── globals.css          # Global styles
 │   └── ai/                  # AI features page
 ├── components/              # React components
-├── content/                 # Markdown content for RAG
+├── content/                 # Markdown content for portfolio context
 │   ├── resume.md
 │   └── projects/
 ├── lib/                     # Utilities and helpers
 │   ├── supabase.js         # Supabase client
 │   ├── embeddings.js       # Embedding generation
 │   ├── retrieval.js        # Vector search
-│   └── rag-chain.js        # LangChain RAG pipeline
+│   └── rag-chain.js        # Legacy LangChain retrieval pipeline
 ├── scripts/                 # Admin scripts
 │   ├── setup-vector-db.js  # Database initialization
 │   └── ingest-content.js   # Content ingestion

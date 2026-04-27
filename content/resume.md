@@ -15,7 +15,7 @@ last_updated: "2026-03-23"
 
 ## Professional Summary
 
-AI/ML Engineer and Data Scientist with hands-on experience building production-ready machine learning systems, distributed data pipelines, RAG architectures, and full-stack web applications. Research background spans multimodal NLP/CV systems, climate data engineering on HPC, and GPU-optimized LLM inference. Holds two active AWS certifications and is pursuing an MS in Data Science at Indiana University (GPA 3.5, graduating May 2026). Open to full-time opportunities in AI/ML Engineering, Data Engineering, and Software Engineering.
+Software Engineer focused on production systems across data pipelines, ML training, and multi-agent LLM stacks. Research background spans multimodal NLP/CV systems, climate data engineering on HPC, and GPU-optimized LLM inference. Holds two active AWS certifications and is pursuing an MS in Data Science at Indiana University (GPA 3.5, graduating May 2026). Open to full-time opportunities in ML Engineering, Software Engineering, AI/LLM Engineering, Agentic Engineering, and Data Engineering.
 
 ---
 
@@ -36,7 +36,7 @@ Sri Ramachandra Institute of Higher Education and Research | Jul 2021 – Jun 20
 Python, Java, SQL, PostgreSQL, MySQL, JavaScript, ReactJS, TypeScript, C++, Git, R
 
 ### Machine Learning & AI
-PyTorch, TensorFlow, RAG (Retrieval-Augmented Generation), FAISS / FAISS-GPU, NLP (spaCy, NLTK, OpenCV), LangGraph, LangChain, AI Agents, Multi-Agent Systems, Large Language Models, LLM APIs (Ollama, Hugging Face), Fine-tuning (LoRA, QLORA, PEFT), Transformers, Agentic Workflows, Prompt Engineering, Whisper, pyannote.audio, vLLM, DeepSpeed, Ray
+PyTorch, Transformers, PEFT (LoRA / QLoRA), vLLM, Whisper, pyannote, Llama, Scikit-learn, Embeddings, LangGraph, LangChain, LangSmith, LlamaIndex, Instructor, Pydantic, Context Engineering, Agent Memory, MCP, DeepSpeed, Ray
 
 ### Cloud Architecture & DevOps
 AWS (EC2, Lambda, S3, EKS, SQS, DynamoDB, CloudWatch, Bedrock, SageMaker, ECR), Serverless Architecture, Docker, Kubernetes, CI/CD, Linux
@@ -57,13 +57,13 @@ Power BI, Tableau, Matplotlib, Cartopy, D3.js, Git
 
 ## Experience
 
-### Research Assistant (Machine Learning)
-**Indiana University – The Media School** | Jan 2026 – Present | Bloomington, IN
+### Research Assistant — Multi-Agent LLM Systems
+**Indiana University – The Media School (RT Project 2101)** | Jan 2026 – Present | Bloomington, IN
 
-- Architected a distributed 10-agent multimodal NLP and computer vision pipeline for speaker attribution using LangGraph, Whisper, pyannote.audio, LightASD, and LoRA-tuned Llama-3.2-11B, achieving 95% accuracy across 1,529 dialogue turns.
-- Designed Viterbi sequence decoding and clause-level resegmentation algorithms to refine speaker turn boundaries, reducing segmentation errors in long-form broadcast transcripts.
-- Implemented GPU-accelerated inference pipelines on NVIDIA A100 clusters (SLURM), enabling scalable batch processing of 15 years of archival broadcast television footage.
-- Built automated post-processing pipelines generating structured Final Draft XML and JSON transcripts with speakers, timestamps, and topic annotations for downstream ML/NLP analysis.
+- Built a 10-agent multimodal pipeline orchestrated by LangGraph: Whisper large-v3 + pyannote 3.x + Demucs + TransNetV2 + RetinaFace+LightASD + LoRA-fine-tuned Llama 3.2 11B.
+- Achieved 91.1% speaker resolution accuracy across the corpus (4 episodes at 100%) on IU Big Red 200 HPC with vLLM on A100s via SLURM.
+- Designed Interrogative Host Rescue (IHR) for short-question recovery and an LLM-based identity resolution agent for character/actor disambiguation.
+- Output Final Draft XML for downstream media research; targeting INTERSPEECH 2027, EMNLP 2026, and ACL NLP4DH workshop.
 
 ### Data Engineer / Research Assistant
 **Indiana University – O'Neill School of Public & Environmental Affairs** | May 2025 – Aug 2025 | Bloomington, IN
@@ -75,18 +75,11 @@ Power BI, Tableau, Matplotlib, Cartopy, D3.js, Git
 ### Machine Learning Associate Engineer Intern
 **MRAR Intellect Solutions** | Jan 2024 – Aug 2024 | Mississauga, Canada
 
-- Built a RAG-based automotive manual assistant using GPT-J-6B, FastAPI, and FAISS-GPU enabling semantic search and QA over vehicle documentation; deployed on AWS EKS with autoscaling.
+- Built a GPU-backed retrieval system + LLM chatbot using GPT-J-6B, FastAPI, and FAISS-GPU enabling semantic search and QA over vehicle documentation; deployed on AWS EKS with autoscaling.
 - Maintained 95% of inferences under 150ms using CUDA FP16 optimizations with CloudWatch monitoring.
 - Fine-tuned GPT-J-6B using Hugging Face Transformers and DeepSpeed for domain-specific response quality.
 - Improved LLM training workflows with Ray and DeepSpeed ZeRO-3, enabling distributed multi-GPU training and reliable S3 checkpointing.
 - Containerized ML services with Docker and Kubernetes; implemented CI/CD via AWS ECR, increasing GPU throughput by 18%.
-
-### Data Analyst Intern
-**IVIEWSENSE Private Limited** | Jan 2022 – Dec 2022 | Chennai, India
-
-- Collaborated with stakeholders to define KPIs; built interactive Power BI dashboards using SQL and EDA.
-- Reduced dashboard refresh time from 42 to 33 minutes through scheduled refresh optimization and validation checks.
-- Maintained 98% on-time data updates across reporting workflows.
 
 ---
 
@@ -125,20 +118,19 @@ AWS Hackathon Project
 - Built GAN-based augmentation pipeline and deployed a Dockerized Streamlit app for real-time classification.
 - Tech: Python, PyTorch, TensorFlow, CNNs, ResNet50, OpenCV, Docker, Streamlit, GANs.
 
-### Cloud-Based Smart Energy Management System
-**GitHub:** https://github.com/kishuxz/smart-energy-management-system
+### Stackply — AI-Native Hiring Platform / TrustHire AI MVP
+**GitHub:** https://github.com/kishuxz/trusthire-ai
 
-- Built a Kafka and Spark pipeline processing 10,000 time-series energy records for EDA and forecasting.
-- Engineered time-based features and trained Spark MLlib models, achieving 12% MAE/RMSE improvement.
-- Delivered Tableau dashboards for usage trends and planning decisions.
-- Tech: Python, Apache Kafka, Apache Spark, PySpark, Spark MLlib, AWS, Tableau.
+- Shipped the hackathon MVP as TrustHire AI with FastAPI, LangGraph, Qdrant, Sentence Transformers, and Next.js.
+- Built explainable skill scoring across presence, strength, and project evidence; currently scaling as Stackply.
+- Tech: LangGraph, FastAPI, Qdrant, Sentence Transformers, Next.js, Supabase, Groq.
 
-### Multi-Agent LLM Relocator
-**GitHub:** https://github.com/Ramcharxn/MultiAgent-LLM-Relocator
+### OpenAI Parameter Golf Submission
+**GitHub:** https://github.com/kishuxz/parameter-golf
 
-- Built a multi-agent LLM system for coordinated task-based decision-making across autonomous agents.
-- Designed agent roles, message-passing workflows, and multi-step orchestration logic.
-- Tech: Python, LLMs, LangChain, Prompt Engineering, Multi-Agent Systems.
+- Optimizing nanoGPT-scale LM training under fixed compute (~16M params, int8 quantization, 1024 vocab).
+- Best result: 1.32 bpb in a 10-minute H100 run using RunPod; exploring non-uniform FFN widths + StarReLU.
+- Tech: PyTorch, MLX, CUDA, Apple Silicon, RunPod, H100, Quantization.
 
 ---
 

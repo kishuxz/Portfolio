@@ -10,7 +10,8 @@ const gradientList = Object.values(projectGradients);
 const allProjectsData = projects.map((project, index) => ({
     slug: project.slug,
     title: project.title,
-    category: project.categories[1] || project.categories[0], // Use second category or first
+    categories: project.categories,
+    category: project.categories.find(category => category !== 'Featured') || project.categories[0],
     oneLiner: project.accomplished,
     gradient: gradientList[index % gradientList.length],
     tech: project.techStack,
@@ -22,14 +23,23 @@ export default function ProjectsPage() {
 
     // Get unique categories
     const categories = useMemo(() => {
-        const cats = [...new Set(allProjectsData.map(p => p.category))];
-        return ['all', ...cats];
+        return [
+            'all',
+            'Featured',
+            'LLM / Agents',
+            'Software Engineering',
+            'Cloud / AWS',
+            'Machine Learning',
+            'Data Analysis',
+            'Data Visualization',
+            'Data Engineering',
+        ];
     }, []);
 
     // Filter projects
     const filteredProjects = useMemo(() => {
         if (selectedCategory === 'all') return allProjectsData;
-        return allProjectsData.filter(p => p.category === selectedCategory);
+        return allProjectsData.filter(p => p.categories.includes(selectedCategory));
     }, [selectedCategory]);
 
     return (

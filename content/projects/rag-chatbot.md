@@ -1,5 +1,5 @@
 ---
-title: "LLM-Powered RAG Chatbot"
+title: "Context-Engineered Portfolio Assistant"
 slug: "rag-chatbot"
 featured: true
 stack:
@@ -10,12 +10,12 @@ stack:
 tech_categories:
   - "ML/LLM"
   - "Full-Stack"
-impact: "Production-ready RAG system with source citations"
-github: "https://github.com/yourusername/project1"
-demo: "https://demo-url.com"
+impact: "Portfolio assistant with structured retrieval, intent classification, and grounded answers"
+github: "https://github.com/kishuxz/Portfolio"
+demo: "https://portfolio-lpp8zzy4y-kishuxzs-projects.vercel.app/chat"
 ---
 
-# LLM-Powered RAG Chatbot
+# Context-Engineered Portfolio Assistant
 
 ## Problem Statement
 
@@ -23,7 +23,7 @@ Building trustworthy AI assistants requires grounding LLM responses in verifiabl
 
 ## Solution
 
-I built a production-ready Retrieval-Augmented Generation (RAG) system that:
+I built a production-ready portfolio assistant that:
 
 - Embeds domain-specific content into a vector database (Supabase pgvector)
 - Retrieves relevant context for user queries using semantic search
@@ -91,10 +91,9 @@ User Query → Embedding → Vector Search → Context Retrieval → LLM → Cit
 - Vector database optimization techniques (indexing, query performance)
 - Prompt engineering for constrained generation
 - Production deployment of LLM applications with cost/latency tradeoffs
-- Evaluation methodologies for RAG systems
+- Evaluation methodologies for grounded LLM systems
 
 ## Links
 
-- [GitHub Repository](https://github.com/yourusername/project1)
-- [Live Demo](https://demo-url.com)
-- [Technical Deep Dive (Blog Post)](https://blog-url.com)
+- [GitHub Repository](https://github.com/kishuxz/Portfolio)
+- [Live Demo](https://portfolio-lpp8zzy4y-kishuxzs-projects.vercel.app/chat)

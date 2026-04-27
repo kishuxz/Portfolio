@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { personalInfo } from '@/lib/content-config';
 
 export default function IntroOverlay() {
     const [isVisible, setIsVisible] = useState(false);
@@ -59,12 +60,12 @@ export default function IntroOverlay() {
 
                 {/* Name */}
                 <h1 className="text-4xl md:text-5xl font-bold text-[rgb(var(--text-primary))] slide-up">
-                    Your Name
+                    {personalInfo.name}
                 </h1>
 
                 {/* Subtitle */}
                 <p className="text-lg text-secondary slide-up">
-                    Full-Stack Developer · Frontend Engineer · Data / ML Systems
+                    Software Engineer · ML & AI Systems
                 </p>
             </div>
         </div>
