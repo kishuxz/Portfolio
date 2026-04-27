@@ -81,13 +81,6 @@ Power BI, Tableau, Matplotlib, Cartopy, D3.js, Git
 - Improved LLM training workflows with Ray and DeepSpeed ZeRO-3, enabling distributed multi-GPU training and reliable S3 checkpointing.
 - Containerized ML services with Docker and Kubernetes; implemented CI/CD via AWS ECR, increasing GPU throughput by 18%.
 
-### Data Analyst Intern
-**IVIEWSENSE Private Limited** | Jan 2022 – Dec 2022 | Chennai, India
-
-- Collaborated with stakeholders to define KPIs; built interactive Power BI dashboards using SQL and EDA.
-- Reduced dashboard refresh time from 42 to 33 minutes through scheduled refresh optimization and validation checks.
-- Maintained 98% on-time data updates across reporting workflows.
-
 ---
 
 ## Projects
