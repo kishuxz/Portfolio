@@ -81,7 +81,7 @@ export default function Hero() {
                         </div>
 
                         <p className="text-sm md:text-base text-[#6B6B6B] mb-12 leading-relaxed max-w-xl scroll-reveal stagger-3 font-medium uppercase tracking-wide">
-                            <span className="font-mono text-[#F26530]">NOW —</span> Graduating MS Data Science (May 2026) · Open to ML, SDE, Data Engineering, and Agentic Engineering roles · SF Bay / Remote
+                            <span className="font-mono text-[#F26530]">NOW —</span> Graduating MS Data Science (May 2026) · Open to ML, SDE, Data Engineering, LLM, and Agentic Engineering roles · Open to relocate anywhere in the US
                         </p>
 
                         {/* Action Buttons - Orange Accent */}

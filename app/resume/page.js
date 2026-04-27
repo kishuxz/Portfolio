@@ -153,7 +153,7 @@ export default function ResumePage() {
                 <div className="container-custom max-w-3xl mx-auto text-center">
                     <h2 className="heading-lg mb-6">Interested in working together?</h2>
                     <p className="text-lg md:text-xl text-gray-300 mb-12">
-                        Kishore is graduating in May 2026 and is open to ML, SDE, Data Engineering, LLM, and Agentic Engineering roles.
+                        NOW — Graduating MS Data Science (May 2026) · Open to ML, SDE, Data Engineering, LLM, and Agentic Engineering roles · Open to relocate anywhere in the US
                     </p>
 
                     <Link
