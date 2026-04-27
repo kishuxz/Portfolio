@@ -8,7 +8,7 @@ last_updated: "2026-03-23"
 
 **AI/ML Engineer · Data Engineer · Full-Stack Developer**
 
-📧 kramkum@iu.edu | 📞 +1 (812)-340-2543
+📧 kishoresk0123@gmail.com | 📞 +1 (812)-340-2543
 🔗 [GitHub](https://github.com/kishuxz) | [LinkedIn](https://www.linkedin.com/in/kishore-kumar-ramkumar-425744279/) | [LeetCode](https://leetcode.com/u/Kishore_0123/)
 
 ---

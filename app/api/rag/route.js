@@ -5,7 +5,7 @@ import { NextResponse } from 'next/server';
 import { experiences, personalInfo, skillCategories } from '@/lib/content-config';
 import { projectsKnowledge } from '@/lib/portfolio-knowledge';
 
-const CONTACT_EMAIL = 'kramkum@iu.edu';
+const CONTACT_EMAIL = 'kishoresk0123@gmail.com';
 
 const ALLOWED_ORIGINS = new Set([
   'https://kishuxz.github.io',
