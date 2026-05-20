@@ -30,7 +30,6 @@ export default function ChatPage() {
         setMessage('');
         const nextMessages = [...messages, { role: 'user', content: userMessage }];
 
-        // Add user message
         setMessages(nextMessages);
         setIsLoading(true);
 
@@ -41,26 +40,71 @@ export default function ChatPage() {
                 body: JSON.stringify({ question: userMessage, messages: nextMessages }),
             });
 
-            const data = await response.json();
+            const contentType = response.headers.get('content-type') || '';
 
-            if (data.answer) {
-                setMessages(prev => [...prev, {
-                    role: 'assistant',
-                    content: data.answer,
-                    citations: data.citations || [],
-                    confidence: data.confidence || 'medium'
-                }]);
+            if (contentType.includes('x-ndjson') && response.body) {
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+                let buffer = '';
+                let metaParsed = false;
+                let fullText = '';
+
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+
+                    buffer += decoder.decode(value, { stream: true });
+                    const lines = buffer.split('\n');
+                    buffer = lines.pop() ?? '';
+
+                    for (const line of lines) {
+                        if (!line.trim()) continue;
+                        try {
+                            const parsed = JSON.parse(line);
+                            if (!metaParsed && parsed.citations !== undefined) {
+                                metaParsed = true;
+                                setIsLoading(false);
+                                setMessages(prev => [...prev, {
+                                    role: 'assistant',
+                                    content: '',
+                                    citations: parsed.citations || [],
+                                    confidence: parsed.confidence || 'medium',
+                                }]);
+                            } else if (parsed.delta) {
+                                fullText += parsed.delta;
+                                setMessages(prev => {
+                                    const updated = [...prev];
+                                    updated[updated.length - 1] = {
+                                        ...updated[updated.length - 1],
+                                        content: fullText,
+                                    };
+                                    return updated;
+                                });
+                            }
+                        } catch { /* skip malformed lines */ }
+                    }
+                }
             } else {
-                setMessages(prev => [...prev, {
-                    role: 'assistant',
-                    content: 'Sorry, I encountered an error. Please try again.'
-                }]);
+                const data = await response.json();
+                if (data.answer) {
+                    setMessages(prev => [...prev, {
+                        role: 'assistant',
+                        content: data.answer,
+                        citations: data.citations || [],
+                        confidence: data.confidence || 'medium',
+                    }]);
+                } else {
+                    setMessages(prev => [...prev, {
+                        role: 'assistant',
+                        content: 'Sorry, I encountered an error. Please try again.',
+                    }]);
+                }
             }
         } catch (error) {
             console.error('Chat error:', error);
             setMessages(prev => [...prev, {
                 role: 'assistant',
-                content: 'Sorry, I couldn\'t process your question. Please try again.'
+                content: "Sorry, I couldn't process your question. Please try again.",
             }]);
         } finally {
             setIsLoading(false);

@@ -60,7 +60,7 @@ function classifyStrongIntent(query) {
   if (/(college|school|university|degree|education|graduat|gpa|where did he go)/.test(q)) {
     return 'background';
   }
-  if (/(visa|sponsorship|h-?1b|opt|stem opt|work authorization|work permit|eligible to work|citizen|green card|immigration|when can (he|you) start|available to start|f-?1|ead)/.test(q)) {
+  if (/(visa|sponsorship|h-?1b|opt|stem opt|work authorization|authorized to work|work permit|eligible to work|need sponsorship|require sponsorship|citizen|green card|immigration|when can (he|you) start|available to start|f-?1|ead)/.test(q)) {
     return 'workAuthorization';
   }
   if (/(location|relocate|relocation|city|base|based|remote|hybrid|onsite|in-person|willing to move|willing to relocate|time zone|geography|where is|where's|where does .* live|where .* located|move to)/.test(q)) {
@@ -79,7 +79,7 @@ function classifyStrongIntent(query) {
 function classifyIntentHeuristic(query) {
   const q = query.toLowerCase();
 
-  if (/(visa|sponsorship|h-?1b|opt|stem opt|work authorization|work permit|eligible to work|citizen|green card|immigration|when can (he|you) start|available to start|f-?1|ead)/.test(q)) {
+  if (/(visa|sponsorship|h-?1b|opt|stem opt|work authorization|authorized to work|work permit|eligible to work|need sponsorship|require sponsorship|citizen|green card|immigration|when can (he|you) start|available to start|f-?1|ead)/.test(q)) {
     return 'workAuthorization';
   }
   if (/(location|relocate|relocation|city|base|based|remote|hybrid|onsite|in-person|willing to move|willing to relocate|time zone|geography|where is|where's|where does .* live|where .* located|move to)/.test(q)) {
@@ -323,7 +323,8 @@ function buildSystemPrompt(intent, retrievedContext, history) {
   return `You are Kishore Kumar Ramkumar's portfolio assistant.
 Answer questions about Kishore's work using only the context below. Be concise, specific, and cite exact metrics and project names when relevant.
 Refer to Kishore in the third person. If asked something not present in the context, say: "I don't have specific details on that, but you can reach Kishore at ${CONTACT_EMAIL}."
-When asked about hiring, mention that Kishore is graduating in May 2026 and is open to ML, SDE, Data Engineering, LLM, and Agentic Engineering roles, and is open to relocate anywhere in the US.
+When asked about hiring or availability, mention that Kishore graduated in May 2026 and is open to ML, SDE, Data Engineering, LLM, and Agentic Engineering roles, and is open to relocate anywhere in the US.
+When asked about work authorization, visa, sponsorship, or whether he can work in the US: state clearly that Kishore is on STEM OPT with 3 years of US work authorization (valid through ~2028), does NOT require H-1B sponsorship to begin work, and can start immediately — no employer visa action is needed.
 When the detected intent is location, include both his current location and relocation/remote flexibility.
 
 [INTENT DETECTED: ${intent}]
@@ -334,24 +335,23 @@ ${retrievedContext}
 ${history ? `[COMPRESSED CONVERSATION HISTORY]\n${history}` : ''}`;
 }
 
-async function generateWithGroq(userQuestion, systemPrompt) {
+async function generateWithGroqStream(userQuestion, systemPrompt) {
   const { default: OpenAI } = await import('openai');
   const groq = new OpenAI({
     apiKey: process.env.GROQ_API_KEY,
     baseURL: 'https://api.groq.com/openai/v1',
   });
 
-  const completion = await groq.chat.completions.create({
-    model: 'llama-3.3-70b-versatile',
+  return groq.chat.completions.create({
+    model: 'llama-3.1-8b-instant',
     messages: [
       { role: 'system', content: systemPrompt },
       { role: 'user', content: userQuestion },
     ],
     max_tokens: 500,
     temperature: 0.3,
+    stream: true,
   });
-
-  return completion.choices[0].message.content?.trim() ?? '';
 }
 
 async function generateWithOpenAI(userQuestion, systemPrompt) {
@@ -433,10 +433,40 @@ export async function POST(request) {
     const history = compressHistory(messages);
     const systemPrompt = buildSystemPrompt(intent, context, history);
 
-    let answer;
     if (process.env.GROQ_API_KEY) {
-      answer = await generateWithGroq(question, systemPrompt);
-    } else if (process.env.OPENAI_API_KEY) {
+      const groqStream = await generateWithGroqStream(question, systemPrompt);
+      const encoder = new TextEncoder();
+      const corsHeaders = buildCorsHeaders(origin);
+
+      const readable = new ReadableStream({
+        async start(controller) {
+          try {
+            const meta = { citations, intent, confidence: context ? 'high' : 'low' };
+            controller.enqueue(encoder.encode(JSON.stringify(meta) + '\n'));
+            for await (const chunk of groqStream) {
+              const text = chunk.choices[0]?.delta?.content || '';
+              if (text) {
+                controller.enqueue(encoder.encode(JSON.stringify({ delta: text }) + '\n'));
+              }
+            }
+          } catch (err) {
+            console.error('[streaming] Error:', err?.message ?? err);
+          } finally {
+            controller.close();
+          }
+        },
+      });
+
+      return new Response(readable, {
+        headers: {
+          ...corsHeaders,
+          'Content-Type': 'application/x-ndjson; charset=utf-8',
+        },
+      });
+    }
+
+    let answer;
+    if (process.env.OPENAI_API_KEY) {
       answer = await generateWithOpenAI(question, systemPrompt);
     } else if (process.env.HUGGINGFACE_API_KEY) {
       answer = await generateWithHuggingFace(question, systemPrompt);
